@@ -1,4 +1,6 @@
 title: Vin-Scan
 description: Интеллектуальный подбор деталей по фото СТС и запросам клиентов
 permalink: pretty
-theme: minima
+theme: jekyll-theme-primer
+# Отключение внешнего скрипта anchor-js с Cloudflare:
+anchors: false
