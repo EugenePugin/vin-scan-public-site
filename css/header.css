@@ -1,14 +1,26 @@
 /* ===== Шапка ===== */
 .header {
+  --header-radius: var(--radius-lg);
+
   position: sticky;
-  top: 1rem;
+  top: 0;                 /* прилипает вплотную к верху экрана */
   z-index: 100;
   width: calc(100% - var(--gutter) * 2);
   max-width: var(--container);
   margin: var(--gutter) auto 2rem;
   background: var(--surface);
-  border-radius: var(--radius-lg);
+  border-radius: var(--header-radius);
   box-shadow: var(--shadow);
+  transition: border-radius 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Состояние при прокрутке: прямые верхние углы и заметная тень */
+.header.is-stuck {
+  border-radius: 0 0 var(--header-radius) var(--header-radius);
+  box-shadow:
+    0 1px 0 rgba(15, 40, 70, 0.06),
+    0 8px 20px rgba(15, 40, 70, 0.10),
+    0 18px 40px rgba(15, 40, 70, 0.10);
 }
 
 .header__inner {
