@@ -2,7 +2,7 @@
 .footer {
   box-sizing: border-box;
   /* Своя ширина: экран минус отступы по бокам, но не шире контейнера шапки */
-  width: min(100% - 2 * var(--gutter, 16px), var(--container-max, 1280px));
+  width: min(100% - 2 * var(--gutter, 16px), var(--container-max, 1600px));
   margin: auto auto var(--gutter, 16px); /* сверху auto прижимает подвал к низу, по бокам центрирует */
   overflow: hidden;                      /* ничего не вылезает за скругление */
   color: rgba(255, 255, 255, 0.64);
