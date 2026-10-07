@@ -1,8 +1,12 @@
 /* ===== Подвал ===== */
+/* Ширину и центрирование даёт класс .container, как у шапки */
 .footer {
-  margin-top: auto; /* прижимает подвал к низу на коротких страницах */
+  margin-top: auto;              /* прижимает подвал к низу на коротких страницах */
+  margin-bottom: var(--gutter);  /* отступ снизу, как у шапки сверху */
   color: rgba(255, 255, 255, 0.64);
   background: #212123;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   font-size: 0.9375rem;
 }
 
@@ -10,7 +14,8 @@
 .footer a:hover { color: #fff; text-decoration: none; }
 .footer a:focus-visible { outline-color: #fff; }
 
-.footer__inner { padding: 4rem 0 2rem; }
+/* Боковые отступы как у шапки, чтобы логотипы стояли на одной линии */
+.footer__inner { padding: 4rem 2.5rem 2rem; }
 
 .footer__top {
   display: grid;
@@ -20,12 +25,17 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Логотип перекрашивается в белый. Если есть отдельный светлый логотип, убери filter */
+/* Логотип в исходных цветах, без фильтра */
 .footer__logo { display: inline-flex; }
 .footer__logo img {
   height: 40px;
   width: auto;
-  filter: brightness(0) invert(1);
+}
+
+.footer__logo {
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border-radius: 12px;
 }
 
 .footer__about { max-width: 38ch; margin: 1.25rem 0 1.5rem; }
@@ -90,14 +100,20 @@
 
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
+  .footer__inner { padding: 3.5rem 1.5rem 2rem; }
   .footer__top { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .footer__brand { grid-column: 1 / -1; }
 }
 
 @media (max-width: 768px) {
-  .footer__inner { padding: 3rem 0 1.5rem; }
+  .footer__inner { padding: 3rem 1.5rem 1.5rem; }
   .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
   .footer__bottom { flex-direction: column; }
+}
+
+@media (max-width: 560px) {
+  .footer { border-radius: 18px; }   /* как у шапки на мобильных */
+  .footer__inner { padding: 2.5rem 1.25rem 1.5rem; }
 }
 
 @media (max-width: 400px) {
