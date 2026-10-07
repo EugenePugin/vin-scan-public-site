@@ -5,131 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vin-Scan — Интеллектуальный подбор деталей по фото СТС</title>
   <meta name="description" content="Интеллектуальный подбор деталей по фото СТС и запросам клиентов. Сервис онлайн-консультирования Vin-Scan.">
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --primary: #0284c7;
-      --primary-hover: #0369a1;
-      --border: #e2e8f0;
-      --badge-bg: #fef3c7;
-      --badge-text: #92400e;
-      --badge-border: #fde68a;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f172a;
-        --card-bg: #1e293b;
-        --text: #f1f5f9;
-        --text-muted: #94a3b8;
-        --primary: #38bdf8;
-        --primary-hover: #7dd3fc;
-        --border: #334155;
-        --badge-bg: #451a03;
-        --badge-text: #fef08a;
-        --badge-border: #78350f;
-      }
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.5rem;
-    }
-    .container {
-      max-width: 640px;
-      margin: auto;
-      width: 100%;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 0.75rem;
-      color: var(--text);
-    }
-    .subtitle {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 1.75rem;
-      font-weight: 500;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      border: 1px solid var(--badge-border);
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-    .contact-box {
-      border-top: 1px solid var(--border);
-      padding-top: 1.75rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-    .contact-box p {
-      margin-bottom: 0.5rem;
-      color: var(--text-muted);
-    }
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.15s ease;
-    }
-    a:hover {
-      color: var(--primary-hover);
-      text-decoration: underline;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-    }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-  </style>
+
+  <!-- Стили и скрипты подключаются внешними файлами -->
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js" defer></script>
 </head>
 <body>
+
+  <!-- ===== Шапка ===== -->
+  <header class="header">
+    <div class="header__inner">
+
+      <!-- Логотип: замени src на свой файл, когда он будет готов -->
+      <a href="/" class="header__logo" aria-label="Vin-Scan — на главную">
+        <img src="/img/logo.svg" alt="Vin-Scan" width="160" height="48">
+      </a>
+
+      <!-- Телефон -->
+      <a href="tel:+70000000000" class="header__phone">
+        <svg class="header__phone-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        <span class="header__phone-text">+7 (000) 000-00-00</span>
+      </a>
+
+      <!-- Кнопка мобильного меню -->
+      <button class="header__burger" type="button"
+              aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Навигация + кнопки -->
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
+        <ul class="nav__list">
+
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-products">
+              Продукты
+              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="dropdown" id="dd-products">
+              <li><a href="/products/sts">Подбор по фото СТС</a></li>
+              <li><a href="/products/vin">Подбор по VIN</a></li>
+              <li><a href="/products/api">API для магазинов</a></li>
+            </ul>
+          </li>
+
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-solutions">
+              Решения
+              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="dropdown" id="dd-solutions">
+              <li><a href="/solutions/shops">Магазинам автозапчастей</a></li>
+              <li><a href="/solutions/service">Автосервисам</a></li>
+              <li><a href="/solutions/marketplaces">Маркетплейсам</a></li>
+            </ul>
+          </li>
+
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-clients">
+              Клиентам
+              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="dropdown" id="dd-clients">
+              <li><a href="/how-it-works">Как это работает</a></li>
+              <li><a href="/pricing">Тарифы</a></li>
+              <li><a href="/faq">Вопросы и ответы</a></li>
+            </ul>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="/partners">Партнёрам</a>
+          </li>
+
+          <li class="nav__item nav__item--dropdown">
+            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-about">
+              О компании
+              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="dropdown" id="dd-about">
+              <li><a href="/about">О нас</a></li>
+              <li><a href="/contacts">Контакты</a></li>
+              <li><a href="/privacy">Документы</a></li>
+            </ul>
+          </li>
+
+        </ul>
+
+        <div class="header__actions">
+          <a href="/login" class="btn btn--ghost">Вход</a>
+          <a href="/register" class="btn btn--primary">Регистрация</a>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ===== Основной контент (без изменений) ===== -->
   <div class="container">
     <main class="card">
       <h1>Vin-Scan</h1>
       <p class="subtitle">Интеллектуальный подбор деталей по фото СТС и запросам клиентов</p>
-      
+
       <div class="badge">Сервис находится в режиме закрытого тестирования</div>
-      
+
       <div class="contact-box">
         <p>По вопросам сотрудничества и подключения пилотных магазинов:</p>
         <p><strong>E-mail:</strong> <a href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a></p>
       </div>
 
-      <nav class="links">
+      <nav class="links" aria-label="Документы">
         <div><a href="/consent">Согласие на обработку персональных данных</a></div>
         <div><a href="/privacy">Политика конфиденциальности и обработки персональных данных</a></div>
       </nav>
@@ -139,5 +125,6 @@
       © 2026 Vin-Scan (ИП Пугин Е.А.). Все права защищены.
     </footer>
   </div>
+
 </body>
 </html>
