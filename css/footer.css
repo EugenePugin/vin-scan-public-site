@@ -1,20 +1,32 @@
 /* ===== Подвал ===== */
-/* Ширину и центрирование даёт класс .container, как у шапки */
 .footer {
-  margin-top: auto;              /* прижимает подвал к низу на коротких страницах */
-  margin-bottom: var(--gutter);  /* отступ снизу, как у шапки сверху */
+  box-sizing: border-box;
+  /* Своя ширина: экран минус отступы по бокам, но не шире контейнера шапки */
+  width: min(100% - 2 * var(--gutter, 16px), var(--container-max, 1280px));
+  margin: auto auto var(--gutter, 16px); /* сверху auto прижимает подвал к низу, по бокам центрирует */
+  overflow: hidden;                      /* ничего не вылезает за скругление */
   color: rgba(255, 255, 255, 0.64);
   background: #212123;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg, 24px);
   box-shadow: var(--shadow-lg);
   font-size: 0.9375rem;
+  line-height: 1.5;
 }
 
-.footer a { color: rgba(255, 255, 255, 0.72); font-weight: 400; }
-.footer a:hover { color: #fff; text-decoration: none; }
-.footer a:focus-visible { outline-color: #fff; }
+/* Локальный сброс. :where() не повышает специфичность, поэтому классы ниже его перебивают */
+.footer *, .footer *::before, .footer *::after { box-sizing: border-box; }
+.footer :where(ul, ol, p, h2) { margin: 0; padding: 0; }
 
-/* Боковые отступы как у шапки, чтобы логотипы стояли на одной линии */
+/* Переносы длинных слов, почты и реквизитов */
+.footer :where(a, p, span, h2) {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.footer a { color: rgba(255, 255, 255, 0.72); font-weight: 400; text-decoration: none; }
+.footer a:hover { color: #fff; }
+.footer a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 4px; }
+
 .footer__inner { padding: 4rem 2.5rem 2rem; }
 
 .footer__top {
@@ -24,33 +36,37 @@
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+.footer__top > * { min-width: 0; }
 
-/* Логотип в исходных цветах, без фильтра */
-.footer__logo { display: inline-flex; }
-.footer__logo img {
-  height: 40px;
-  width: auto;
-}
-
+/* Логотип */
 .footer__logo {
+  display: inline-flex;
   padding: 0.5rem 0.75rem;
   background: #fff;
   border-radius: 12px;
 }
+.footer__logo img { display: block; height: 40px; width: auto; }
 
 .footer__about { max-width: 38ch; margin: 1.25rem 0 1.5rem; }
 
 .footer__contacts {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.375rem;
   margin-bottom: 1.5rem;
 }
-.footer .footer__phone { font-size: 1.25rem; font-weight: 600; color: #fff; }
+.footer .footer__phone {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;      /* телефон не рвём */
+  overflow-wrap: normal;
+}
 .footer__hours { font-size: 0.875rem; color: rgba(255, 255, 255, 0.5); }
 
 /* Мессенджеры */
-.footer__social { list-style: none; display: flex; gap: 0.75rem; }
+.footer__social { list-style: none; display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 .footer .footer__social-link {
   display: inline-flex;
@@ -64,10 +80,15 @@
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .footer__social-link svg { width: 22px; height: 22px; fill: currentColor; }
-.footer .footer__social-link:hover { color: #fff; transform: translateY(-2px); }
+.footer .footer__social-link:hover { transform: translateY(-2px); }
 .footer__social-link--vk:hover  { background: #0077ff; }
 .footer__social-link--tg:hover  { background: #229ed9; }
 .footer__social-link--max:hover { background: linear-gradient(135deg, #3c8cff, #8c3cff); }
+
+@media (prefers-reduced-motion: reduce) {
+  .footer .footer__social-link { transition: none; }
+  .footer .footer__social-link:hover { transform: none; }
+}
 
 /* Колонки ссылок */
 .footer__title {
@@ -76,7 +97,6 @@
   font-weight: 600;
   color: #fff;
 }
-
 .footer__list {
   list-style: none;
   display: flex;
@@ -95,27 +115,30 @@
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.5);
 }
-.footer__legal p + p { margin-top: 0.25rem; }
-.footer__note { max-width: 48ch; }
+.footer__bottom > * { min-width: 0; }
+.footer__legal { flex: 1 1 28rem; }
+.footer__note  { flex: 0 1 48ch; }
+.footer .footer__legal p + p { margin-top: 0.25rem; }
 
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
-  .footer__inner { padding: 3.5rem 1.5rem 2rem; }
-  .footer__top { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .footer__inner { padding: 3.5rem 2rem 2rem; }
+  .footer__top { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem 2rem; }
   .footer__brand { grid-column: 1 / -1; }
 }
 
-@media (max-width: 768px) {
-  .footer__inner { padding: 3rem 1.5rem 1.5rem; }
+@media (max-width: 860px) {
   .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
-  .footer__bottom { flex-direction: column; }
 }
 
 @media (max-width: 560px) {
-  .footer { border-radius: 18px; }   /* как у шапки на мобильных */
-  .footer__inner { padding: 2.5rem 1.25rem 1.5rem; }
+  .footer { border-radius: 18px; font-size: 0.875rem; }
+  .footer__inner { padding: 2rem 1.25rem 1.5rem; }
+  .footer__top { padding-bottom: 2rem; }
+  .footer__bottom { flex-direction: column; padding-top: 1.5rem; }
+  .footer__legal, .footer__note { flex: none; }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .footer__top { grid-template-columns: 1fr; }
 }
