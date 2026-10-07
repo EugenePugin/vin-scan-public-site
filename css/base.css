@@ -32,6 +32,13 @@ body {
   flex-direction: column;
 }
 
+/* Якорные ссылки не прячут заголовок под липкой шапкой */
+html { scroll-padding-top: 7.5rem; }
+
+@media (max-width: 560px) {
+  html { scroll-padding-top: 5rem; }
+}
+
 img { max-width: 100%; display: block; }
 
 a {
