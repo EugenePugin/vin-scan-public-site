@@ -110,6 +110,16 @@ function initSlider(root) {
   // Не листаем во фоновой вкладке
   document.addEventListener('visibilitychange', start);
 
+  // При повороте экрана или ресайзе возвращаем текущий слайд на место
+  if ('ResizeObserver' in window) {
+    let lastWidth = track.clientWidth;
+    new ResizeObserver(() => {
+      if (track.clientWidth === lastWidth) return;
+      lastWidth = track.clientWidth;
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'auto' });
+    }).observe(track);
+  }
+  
   setActive(0);
   renderToggle();
   start();
