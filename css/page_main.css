@@ -42,10 +42,22 @@
 
 /* ===== Первый экран ===== */
 .hero {
+  /* Ширина слайдера: не больше 568px и не выше экрана.
+     240px — запас на шапку окна, подпись и кнопки под слайдером */
+  --photo-ratio: calc(568 / 835);
+  --slider-w: clamp(260px, calc((100vh - 240px) * var(--photo-ratio)), 568px);
+
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 560px); /* фото не шире 560px */
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--slider-w));
   gap: 4rem;
   align-items: center;
+}
+
+/* svh учитывает панели браузера на мобильных */
+@supports (height: 100svh) {
+  .hero {
+    --slider-w: clamp(260px, calc((100svh - 240px) * var(--photo-ratio)), 568px);
+  }
 }
 
 .hero__badge {
@@ -132,13 +144,16 @@
 }
 
 /* ===== Слайдер с фото чата ===== */
-.hero__media { position: relative; }
+.hero__media {
+  position: relative;
+  min-width: 0;
+}
 
-/* Мягкое свечение за окном чата */
+/* Свечение не выходит за границы блока, поэтому горизонтальной прокрутки нет */
 .hero__media::before {
   content: "";
   position: absolute;
-  inset: 6% -4% -2% 6%;
+  inset: 4% 0 0 4%;
   z-index: 0;
   background:
     radial-gradient(circle at 25% 30%, rgba(3, 105, 161, 0.18), transparent 60%),
@@ -147,7 +162,12 @@
   pointer-events: none;
 }
 
-.chat-slider { position: relative; z-index: 1; }
+.chat-slider {
+  position: relative;
+  z-index: 1;
+  width: min(100%, var(--slider-w));
+  margin-inline: auto;
+}
 
 .chat-slider__window {
   overflow: hidden;
@@ -208,16 +228,19 @@
   scroll-snap-stop: always;
 }
 
-/* Формат фото 4:3 */
+/* Пропорции реальных фото 568×835 */
 .chat-slider__media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 568 / 835;
   overflow: hidden;
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0); /* пока фото не загружено */
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
 }
+
 .chat-slider__media img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;        /* отклонение ±10px обрежется максимум на 1–2% */
+  object-position: center top;
 }
 
 .chat-slider__caption {
@@ -388,8 +411,7 @@
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
   .section { padding: 2.5rem; }
-  .hero { grid-template-columns: 1fr; gap: 3rem; }
-  .hero__media { width: 100%; max-width: 560px; margin-inline: auto; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -399,6 +421,23 @@
 }
 
 @media (max-width: 560px) {
+  /* На телефоне элементы интерфейса компактнее, запас по высоте меньше */
+  .hero {
+    --slider-w: clamp(240px, calc((100vh - 200px) * var(--photo-ratio)), 568px);
+    gap: 2rem;
+  }
+
+  @supports (height: 100svh) {
+    .hero { --slider-w: clamp(240px, calc((100svh - 200px) * var(--photo-ratio)), 568px); }
+  }
+
+  .chat-slider__window { border-radius: 16px; }
+  .chat-slider__bar { padding: 0.625rem 0.875rem; font-size: 0.8125rem; }
+  .chat-slider__caption { padding: 0.75rem 1rem; font-size: 0.875rem; }
+  .chat-slider__controls { margin-top: 0.75rem; gap: 0.5rem; }
+  .chat-slider__nav { gap: 0.25rem; }
+
+  /* остальные правила 560px без изменений */
   .page_main { gap: 1.25rem; padding-bottom: 2.5rem; }
   .section { padding: 2rem 1.25rem; border-radius: 18px; }
   .hero__features { grid-template-columns: 1fr; }
@@ -408,4 +447,9 @@
   .steps { grid-template-columns: 1fr; }
   .audience__card { padding: 1.5rem; }
   .cta { padding: 2rem 1.25rem; border-radius: 18px; }
+}
+
+/* Телефон в горизонтальной ориентации: экран низкий, слайдер не должен стать крошечным */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { --slider-w: min(100%, 320px); }
 }
