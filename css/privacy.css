@@ -1,4 +1,4 @@
-/* ===== Consent page ===== */
+/* ===== Privacy page ===== */
 :root {
   --bg: #eaf1f6;
   --card-bg: #ffffff;
@@ -27,6 +27,7 @@ body {
   border-radius: 12px;
   padding: 3rem 4rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  overflow-wrap: anywhere; /* длинные URL, e-mail и адреса не ломают вёрстку */
 }
 
 @media (max-width: 900px) {
@@ -34,6 +35,7 @@ body {
 }
 
 @media (max-width: 640px) {
+  body { padding: 1rem 0.5rem; }
   .container { padding: 1.75rem 1.25rem; }
 }
 
@@ -46,8 +48,9 @@ body {
 }
 .back-link:hover { text-decoration: underline; }
 
+/* Заголовок длинный, поэтому размер плавно уменьшается на узких экранах */
 h1 {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 0.5rem;
@@ -63,9 +66,12 @@ h1 {
   padding-bottom: 1rem;
 }
 
+/* Заголовки разделов уже написаны капсом в разметке */
 h2 {
-  font-size: 1.15rem;
-  margin-top: 1.75rem;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin-top: 2rem;
   margin-bottom: 0.75rem;
   color: var(--text);
   border-bottom: 1px solid var(--border);
@@ -77,14 +83,13 @@ p { margin-bottom: 1rem; }
 ul, ol { margin: 0 0 1.25rem 1.5rem; }
 li { margin-bottom: 0.5rem; }
 
-strong { font-weight: 600; }
+/* Список сразу после вводного абзаца (п. 2.1, 2.2, 5.2 и т.д.) прижимаем ближе к нему */
+p + ul { margin-top: -0.5rem; }
 
-.note {
-  font-style: italic;
-  color: var(--text-muted);
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
-}
+/* Вложенные списки, если появятся */
+li > ul, li > ol { margin-top: 0.5rem; margin-bottom: 0; }
+
+strong { font-weight: 600; }
 
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
