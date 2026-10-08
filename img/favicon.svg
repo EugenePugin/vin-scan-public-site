@@ -3,7 +3,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px" height="180px" viewBox="0 0 180 180" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
   <clipPath id="round">
-    <rect x="0" y="0" width="180" height="180" rx="12" ry="12"/>
+    <rect x="0" y="0" width="180" height="180" rx="38" ry="38"/>
   </clipPath>
 </defs>
 <g clip-path="url(#round)">
