@@ -79,66 +79,30 @@
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="nav" id="main-nav" aria-label="Основное меню">
+<nav class="nav" id="main-nav" aria-label="Основное меню">
         <ul class="nav__list">
 
-          <li class="nav__item nav__item--dropdown">
-            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-products">
-              Продукты
-              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
-            </button>
-            <ul class="dropdown" id="dd-products">
-              <li><a href="/products/sts">Подбор по фото СТС</a></li>
-              <li><a href="/products/vin">Подбор по VIN</a></li>
-              <!-- <li><a href="/products/api">API для магазинов</a></li> -->
-            </ul>
+          <li class="nav__item">
+            <a class="nav__link" href="#how">Как это работает</a>
           </li>
 
-          <!-- <li class="nav__item nav__item--dropdown">
-            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-solutions">
-              Решения
-              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
-            </button>
-            <ul class="dropdown" id="dd-solutions">
-              <li><a href="/solutions/shops">Магазинам автозапчастей</a></li>
-              <li><a href="/solutions/service">Автосервисам</a></li>
-              <li><a href="/solutions/marketplaces">Маркетплейсам</a></li>
-            </ul>
-          </li> -->
-
-          <li class="nav__item nav__item--dropdown">
-            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-clients">
-              Клиентам
-              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
-            </button>
-            <ul class="dropdown" id="dd-clients">
-              <li><a href="/how-it-works">Как это работает</a></li>
-              <li><a href="/pricing">Тарифы</a></li>
-              <li><a href="/faq">Вопросы и ответы</a></li>
-            </ul>
+          <li class="nav__item">
+            <a class="nav__link" href="#solutions">Решения для бизнеса</a>
           </li>
 
-          <!-- <li class="nav__item">
-            <a class="nav__link" href="/partners">Партнёрам</a>
-          </li> -->
+          <li class="nav__item">
+            <a class="nav__link" href="#cta">Тарифы</a>
+          </li>
 
-          <li class="nav__item nav__item--dropdown">
-            <button class="nav__link" type="button" aria-expanded="false" aria-controls="dd-about">
-              О компании
-              <svg class="nav__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg>
-            </button>
-            <ul class="dropdown" id="dd-about">
-              <li><a href="/about">О нас</a></li>
-              <li><a href="/contacts">Контакты</a></li>
-              <li><a href="/privacy">Документы</a></li>
-            </ul>
+          <li class="nav__item">
+            <a class="nav__link" href="#contacts">Контакты</a>
           </li>
 
         </ul>
 
+        <!-- Вместо неработающих Вход/Регистрация — целевое действие пилота -->
         <div class="header__actions">
-          <a href="/login" class="btn btn--ghost">Вход</a>
-          <a href="/register" class="btn btn--primary">Регистрация</a>
+          <a href="#cta" class="btn btn--primary">Стать пилотом</a>
         </div>
       </nav>
 
@@ -252,8 +216,8 @@
     <section class="section" id="how" aria-labelledby="how-title">
       <div class="section__head">
         <span class="section__eyebrow">Как это работает</span>
-        <h2 class="section__title" id="how-title">От фото СТС до готового подбора</h2>
-        <p class="section__text">Клиенту не нужно искать VIN и диктовать данные автомобиля. Достаточно одного фото или сообщения.</p>
+        <h2 class="section__title" id="how-title">От фото СТС до подбора детали</h2>
+        <p class="section__text">Клиенту не нужно искать VIN-код и диктовать данные автомобиля. Достаточно одного фото или сообщения.</p>
       </div>
 
       <ol class="steps">
@@ -281,9 +245,9 @@
     </section>
 
     <!-- Инфоблок 3: кому подходит -->
-    <section class="section" aria-labelledby="audience-title">
+    <section class="section" id="solutions" aria-labelledby="audience-title">
       <div class="section__head">
-        <span class="section__eyebrow">Решения</span>
+        <span class="section__eyebrow">Решения для бизнеса</span>
         <h2 class="section__title" id="audience-title">Кому подходит Vin-Scan</h2>
       </div>
 
@@ -316,7 +280,7 @@
     </section>
 
     <!-- Инфоблок 4: призыв к действию -->
-    <section class="cta" aria-labelledby="cta-title">
+    <section class="cta" id="cta" aria-labelledby="cta-title">
       <div class="cta__content">
         <h2 class="cta__title" id="cta-title">Станьте пилотным магазином</h2>
         <p class="cta__text">На этапе закрытого тестирования мы подключаем ограниченное число магазинов.<br>Расскажите о своих задачах, и мы предложим формат подключения.</p>
@@ -330,7 +294,7 @@
   </main>
 
   <!-- ===== Подвал (footer.css) ===== -->
-  <footer class="footer">
+  <footer class="footer" id="contacts">
     <div class="footer__inner">
 
       <div class="footer__top">
@@ -416,10 +380,9 @@ fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
         <nav class="footer__col" aria-labelledby="f-products">
           <h3 class="footer__title" id="f-products">Продукты</h3>
           <ul class="footer__list">
-            <li><a href="/products/sts">Подбор по фото СТС</a></li>
-            <li><a href="/products/vin">Подбор по VIN</a></li>
-            <!-- <li><a href="/products/api">API для магазинов</a></li> -->
-            <li><a href="/pricing">Тарифы</a></li>
+            <li><a href="#how">Подбор по фото СТС</a></li>
+            <li><a href="#how">Подбор по VIN-коду</a></li>
+            <li><a href="#cta">Тарифы</a></li>
           </ul>
         </nav>
 
@@ -436,10 +399,9 @@ fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
         <nav class="footer__col" aria-labelledby="f-clients">
           <h3 class="footer__title" id="f-clients">Клиентам</h3>
           <ul class="footer__list">
-            <li><a href="/how-it-works">Как это работает</a></li>
-            <li><a href="/faq">Вопросы и ответы</a></li>
-            <li><a href="/about">О компании</a></li>
-            <li><a href="/contacts">Контакты</a></li>
+            <li><a href="#how">Как это работает</a></li>
+            <li><a href="#solutions">Решения для бизнеса</a></li>
+            <li><a href="#cta">Подключение пилота</a></li>
           </ul>
         </nav>
 

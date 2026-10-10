@@ -497,3 +497,14 @@
   background: #e74c3c;
   box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
 }
+
+/* Плавная прокрутка для всех якорных ссылок */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Отступ при якорном скролле, чтобы липкая шапка не перекрывала заголовки */
+section[id],
+footer[id] {
+  scroll-margin-top: 110px;
+}
