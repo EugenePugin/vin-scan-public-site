@@ -339,7 +339,8 @@
           <a href="/" class="footer__logo" aria-label="Vin-Scan — на главную">
             <img src="/img/logo.svg" alt="Vin-Scan" width="160" height="48">
           </a>
-          <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.<br>Сервис онлайн-консультирования для магазинов автозапчастей и автосервисов.</p>
+          <!-- <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.<br>Сервис онлайн-консультирования для магазинов автозапчастей и автосервисов.</p> -->
+          <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.</p>
 
           <div class="footer__contacts">
             <!-- <a href="tel:+70000000000" class="footer__phone">+7 (000) 000-00-00</a> -->
@@ -347,6 +348,99 @@
             <!-- <span class="footer__hours">Пн–Пт, 9:00–18:00 (МСК)</span> -->
           </div>
 
+
+
+          <!-- Виджет статуса Vin-Scan -->
+<a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener" class="vs-status-badge">
+  <span class="vs-dot"></span>
+  <span id="vs-status-text">Проверка статуса...</span>
+</a>
+
+<style>
+.vs-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  
+  /* Цвета под тёмный фон */
+  color: rgba(255, 255, 255, 0.85); /* Светлый контрастный текст */
+  background: rgba(255, 255, 255, 0.06); /* Полупрозрачный тёмный фон */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Тонкая аккуратная рамка */
+  backdrop-filter: blur(8px);
+  
+  transition: all 0.2s ease;
+}
+
+/* Эффект при наведении курсора */
+.vs-status-badge:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Базовая точка (пока грузится) */
+.vs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #768390;
+  transition: all 0.3s ease;
+}
+
+/* Зеленая точка: всё работает */
+.vs-status-up .vs-dot {
+  background: #2ecc71;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
+}
+
+/* Красная точка: сбой */
+.vs-status-down .vs-dot {
+  background: #e74c3c;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
+}
+</style>
+<script>
+fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
+  .then(res => res.json())
+  .then(data => {
+    const badge = document.getElementById('vinscan-status');
+    const text = document.getElementById('vs-status-text');
+    
+    // Проверяем последние статусы мониторов (1 = UP, 0 = DOWN)
+    let isAllUp = true;
+    if (data.heartbeatList) {
+      for (const monitorId in data.heartbeatList) {
+        const beats = data.heartbeatList[monitorId];
+        if (beats.length > 0) {
+          const lastBeat = beats[beats.length - 1];
+          if (lastBeat.status !== 1) {
+            isAllUp = false;
+            break;
+          }
+        }
+      }
+    }
+
+    if (isAllUp) {
+      badge.classList.add('vs-status-up');
+      text.innerText = 'Все системы в норме';
+    } else {
+      badge.classList.add('vs-status-down');
+      text.innerText = 'Сбои в работе сервиса';
+    }
+  })
+  .catch(() => {
+    document.getElementById('vs-status-text').innerText = 'Состояние сервиса';
+  });
+</script>
+          
           <ul class="footer__social" aria-label="Мы в мессенджерах и соцсетях">
             <!-- <li>
               <a class="footer__social-link footer__social-link--vk" href="https://vk.com/vinscan"
