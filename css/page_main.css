@@ -453,3 +453,47 @@
 @media (max-height: 500px) and (orientation: landscape) {
   .hero { --slider-w: min(100%, 320px); }
 }
+
+/* ===== Виджет статуса сервиса ===== */
+.vs-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  margin-top: 1rem; /* аккуратный отступ от почты */
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.vs-status-badge:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.vs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #768390;
+  transition: all 0.3s ease;
+}
+
+.vs-status-up .vs-dot {
+  background: #2ecc71;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
+}
+
+.vs-status-down .vs-dot {
+  background: #e74c3c;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
+}

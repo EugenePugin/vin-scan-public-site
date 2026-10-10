@@ -356,56 +356,6 @@
   <span id="vs-status-text">Проверка статуса...</span>
 </a>
 
-<style>
-.vs-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-  
-  /* Цвета под тёмный фон */
-  color: rgba(255, 255, 255, 0.85); /* Светлый контрастный текст */
-  background: rgba(255, 255, 255, 0.06); /* Полупрозрачный тёмный фон */
-  border: 1px solid rgba(255, 255, 255, 0.12); /* Тонкая аккуратная рамка */
-  backdrop-filter: blur(8px);
-  
-  transition: all 0.2s ease;
-}
-
-/* Эффект при наведении курсора */
-.vs-status-badge:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-/* Базовая точка (пока грузится) */
-.vs-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #768390;
-  transition: all 0.3s ease;
-}
-
-/* Зеленая точка: всё работает */
-.vs-status-up .vs-dot {
-  background: #2ecc71;
-  box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
-}
-
-/* Красная точка: сбой */
-.vs-status-down .vs-dot {
-  background: #e74c3c;
-  box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
-}
-</style>
 <script>
 fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
   .then(res => res.json())
