@@ -31,12 +31,19 @@
 
 .footer__top {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
-  gap: 3rem 2rem;
+  /* 1 колонка бренда (пошире) + 3 колонки ссылок (Продукты, Клиентам, Документы) */
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: 3rem 2.5rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: start;
 }
 .footer__top > * { min-width: 0; }
+
+/* Отступ сверху для виджета статуса */
+.footer .vs-status-badge {
+  margin-top: 1.25rem;
+}
 
 /* Логотип */
 .footer__logo {
@@ -121,16 +128,28 @@
 .footer .footer__legal p + p { margin-top: 0.25rem; }
 
 /* ===== Адаптив ===== */
-@media (max-width: 1180px) {
+/* До 960px все 4 колонки стоят в одну ровную линию.
+   Перенос бренда наверх делаем только на планшетах (<= 960px) */
+@media (max-width: 960px) {
   .footer__inner { padding: 3.5rem 2rem 2rem; }
-  .footer__top { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem 2rem; }
-  .footer__brand { grid-column: 1 / -1; }
+  .footer__top { 
+    grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    gap: 2.5rem 2rem; 
+  }
+  .footer__brand { 
+    grid-column: 1 / -1; /* Бренд сверху, 3 колонки снизу */
+  }
 }
 
-@media (max-width: 860px) {
-  .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+/* На небольших планшетах (<= 720px) — по 2 колонки */
+@media (max-width: 720px) {
+  .footer__top { 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 2rem 1.5rem; 
+  }
 }
 
+/* На смартфонах (<= 560px) */
 @media (max-width: 560px) {
   .footer { border-radius: 18px; font-size: 0.875rem; }
   .footer__inner { padding: 2rem 1.25rem 1.5rem; }
@@ -139,6 +158,9 @@
   .footer__legal, .footer__note { flex: none; }
 }
 
-@media (max-width: 420px) {
-  .footer__top { grid-template-columns: 1fr; }
+/* На узких смартфонах (<= 440px) — всё строго в 1 колонку */
+@media (max-width: 440px) {
+  .footer__top { 
+    grid-template-columns: 1fr; 
+  }
 }
