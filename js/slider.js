@@ -106,6 +106,8 @@ function initSlider(root) {
   });
   track.addEventListener('touchstart', stop, { passive: true });
   track.addEventListener('touchend', start, { passive: true });
+  track.addEventListener('touchcancel', start, { passive: true });
+
 
   // Не листаем во фоновой вкладке
   document.addEventListener('visibilitychange', start);
