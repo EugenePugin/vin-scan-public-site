@@ -121,7 +121,7 @@ function initSlider(root) {
       track.scrollTo({ left: index * track.clientWidth, behavior: 'auto' });
     }).observe(track);
   }
-  
+
   setActive(0);
   renderToggle();
   start();

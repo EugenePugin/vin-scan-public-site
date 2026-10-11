@@ -129,23 +129,23 @@
 
 /* ===== Адаптив ===== */
 /* До 960px все 4 колонки стоят в одну ровную линию.
-   Перенос бренда наверх делаем только на планшетах (<= 960px) */
+  Перенос бренда наверх делаем только на планшетах (<= 960px) */
 @media (max-width: 960px) {
   .footer__inner { padding: 3.5rem 2rem 2rem; }
-  .footer__top { 
-    grid-template-columns: repeat(3, minmax(0, 1fr)); 
-    gap: 2.5rem 2rem; 
+  .footer__top {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
   }
-  .footer__brand { 
+  .footer__brand {
     grid-column: 1 / -1; /* Бренд сверху, 3 колонки снизу */
   }
 }
 
 /* На небольших планшетах (<= 720px) — по 2 колонки */
 @media (max-width: 720px) {
-  .footer__top { 
-    grid-template-columns: repeat(2, minmax(0, 1fr)); 
-    gap: 2rem 1.5rem; 
+  .footer__top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
   }
 }
 
@@ -160,7 +160,7 @@
 
 /* На узких смартфонах (<= 440px) — всё строго в 1 колонку */
 @media (max-width: 440px) {
-  .footer__top { 
-    grid-template-columns: 1fr; 
+  .footer__top {
+    grid-template-columns: 1fr;
   }
 }
