@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vin-Scan — Интеллектуальный подбор деталей по фото СТС</title>
-  <meta name="description" content="Интеллектуальный подбор деталей по фото СТС и запросам клиентов. Сервис онлайн-консультирования Vin-Scan.">
-  <link rel="icon" href="/img/favicon.svg" sizes="40x40" type="image/svg+xml">
-  <link rel="icon" href="/img/favicon.svg" sizes="96x96" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/img/favicon.png" sizes="180x180">
+  <meta name="description"
+    content="Интеллектуальный подбор деталей по фото СТС и запросам клиентов. Сервис онлайн-консультирования Vin-Scan.">
+  <link rel="icon" href="/img/logo_small.svg" sizes="40x40" type="image/svg+xml">
+  <link rel="icon" href="/img/logo_small.svg" sizes="96x96" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/img/logo_small.png" sizes="180x180">
   <!-- Порядок важен: сначала общие стили, потом стили блоков -->
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/header.css">
@@ -20,17 +22,17 @@
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113576256', 'ym');
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () {(m[i].a = m[i].a || []).push(arguments)};
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) {return;} }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113576256', 'ym');
 
-    ym(113576256, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(113576256, 'init', {ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true});
   </script>
 
- <!-- Микроразметка Schema.org для организации -->
+  <!-- Микроразметка Schema.org для организации -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +40,7 @@
     "name": "Vin-Scan",
     "legalName": "ИП Пугин Е.А.",
     "url": "https://vin-scan.ru",
-    "logo": "https://vin-scan.ru/img/logo.svg",
+    "logo": "https://vin-scan.ru/img/logo_full.svg",
     "email": "contact@vin-scan.ru",
     "address": {
       "@type": "PostalAddress",
@@ -51,10 +53,13 @@
   </script>
 
 
-  <noscript><div><img src="https://mc.yandex.ru/watch/113576256" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/113576256" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
   <!-- /Yandex.Metrika counter -->
 
 </head>
+
 <body>
 
   <a class="skip-link" href="#main">Перейти к содержимому</a>
@@ -64,7 +69,7 @@
     <div class="header__inner">
 
       <a href="/" class="header__logo" aria-label="Vin-Scan — на главную">
-        <img src="/img/logo.svg" alt="Vin-Scan" width="160" height="48">
+        <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
       </a>
 
       <!-- <a href="tel:+70000000000" class="header__phone">
@@ -74,12 +79,12 @@
         <span class="header__phone-text">+7 (000) 000-00-00</span>
       </a> -->
 
-      <button class="header__burger" type="button"
-              aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+      <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false"
+        aria-controls="main-nav">
         <span></span><span></span><span></span>
       </button>
 
-<nav class="nav" id="main-nav" aria-label="Основное меню">
+      <nav class="nav" id="main-nav" aria-label="Основное меню">
         <ul class="nav__list">
 
           <li class="nav__item">
@@ -149,8 +154,8 @@
       </div>
 
       <div class="hero__media">
-        <div class="chat-slider" data-slider role="region"
-            aria-roledescription="карусель" aria-label="Примеры диалогов в чате Vin-Scan">
+        <div class="chat-slider" data-slider role="region" aria-roledescription="карусель"
+          aria-label="Примеры диалогов в чате Vin-Scan">
 
           <div class="chat-slider__window">
             <!-- Декоративная «шапка окна чата» -->
@@ -163,28 +168,32 @@
             <div class="chat-slider__track" data-slider-track tabindex="0" role="group" aria-label="Слайды">
               <figure class="chat-slider__slide" role="group" aria-roledescription="слайд">
                 <div class="chat-slider__media">
-                  <img src="/img/chat/chat-1.jpg" alt="Клиент отправляет в чат фото СТС" width="568" height="835" fetchpriority="high">
+                  <img src="/img/chat/chat-1.jpg" alt="Клиент отправляет в чат фото СТС" width="568" height="835"
+                    fetchpriority="high">
                 </div>
                 <figcaption class="chat-slider__caption"><b>Шаг 1.</b> Клиент отправляет фото СТС</figcaption>
               </figure>
 
               <figure class="chat-slider__slide" role="group" aria-roledescription="слайд">
                 <div class="chat-slider__media">
-                  <img src="/img/chat/chat-2.jpg" alt="Vin-Scan распознаёт автомобиль и VIN" width="568" height="835" loading="lazy">
+                  <img src="/img/chat/chat-2.jpg" alt="Vin-Scan распознаёт автомобиль и VIN" width="568" height="835"
+                    loading="lazy">
                 </div>
                 <figcaption class="chat-slider__caption"><b>Шаг 2.</b> Vin-Scan распознаёт автомобиль и VIN</figcaption>
               </figure>
 
               <figure class="chat-slider__slide" role="group" aria-roledescription="слайд">
                 <div class="chat-slider__media">
-                  <img src="/img/chat/chat-3.jpg" alt="Подбор подходящих деталей" width="568" height="835" loading="lazy">
+                  <img src="/img/chat/chat-3.jpg" alt="Подбор подходящих деталей" width="568" height="835"
+                    loading="lazy">
                 </div>
                 <figcaption class="chat-slider__caption"><b>Шаг 3.</b> Подбор подходящих деталей</figcaption>
               </figure>
 
               <figure class="chat-slider__slide" role="group" aria-roledescription="слайд">
                 <div class="chat-slider__media">
-                  <img src="/img/chat/chat-4.jpg" alt="Клиент получает ответ с вариантами" width="568" height="835" loading="lazy">
+                  <img src="/img/chat/chat-4.jpg" alt="Клиент получает ответ с вариантами" width="568" height="835"
+                    loading="lazy">
                 </div>
                 <figcaption class="chat-slider__caption"><b>Шаг 4.</b> Клиент получает ответ с вариантами</figcaption>
               </figure>
@@ -194,17 +203,26 @@
           <div class="chat-slider__controls">
             <div class="chat-slider__nav">
               <button class="chat-slider__btn" type="button" data-slider-prev aria-label="Предыдущий слайд">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
               </button>
               <div class="chat-slider__dots" data-slider-dots></div>
               <button class="chat-slider__btn" type="button" data-slider-next aria-label="Следующий слайд">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
               </button>
             </div>
 
-            <button class="chat-slider__btn chat-slider__toggle" type="button" data-slider-toggle aria-label="Остановить автопрокрутку">
-              <svg class="chat-slider__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
-              <svg class="chat-slider__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+            <button class="chat-slider__btn chat-slider__toggle" type="button" data-slider-toggle
+              aria-label="Остановить автопрокрутку">
+              <svg class="chat-slider__icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6v12M15 6v12" />
+              </svg>
+              <svg class="chat-slider__icon-play" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5.5v13l10-6.5z" />
+              </svg>
             </button>
           </div>
 
@@ -217,7 +235,8 @@
       <div class="section__head">
         <span class="section__eyebrow">Как это работает</span>
         <h2 class="section__title" id="how-title">От фото СТС до подбора детали</h2>
-        <p class="section__text">Клиенту не нужно искать VIN-код и диктовать данные автомобиля. Достаточно одного фото или сообщения.</p>
+        <p class="section__text">Клиенту не нужно искать VIN-код и диктовать данные автомобиля. Достаточно одного фото
+          или сообщения.</p>
       </div>
 
       <ol class="steps">
@@ -254,23 +273,31 @@
       <ul class="audience">
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6" />
+            </svg>
           </span>
           <h3 class="audience__title">Магазинам автозапчастей</h3>
-          <p class="audience__text">Быстрее отвечайте на запросы в чатах и меньше уточняйте у клиента данные автомобиля.</p>
+          <p class="audience__text">Быстрее отвечайте на запросы в чатах и меньше уточняйте у клиента данные автомобиля.
+          </p>
           <!-- <a class="audience__link" href="/solutions/shops">Подробнее <span aria-hidden="true">→</span></a> -->
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" />
+            </svg>
           </span>
           <h3 class="audience__title">Автосервисам</h3>
-          <p class="audience__text">Подбирайте запчасти под заказ-наряд по фото документов клиента, без ручного ввода VIN.</p>
+          <p class="audience__text">Подбирайте запчасти под заказ-наряд по фото документов клиента, без ручного ввода
+            VIN.</p>
           <!-- <a class="audience__link" href="/solutions/service">Подробнее <span aria-hidden="true">→</span></a> -->
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10" />
+            </svg>
           </span>
           <h3 class="audience__title">Маркетплейсам</h3>
           <p class="audience__text">Подключите подбор по фото СТС к своей платформе через API.</p>
@@ -283,7 +310,8 @@
     <section class="cta" id="cta" aria-labelledby="cta-title">
       <div class="cta__content">
         <h2 class="cta__title" id="cta-title">Станьте пилотным магазином</h2>
-        <p class="cta__text">На этапе закрытого тестирования мы подключаем ограниченное число магазинов.<br>Расскажите о своих задачах, и мы предложим формат подключения.</p>
+        <p class="cta__text">На этапе закрытого тестирования мы подключаем ограниченное число магазинов.<br>Расскажите о
+          своих задачах, и мы предложим формат подключения.</p>
       </div>
       <div class="cta__actions">
         <a class="btn btn--light" href="mailto:contact@vin-scan.ru">Написать на почту</a>
@@ -301,7 +329,7 @@
 
         <div class="footer__brand">
           <a href="/" class="footer__logo" aria-label="Vin-Scan — на главную">
-            <img src="/img/logo.svg" alt="Vin-Scan" width="160" height="48">
+            <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
           </a>
           <!-- <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.<br>Сервис онлайн-консультирования для магазинов автозапчастей и автосервисов.</p> -->
           <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.</p>
@@ -315,45 +343,46 @@
 
 
           <!-- Виджет статуса Vin-Scan -->
-<a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener" class="vs-status-badge">
-  <span class="vs-dot"></span>
-  <span id="vs-status-text">Проверка статуса...</span>
-</a>
+          <a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener"
+            class="vs-status-badge">
+            <span class="vs-dot"></span>
+            <span id="vs-status-text">Проверка статуса...</span>
+          </a>
 
-<script>
-fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
-  .then(res => res.json())
-  .then(data => {
-    const badge = document.getElementById('vinscan-status');
-    const text = document.getElementById('vs-status-text');
+          <script>
+            fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
+              .then(res => res.json())
+              .then(data => {
+                const badge = document.getElementById('vinscan-status');
+                const text = document.getElementById('vs-status-text');
 
-    // Проверяем последние статусы мониторов (1 = UP, 0 = DOWN)
-    let isAllUp = true;
-    if (data.heartbeatList) {
-      for (const monitorId in data.heartbeatList) {
-        const beats = data.heartbeatList[monitorId];
-        if (beats.length > 0) {
-          const lastBeat = beats[beats.length - 1];
-          if (lastBeat.status !== 1) {
-            isAllUp = false;
-            break;
-          }
-        }
-      }
-    }
+                // Проверяем последние статусы мониторов (1 = UP, 0 = DOWN)
+                let isAllUp = true;
+                if (data.heartbeatList) {
+                  for (const monitorId in data.heartbeatList) {
+                    const beats = data.heartbeatList[monitorId];
+                    if (beats.length > 0) {
+                      const lastBeat = beats[beats.length - 1];
+                      if (lastBeat.status !== 1) {
+                        isAllUp = false;
+                        break;
+                      }
+                    }
+                  }
+                }
 
-    if (isAllUp) {
-      badge.classList.add('vs-status-up');
-      text.innerText = 'Все системы в норме';
-    } else {
-      badge.classList.add('vs-status-down');
-      text.innerText = 'Сбои в работе сервиса';
-    }
-  })
-  .catch(() => {
-    document.getElementById('vs-status-text').innerText = 'Состояние сервиса';
-  });
-</script>
+                if (isAllUp) {
+                  badge.classList.add('vs-status-up');
+                  text.innerText = 'Все системы в норме';
+                } else {
+                  badge.classList.add('vs-status-down');
+                  text.innerText = 'Сбои в работе сервиса';
+                }
+              })
+              .catch(() => {
+                document.getElementById('vs-status-text').innerText = 'Состояние сервиса';
+              });
+          </script>
 
           <ul class="footer__social" aria-label="Мы в мессенджерах и соцсетях">
             <!-- <li>
@@ -430,4 +459,5 @@ fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
   </footer>
 
 </body>
+
 </html>
