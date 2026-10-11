@@ -245,7 +245,7 @@
       </ol>
     </section>
 
-    <!-- НОВОЕ: видео-демо -->
+    <!-- НОВОЕ: видео-демо
     <section class="section" id="demo" aria-labelledby="demo-title">
       <div class="section__head">
         <span class="section__eyebrow">Демо</span>
@@ -257,7 +257,7 @@
       <div class="demo">
         <figure class="demo__player">
           <!-- Когда ролик будет готов, замените заглушку на:
-          <video controls preload="none" poster="/img/demo/poster.jpg"><source src="/video/demo.mp4" type="video/mp4"></video> -->
+          <video controls preload="none" poster="/img/demo/poster.jpg"><source src="/video/demo.mp4" type="video/mp4"></video> 
           <div class="demo__stub" role="img" aria-label="Здесь будет видео-демо">
             <span class="demo__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" /></svg></span>
             <span class="demo__stub-text">Видео-демо, 45–60 секунд</span>
@@ -274,26 +274,27 @@
         </ol>
       </div>
     </section>
+    -->
 
     <!-- НОВОЕ: выгоды в цифрах -->
     <section class="section" id="results" aria-labelledby="results-title">
       <div class="section__head">
         <span class="section__eyebrow">Результат</span>
         <h2 class="section__title" id="results-title">Что меняется для магазина</h2>
-        <p class="section__text">Показатели по результатам внутреннего тестирования <mark class="ph">[подставьте реальные цифры]</mark>.</p>
+        <p class="section__text">Показатели по результатам внутреннего тестирования.</p>
       </div>
 
       <ul class="steps stats">
         <li class="steps__item">
-          <span class="steps__num"><mark class="ph">до 30 с</mark></span>
-          <p class="steps__text">вместо <mark class="ph">[5–10 минут]</mark> на определение автомобиля и подбор детали</p>
+          <span class="steps__num">до 30 с</span>
+          <p class="steps__text">вместо 5–15 минут на определение автомобиля и подбор детали</p>
         </li>
         <li class="steps__item">
-          <span class="steps__num"><mark class="ph">−N%</mark></span>
+          <span class="steps__num">−70%</span>
           <p class="steps__text">уточняющих вопросов клиенту: «какой у вас год?», «пришлите VIN»</p>
         </li>
         <li class="steps__item">
-          <span class="steps__num"><mark class="ph">N%</mark></span>
+          <span class="steps__num"><mark class="ph">90%</mark></span>
           <p class="steps__text">точность распознавания данных с фото СТС</p>
         </li>
         <li class="steps__item">
@@ -317,24 +318,24 @@
             <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z" /></svg>
           </span>
           <h3 class="audience__title">Мессенджеры и каналы</h3>
-          <p class="audience__text">Клиент пишет в привычный чат, а менеджер получает готовый подбор в том же окне.</p>
-          <ul class="chips"><li>Telegram</li><li>WhatsApp</li><li><mark class="ph">VK</mark></li><li><mark class="ph">Авито</mark></li><li><mark class="ph">Виджет на сайте</mark></li></ul>
+          <p class="audience__text">Клиент пишет в привычный чат, а менеджер получает готовый подбор в мессенджер.</p>
+          <ul class="chips"><li>Telegram</li><li>Виджет на сайте</li></ul>
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M4 5h16v4H4zM4 11h16v4H4zM4 17h16v2H4z" /></svg>
           </span>
           <h3 class="audience__title">Каталоги и источники данных</h3>
-          <p class="audience__text">Подбор опирается на <mark class="ph">[электронные каталоги]</mark>. Показываем оригинальные номера и аналоги из вашего ассортимента.</p>
-          <ul class="chips"><li><mark class="ph">Laximo</mark></li><li><mark class="ph">TecDoc</mark></li><li><mark class="ph">Ваш прайс</mark></li></ul>
+          <p class="audience__text">Подбор опирается на электронные каталоги и свою базу запчастей. Показываем оригинальные номера и аналоги из вашего ассортимента.</p>
+          <ul class="chips"><li>Laximo</li><li>Goodvin</li><li>Carbase</li><li>АвтоДилер</li><li>TecDoc</li><li>Ваши прайс листы</li></ul>
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" /></svg>
           </span>
-          <h3 class="audience__title">Ваши системы и API</h3>
-          <p class="audience__text">Выгрузка остатков из учётной системы. Для маркетплейсов и сетей есть REST API.</p>
-          <ul class="chips"><li><mark class="ph">1С</mark></li><li><mark class="ph">МойСклад</mark></li><li>Excel / YML</li><li>REST API</li></ul>
+          <h3 class="audience__title">Интеграция с ABCP</h3>
+          <p class="audience__text">Vin-Scan работает с платформой ABCP. Цены и наличие берутся из вашего аккаунта по API, поэтому клиент получает подбор с вашим ассортиментом и индивидеальной ценой клиента.</p>
+          <ul class="chips"><li>ABCP</li><li>Цены и остатки</li><li>Подключение за 1 день</li></ul>
         </li>
       </ul>
 
@@ -355,7 +356,7 @@
               <path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6" />
             </svg>
           </span>
-          <h3 class="audience__title">Магазинам автозапчастей</h3>
+          <h3 class="audience__title">Магазинам автозапчастей работающих на платформе ABCP</h3>
           <p class="audience__text">Быстрее отвечайте на запросы в чатах и меньше уточняйте у клиента данные автомобиля.
           </p>
         </li>
@@ -365,18 +366,9 @@
               <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" />
             </svg>
           </span>
-          <h3 class="audience__title">Автосервисам</h3>
+          <h3 class="audience__title">Автосервисам работающие на платформе ABCP</h3>
           <p class="audience__text">Подбирайте запчасти под заказ-наряд по фото документов клиента, без ручного ввода
             VIN.</p>
-        </li>
-        <li class="audience__card">
-          <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10" />
-            </svg>
-          </span>
-          <h3 class="audience__title">Маркетплейсам</h3>
-          <p class="audience__text">Подключите подбор по фото СТС к своей платформе через API.</p>
         </li>
       </ul>
     </section>
@@ -392,15 +384,15 @@
       <ul class="audience">
         <li class="steps__item">
           <h3 class="steps__title">Что вы получаете</h3>
-          <p class="steps__text">Бесплатный доступ к Vin-Scan на <mark class="ph">[N]</mark> недель, подключение к вашему мессенджеру, загрузку прайса и персонального менеджера на время теста.</p>
+          <p class="steps__text">Бесплатный доступ к Vin-Scan на 7 дней, подключение к вашему мессенджеру, загрузку прайса и персонального менеджера на время теста.</p>
         </li>
         <li class="steps__item">
           <h3 class="steps__title">Что нужно от вас</h3>
-          <p class="steps__text">Канал, где вы общаетесь с клиентами, выгрузка ассортимента в любом удобном формате и обратная связь от менеджеров раз в неделю (15 минут).</p>
+          <p class="steps__text">Аккаунт в Telegram, где вы общаетесь с клиентами, доступ к вашему API, выгрузка ассортимента в любом удобном формате и обратная связь от менеджеров раз в неделю (15 минут).</p>
         </li>
         <li class="steps__item">
           <h3 class="steps__title">Сроки</h3>
-          <p class="steps__text">Подключение занимает <mark class="ph">[1–3]</mark> рабочих дня, тест длится <mark class="ph">[4–8]</mark> недель.</p>
+          <p class="steps__text">Подключение занимает 1 рабочий день, тест длится 7 дней.</p>
         </li>
         <li class="steps__item">
           <h3 class="steps__title">Сколько стоит</h3>
@@ -412,7 +404,7 @@
         </li>
         <li class="steps__item steps__item--accent">
           <h3 class="steps__title">Мест в пилоте</h3>
-          <p class="steps__text">Осталось <mark class="ph">[N из M]</mark>. Оставьте заявку, пока есть свободные места.</p>
+          <p class="steps__text">Осталось 2 из 7. Оставьте заявку, пока есть свободные места.</p>
           <a class="btn btn--light pilot__btn" href="#apply">Занять место</a>
         </li>
       </ul>
@@ -426,44 +418,53 @@
       </div>
 
       <div class="notice">
-        <span>Сейчас сервис в закрытом тестировании. Для пилотных магазинов первые <mark class="ph">[N]</mark> месяцев бесплатно, затем скидка <mark class="ph">[X]%</mark> на первый год.</span>
+        <span>Сейчас сервис в закрытом тестировании. Для пилотных магазинов первая неделя бесплатно, затем скидка 10% на первый месяц.</span>
       </div>
 
       <ul class="audience">
         <li class="plan">
           <h3 class="plan__name">Старт</h3>
-          <p class="plan__limit">до <mark class="ph">[300]</mark> подборов в месяц</p>
-          <p class="plan__price"><mark class="ph">[Цена]</mark> <small>₽/мес</small></p>
+          <p class="plan__limit">до 300 подборов в месяц</p>
+          <p class="plan__price">5000 <small>₽/мес</small></p>
           <ul class="plan__list">
-            <li>1 канал: Telegram или WhatsApp</li>
+            <li>1 канал: Telegram</li>
             <li>До 2 менеджеров</li>
             <li>Подбор по фото СТС и VIN</li>
+            <li>Интеграция с вашими остатками</li>
           </ul>
           <a class="btn btn--outline" href="#apply">Выбрать</a>
         </li>
         <li class="plan plan--featured">
           <span class="plan__badge">Популярный</span>
           <h3 class="plan__name">Бизнес</h3>
-          <p class="plan__limit">до <mark class="ph">[1 500]</mark> подборов в месяц</p>
-          <p class="plan__price"><mark class="ph">[Цена]</mark> <small>₽/мес</small></p>
+          <p class="plan__limit">до 1 000 подборов в месяц</p>
+          <p class="plan__price">10 000 <small>₽/мес</small></p>
           <ul class="plan__list">
-            <li>Все каналы</li>
+            <li>2 канала: Telegram и MAX</li>
             <li>До 10 менеджеров</li>
             <li>Интеграция с вашим каталогом и остатками</li>
             <li>Аналитика запросов</li>
+            <li>Панель управления Vin-Scan</li>            
           </ul>
           <a class="btn btn--primary" href="#apply">Выбрать</a>
         </li>
-        <li class="plan">
-          <h3 class="plan__name">Сеть / API</h3>
-          <p class="plan__limit">от <mark class="ph">[5 000]</mark> подборов в месяц</p>
-          <p class="plan__price">По запросу</p>
+        <li class="plan plan--featured">
+          <span class="plan__badge">Профи</span>
+          <h3 class="plan__name">Максимум возможностей</h3>
+          <p class="plan__limit">до 2 500 подборов в месяц</p>
+          <p class="plan__price">24 000 <small>₽/мес</small></p>
           <ul class="plan__list">
-            <li>API для маркетплейсов и сетей</li>
-            <li>Выделенная поддержка и SLA</li>
-            <li>Индивидуальные интеграции</li>
+            <li>Всё из тарифа «Бизнес»</li>
+            <li>Без логотипа Vin-Scan: виджет выглядит как часть вашего магазина</li>
+            <li>Оформление виджета под ваш бренд: цвета, шрифты, логотип, тексты</li>
+            <li>Расширенная аналитика в панели управления: конверсия, популярные запросы, нагрузка по менеджерам</li>
+            <li>Гибкая регулировка лимитов запросов по клиентам и каналам</li>
+            <li>Защита от ботов и «пустых» обращений: пометка клиентов, которые тратят запросы и ничего не берут</li>
+            <li>Расширенная база кроссов в подборе и в виджете</li>
+            <li>До 30 менеджеров</li>
+            <li>Приоритетная поддержка</li>
           </ul>
-          <a class="btn btn--outline" href="#apply">Обсудить условия</a>
+          <a class="btn btn--primary" href="#apply">Выбрать</a>
         </li>
       </ul>
     </section>
@@ -479,11 +480,11 @@
       <ul class="audience">
         <li class="steps__item">
           <h3 class="steps__title">Только данные автомобиля</h3>
-          <p class="steps__text">Фото СТС используется только для определения автомобиля и VIN. ФИО и адрес владельца мы не храним и не передаём <mark class="ph">[уточните, как на самом деле]</mark>.</p>
+          <p class="steps__text">Фото СТС используется только для определения автомобиля и VIN. ФИО и адрес владельца мы не храним и не передаём.</p>
         </li>
         <li class="steps__item">
           <h3 class="steps__title">Хранение в России</h3>
-          <p class="steps__text">Данные хранятся на серверах в России в соответствии с 152-ФЗ <mark class="ph">[подтвердите]</mark>.</p>
+          <p class="steps__text">Данные хранятся на серверах в России в соответствии с 152-ФЗ.</p>
         </li>
         <li class="steps__item">
           <h3 class="steps__title">Удаление по запросу</h3>
@@ -502,24 +503,24 @@
 
       <div class="about">
         <div>
-          <p class="about__story">Мы команда из Санкт-Петербурга. Начали Vin-Scan, потому что <mark class="ph">[реальная история: например, видели, как менеджеры тратят полдня на переписку «пришлите VIN»]</mark>. Наша задача — чтобы подбор детали занимал секунды, а не диалог из десяти сообщений.</p>
+          <p class="about__story">Мы команда из Санкт-Петербурга. Идея Vin-Scan появилась на обычном заказе: клиенту нужны были запчасти в моторную группу, ходовую и тормоза на VW Passat B5 2000 года, американскую версию. VIN не бился по каталогу, и пришлось выяснять всё вручную: марку, модель, год, объём двигателя, мощность, дорестайлинг это или рестайлинг, ведь в 2000 году выпускали обе версии. В итоге каталог выдал кучу вариантов под все двигатели, все тормозные системы и разные рычаги передней подвески. Менеджер тратит время, клиент отвечает на десяток вопросов, а риск ошибиться остаётся, и тогда деталь возвращают. Тогда мы и решили, что эту работу должен делать бот. Наша задача: чтобы подбор детали занимал секунды, а не диалог из десяти сообщений, и чтобы подходящая запчасть сразу попадала к клиенту.</p>
           <ul class="team">
             <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
             <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
           </ul>
           <h3 class="subtitle">С нами тестируют</h3>
           <ul class="partners">
-            <li>Логотип магазина</li><li>Логотип магазина</li><li>Логотип магазина</li><li>Логотип магазина</li>
+            <li>AutoShop82</li><li>DavAvto29</li><li>LoftCar</li><li>Parts.Bam-Service</li><li>VinDoc</li>
           </ul>
         </div>
 
         <article class="case">
           <span class="case__label">Кейс пилота</span>
-          <h3 class="case__title"><mark class="ph">[Название магазина]</mark>, <mark class="ph">[город]</mark></h3>
-          <p><b>Задача.</b> <mark class="ph">[N]</mark> запросов в день в WhatsApp, менеджеры тратили до <mark class="ph">[N]</mark> минут на каждый подбор.</p>
-          <p><b>Что сделали.</b> Подключили Vin-Scan к WhatsApp и загрузили прайс.</p>
-          <p><b>Результат за <mark class="ph">[N]</mark> недель.</b> Время ответа сократилось с <mark class="ph">[X]</mark> до <mark class="ph">[Y]</mark>, конверсия из запроса в заказ выросла на <mark class="ph">[N]%</mark>.</p>
-          <blockquote class="case__quote">«<mark class="ph">[Цитата владельца или менеджера]</mark>»<cite><mark class="ph">[Имя, должность]</mark></cite></blockquote>
+          <h3 class="case__title">AutoShop82, Симферополь</h3>
+          <p><b>Задача.</b> 50 запросов в день в Telegram, менеджеры тратили до 15 минут на каждый подбор.</p>
+          <p><b>Что сделали.</b> Подключили Vin-Scan к Telegram и загрузили прайс.</p>
+          <p><b>Результат за 1 неделю.</b> Время ответа сократилось с 15 минут до 30 секунд, конверсия из запроса в заказ выросла на 40%.</p>
+          <blockquote class="case__quote">«Vin-Scan быстро подбирает запчасти, ответ клиенту уходит за секунды. Продажи выросли, мы остались довольны и сразу взяли тариф «Бизнес» на полгода.»<cite>Ремзи, владелец трёх автомагазинов</cite></blockquote>
         </article>
       </div>
     </section>
@@ -535,17 +536,17 @@
         <details class="faq__item"><summary class="faq__q">Что если фото СТС нечёткое или сделано под углом?</summary>
           <p class="faq__a">Vin-Scan распознаёт большинство фото, сделанных на телефон. Если данные не удаётся считать уверенно, сервис попросит клиента переснять фото или ввести VIN вручную.</p></details>
         <details class="faq__item"><summary class="faq__q">Можно ли подобрать деталь без СТС?</summary>
-          <p class="faq__a">Да. Можно отправить VIN, госномер <mark class="ph">[если поддерживается]</mark> или описать машину словами: «Солярис 2017, 1.6».</p></details>
+          <p class="faq__a">Да. Можно отправить VIN, или описать машину словами: «Солярис 2017, 1.6».</p></details>
         <details class="faq__item"><summary class="faq__q">Подбор полностью автоматический?</summary>
           <p class="faq__a">Нет, и это сделано специально. Vin-Scan готовит вариант, менеджер проверяет и отправляет его клиенту. Так ошибки не доходят до покупателя, а решение остаётся за вами.</p></details>
         <details class="faq__item"><summary class="faq__q">Какие марки поддерживаются?</summary>
-          <p class="faq__a"><mark class="ph">[Список или «Все марки, представленные в каталогах X, включая китайские»]</mark>.</p></details>
+          <p class="faq__a">«Все марки, представленные в 5 каталогах, включая китайские».</p></details>
         <details class="faq__item"><summary class="faq__q">Показывает ли сервис мои цены и наличие?</summary>
-          <p class="faq__a">Да, если загрузить прайс или подключить учётную систему. Без них Vin-Scan выдаёт оригинальные номера и аналоги.</p></details>
-        <details class="faq__item"><summary class="faq__q">Нужно ли менять мессенджер или CRM?</summary>
-          <p class="faq__a">Нет. Vin-Scan подключается к тем каналам, которые вы уже используете.</p></details>
+          <p class="faq__a">Да, если загрузить прайс и дать доступ к API. Без них Vin-Scan выдаёт оригинальные номера и аналоги.</p></details>
+        <details class="faq__item"><summary class="faq__q">Нужно ли менять мессенджер?</summary>
+          <p class="faq__a">Нет. Vin-Scan подключается к Telegram и Max, которые вы уже используете.</p></details>
         <details class="faq__item"><summary class="faq__q">Сколько времени занимает подключение?</summary>
-          <p class="faq__a"><mark class="ph">[1–3]</mark> рабочих дня для пилота.</p></details>
+          <p class="faq__a">1 рабочий день для пилота.</p></details>
         <details class="faq__item"><summary class="faq__q">Безопасно ли присылать фото документов?</summary>
           <p class="faq__a">Да. Мы используем только данные автомобиля и храним их в России по 152-ФЗ. Подробности в разделе <a href="#security">о безопасности</a>.</p></details>
         <details class="faq__item"><summary class="faq__q">Что будет после пилота?</summary>
@@ -559,7 +560,7 @@
         <h2 class="apply__title" id="apply-title">Станьте пилотным магазином</h2>
         <p class="apply__text">На этапе закрытого тестирования мы подключаем ограниченное число магазинов. Оставьте заявку, ответим в течение одного рабочего дня.</p>
         <div class="apply__alt">
-          <a class="btn btn--light" href="https://t.me/vinscan" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          <a class="btn btn--light" href="https://t.me/abcp_master" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
           <a class="apply__mail" href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a>
         </div>
       </div>
@@ -582,7 +583,7 @@
           <div class="field"><label for="f-channel">Где общаетесь с клиентами</label>
             <select id="f-channel" name="channel" required>
               <option value="" selected disabled>Выберите</option>
-              <option>Telegram</option><option>WhatsApp</option><option>Сайт</option><option>Другое</option>
+              <option>Telegram</option><option>MAX</option><option>Сайт</option><option>Другое</option>
             </select></div>
         </div>
 
