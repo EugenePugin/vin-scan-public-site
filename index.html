@@ -15,10 +15,12 @@
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/page_main.css">
   <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/page_blocks.css">
 
   <script src="/js/main.js" defer></script>
   <script src="/js/slider.js" defer></script>
   <script src="/js/header.js" defer></script>
+  <script src="/js/form.js" defer></script>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -72,13 +74,6 @@
         <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
       </a>
 
-      <!-- <a href="tel:+70000000000" class="header__phone">
-        <svg class="header__phone-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.570.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
-        </svg>
-        <span class="header__phone-text">+7 (000) 000-00-00</span>
-      </a> -->
-
       <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false"
         aria-controls="main-nav">
         <span></span><span></span><span></span>
@@ -86,35 +81,22 @@
 
       <nav class="nav" id="main-nav" aria-label="Основное меню">
         <ul class="nav__list">
-
-          <li class="nav__item">
-            <a class="nav__link" href="#how">Как это работает</a>
-          </li>
-
-          <li class="nav__item">
-            <a class="nav__link" href="#solutions">Решения для бизнеса</a>
-          </li>
-
-          <li class="nav__item">
-            <a class="nav__link" href="#cta">Тарифы</a>
-          </li>
-
-          <li class="nav__item">
-            <a class="nav__link" href="#contacts">Контакты</a>
-          </li>
-
+          <li class="nav__item"><a class="nav__link" href="#how">Как это работает</a></li>
+          <li class="nav__item"><a class="nav__link" href="#solutions">Решения для бизнеса</a></li>
+          <li class="nav__item"><a class="nav__link" href="#pricing">Тарифы</a></li>
+          <li class="nav__item"><a class="nav__link" href="#faq">Вопросы и ответы</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a></li>
         </ul>
 
-        <!-- Вместо неработающих Вход/Регистрация — целевое действие пилота -->
         <div class="header__actions">
-          <a href="#cta" class="btn btn--primary">Стать пилотом</a>
+          <a href="#apply" class="btn btn--primary">Стать пилотом</a>
         </div>
       </nav>
 
     </div>
   </header>
 
-  <!-- ===== Контент (page_main.css) ===== -->
+  <!-- ===== Контент (page_main.css + page_blocks.css) ===== -->
   <main class="page_main container" id="main">
 
     <!-- Инфоблок 1: первый экран + слайдер -->
@@ -143,8 +125,9 @@
         </div>
 
         <div class="hero__actions">
-          <a href="mailto:contact@vin-scan.ru" class="btn btn--primary">Стать пилотным магазином</a>
-          <a href="#how" class="btn btn--outline">Как это работает</a>
+          <a href="#apply" class="btn btn--primary">Стать пилотным магазином</a>
+          <a href="https://t.me/vinscan" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          <a href="#demo" class="btn btn--outline">Смотреть демо</a>
         </div>
 
         <nav class="hero__docs" aria-label="Документы">
@@ -158,7 +141,6 @@
           aria-label="Примеры диалогов в чате Vin-Scan">
 
           <div class="chat-slider__window">
-            <!-- Декоративная «шапка окна чата» -->
             <div class="chat-slider__bar" aria-hidden="true">
               <span class="chat-slider__lights"><i></i><i></i><i></i></span>
               <span class="chat-slider__name">Чат Vin-Scan</span>
@@ -263,6 +245,102 @@
       </ol>
     </section>
 
+    <!-- НОВОЕ: видео-демо -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="section__head">
+        <span class="section__eyebrow">Демо</span>
+        <h2 class="section__title" id="demo-title">Посмотрите, как это работает: 60 секунд</h2>
+        <p class="section__text">Реальный чат: клиент присылает фото СТС, через <mark class="ph">[N]</mark> секунд
+          менеджер получает марку, модель, VIN и список подходящих деталей с артикулами.</p>
+      </div>
+
+      <div class="demo">
+        <figure class="demo__player">
+          <!-- Когда ролик будет готов, замените заглушку на:
+          <video controls preload="none" poster="/img/demo/poster.jpg"><source src="/video/demo.mp4" type="video/mp4"></video> -->
+          <div class="demo__stub" role="img" aria-label="Здесь будет видео-демо">
+            <span class="demo__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z" /></svg></span>
+            <span class="demo__stub-text">Видео-демо, 45–60 секунд</span>
+          </div>
+          <figcaption class="demo__note">В ролике используется тестовое СТС с вымышленными данными.</figcaption>
+        </figure>
+
+        <ol class="timeline">
+          <li><span class="timeline__time">0–5 с</span><span>Клиент пишет «нужны передние колодки» и прикрепляет фото СТС.</span></li>
+          <li><span class="timeline__time">5–15 с</span><span>У менеджера появляется карточка: марка, модель, год, VIN.</span></li>
+          <li><span class="timeline__time">15–35 с</span><span>Список деталей: оригинальный номер, аналоги, наличие и цена из прайса магазина.</span></li>
+          <li><span class="timeline__time">35–50 с</span><span>Менеджер нажимает «Отправить», клиент получает варианты.</span></li>
+          <li><span class="timeline__time">50–60 с</span><span>Без ручного ввода VIN. Без лишних уточнений.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- НОВОЕ: выгоды в цифрах -->
+    <section class="section" id="results" aria-labelledby="results-title">
+      <div class="section__head">
+        <span class="section__eyebrow">Результат</span>
+        <h2 class="section__title" id="results-title">Что меняется для магазина</h2>
+        <p class="section__text">Показатели по результатам внутреннего тестирования <mark class="ph">[подставьте реальные цифры]</mark>.</p>
+      </div>
+
+      <ul class="steps stats">
+        <li class="steps__item">
+          <span class="steps__num"><mark class="ph">до 30 с</mark></span>
+          <p class="steps__text">вместо <mark class="ph">[5–10 минут]</mark> на определение автомобиля и подбор детали</p>
+        </li>
+        <li class="steps__item">
+          <span class="steps__num"><mark class="ph">−N%</mark></span>
+          <p class="steps__text">уточняющих вопросов клиенту: «какой у вас год?», «пришлите VIN»</p>
+        </li>
+        <li class="steps__item">
+          <span class="steps__num"><mark class="ph">N%</mark></span>
+          <p class="steps__text">точность распознавания данных с фото СТС</p>
+        </li>
+        <li class="steps__item">
+          <span class="steps__num">Больше заказов</span>
+          <p class="steps__text">Клиент получает ответ, пока он ещё в чате, и не уходит к конкуренту.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- НОВОЕ: интеграции -->
+    <section class="section" id="integrations" aria-labelledby="integrations-title">
+      <div class="section__head">
+        <span class="section__eyebrow">Интеграции</span>
+        <h2 class="section__title" id="integrations-title">Работает там, где уже общаются ваши клиенты</h2>
+        <p class="section__text">Не нужно менять мессенджер или CRM. Vin-Scan подключается к тому, что у вас есть.</p>
+      </div>
+
+      <ul class="audience">
+        <li class="audience__card">
+          <span class="audience__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z" /></svg>
+          </span>
+          <h3 class="audience__title">Мессенджеры и каналы</h3>
+          <p class="audience__text">Клиент пишет в привычный чат, а менеджер получает готовый подбор в том же окне.</p>
+          <ul class="chips"><li>Telegram</li><li>WhatsApp</li><li><mark class="ph">VK</mark></li><li><mark class="ph">Авито</mark></li><li><mark class="ph">Виджет на сайте</mark></li></ul>
+        </li>
+        <li class="audience__card">
+          <span class="audience__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v4H4zM4 11h16v4H4zM4 17h16v2H4z" /></svg>
+          </span>
+          <h3 class="audience__title">Каталоги и источники данных</h3>
+          <p class="audience__text">Подбор опирается на <mark class="ph">[электронные каталоги]</mark>. Показываем оригинальные номера и аналоги из вашего ассортимента.</p>
+          <ul class="chips"><li><mark class="ph">Laximo</mark></li><li><mark class="ph">TecDoc</mark></li><li><mark class="ph">Ваш прайс</mark></li></ul>
+        </li>
+        <li class="audience__card">
+          <span class="audience__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" /></svg>
+          </span>
+          <h3 class="audience__title">Ваши системы и API</h3>
+          <p class="audience__text">Выгрузка остатков из учётной системы. Для маркетплейсов и сетей есть REST API.</p>
+          <ul class="chips"><li><mark class="ph">1С</mark></li><li><mark class="ph">МойСклад</mark></li><li>Excel / YML</li><li>REST API</li></ul>
+        </li>
+      </ul>
+
+      <p class="section__foot">Не нашли свою систему? <a href="#apply">Напишите нам</a>, обсудим подключение.</p>
+    </section>
+
     <!-- Инфоблок 3: кому подходит -->
     <section class="section" id="solutions" aria-labelledby="audience-title">
       <div class="section__head">
@@ -280,7 +358,6 @@
           <h3 class="audience__title">Магазинам автозапчастей</h3>
           <p class="audience__text">Быстрее отвечайте на запросы в чатах и меньше уточняйте у клиента данные автомобиля.
           </p>
-          <!-- <a class="audience__link" href="/solutions/shops">Подробнее <span aria-hidden="true">→</span></a> -->
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
@@ -291,7 +368,6 @@
           <h3 class="audience__title">Автосервисам</h3>
           <p class="audience__text">Подбирайте запчасти под заказ-наряд по фото документов клиента, без ручного ввода
             VIN.</p>
-          <!-- <a class="audience__link" href="/solutions/service">Подробнее <span aria-hidden="true">→</span></a> -->
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
@@ -301,22 +377,221 @@
           </span>
           <h3 class="audience__title">Маркетплейсам</h3>
           <p class="audience__text">Подключите подбор по фото СТС к своей платформе через API.</p>
-          <!-- <a class="audience__link" href="/solutions/marketplaces">Подробнее <span aria-hidden="true">→</span></a> -->
         </li>
       </ul>
     </section>
 
-    <!-- Инфоблок 4: призыв к действию -->
-    <section class="cta" id="cta" aria-labelledby="cta-title">
-      <div class="cta__content">
-        <h2 class="cta__title" id="cta-title">Станьте пилотным магазином</h2>
-        <p class="cta__text">На этапе закрытого тестирования мы подключаем ограниченное число магазинов.<br>Расскажите о
-          своих задачах, и мы предложим формат подключения.</p>
+    <!-- НОВОЕ: условия пилота -->
+    <section class="section" id="pilot" aria-labelledby="pilot-title">
+      <div class="section__head">
+        <span class="section__eyebrow">Пилот</span>
+        <h2 class="section__title" id="pilot-title">Как проходит пилот</h2>
+        <p class="section__text">Бесплатное подключение без обязательств. Вместе смотрим результаты и решаем, продолжать ли.</p>
       </div>
-      <div class="cta__actions">
-        <a class="btn btn--light" href="mailto:contact@vin-scan.ru">Написать на почту</a>
-        <!-- <a class="btn btn--outline-light" href="https://t.me/vinscan" target="_blank" rel="noopener noreferrer">Написать в Telegram</a> -->
+
+      <ul class="audience">
+        <li class="steps__item">
+          <h3 class="steps__title">Что вы получаете</h3>
+          <p class="steps__text">Бесплатный доступ к Vin-Scan на <mark class="ph">[N]</mark> недель, подключение к вашему мессенджеру, загрузку прайса и персонального менеджера на время теста.</p>
+        </li>
+        <li class="steps__item">
+          <h3 class="steps__title">Что нужно от вас</h3>
+          <p class="steps__text">Канал, где вы общаетесь с клиентами, выгрузка ассортимента в любом удобном формате и обратная связь от менеджеров раз в неделю (15 минут).</p>
+        </li>
+        <li class="steps__item">
+          <h3 class="steps__title">Сроки</h3>
+          <p class="steps__text">Подключение занимает <mark class="ph">[1–3]</mark> рабочих дня, тест длится <mark class="ph">[4–8]</mark> недель.</p>
+        </li>
+        <li class="steps__item">
+          <h3 class="steps__title">Сколько стоит</h3>
+          <p class="steps__text">На время пилота бесплатно и без обязательств.</p>
+        </li>
+        <li class="steps__item">
+          <h3 class="steps__title">Что после пилота</h3>
+          <p class="steps__text">Смотрим результаты: скорость ответа, число подборов, конверсию. Подходит — переходите на тариф со скидкой для пилотных партнёров. Нет — отключаемся, данные удаляются.</p>
+        </li>
+        <li class="steps__item steps__item--accent">
+          <h3 class="steps__title">Мест в пилоте</h3>
+          <p class="steps__text">Осталось <mark class="ph">[N из M]</mark>. Оставьте заявку, пока есть свободные места.</p>
+          <a class="btn btn--light pilot__btn" href="#apply">Занять место</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- НОВОЕ: тарифы -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="section__head">
+        <span class="section__eyebrow">Тарифы</span>
+        <h2 class="section__title" id="pricing-title">Тарифы зависят от числа подборов</h2>
       </div>
+
+      <div class="notice">
+        <span>Сейчас сервис в закрытом тестировании. Для пилотных магазинов первые <mark class="ph">[N]</mark> месяцев бесплатно, затем скидка <mark class="ph">[X]%</mark> на первый год.</span>
+      </div>
+
+      <ul class="audience">
+        <li class="plan">
+          <h3 class="plan__name">Старт</h3>
+          <p class="plan__limit">до <mark class="ph">[300]</mark> подборов в месяц</p>
+          <p class="plan__price"><mark class="ph">[Цена]</mark> <small>₽/мес</small></p>
+          <ul class="plan__list">
+            <li>1 канал: Telegram или WhatsApp</li>
+            <li>До 2 менеджеров</li>
+            <li>Подбор по фото СТС и VIN</li>
+          </ul>
+          <a class="btn btn--outline" href="#apply">Выбрать</a>
+        </li>
+        <li class="plan plan--featured">
+          <span class="plan__badge">Популярный</span>
+          <h3 class="plan__name">Бизнес</h3>
+          <p class="plan__limit">до <mark class="ph">[1 500]</mark> подборов в месяц</p>
+          <p class="plan__price"><mark class="ph">[Цена]</mark> <small>₽/мес</small></p>
+          <ul class="plan__list">
+            <li>Все каналы</li>
+            <li>До 10 менеджеров</li>
+            <li>Интеграция с вашим каталогом и остатками</li>
+            <li>Аналитика запросов</li>
+          </ul>
+          <a class="btn btn--primary" href="#apply">Выбрать</a>
+        </li>
+        <li class="plan">
+          <h3 class="plan__name">Сеть / API</h3>
+          <p class="plan__limit">от <mark class="ph">[5 000]</mark> подборов в месяц</p>
+          <p class="plan__price">По запросу</p>
+          <ul class="plan__list">
+            <li>API для маркетплейсов и сетей</li>
+            <li>Выделенная поддержка и SLA</li>
+            <li>Индивидуальные интеграции</li>
+          </ul>
+          <a class="btn btn--outline" href="#apply">Обсудить условия</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- НОВОЕ: безопасность данных -->
+    <section class="section" id="security" aria-labelledby="security-title">
+      <div class="section__head">
+        <span class="section__eyebrow">Безопасность</span>
+        <h2 class="section__title" id="security-title">Как мы обращаемся с данными клиентов</h2>
+        <p class="section__text">На фото СТС есть персональные данные владельца, поэтому мы относимся к ним максимально аккуратно.</p>
+      </div>
+
+      <ul class="audience">
+        <li class="steps__item">
+          <h3 class="steps__title">Только данные автомобиля</h3>
+          <p class="steps__text">Фото СТС используется только для определения автомобиля и VIN. ФИО и адрес владельца мы не храним и не передаём <mark class="ph">[уточните, как на самом деле]</mark>.</p>
+        </li>
+        <li class="steps__item">
+          <h3 class="steps__title">Хранение в России</h3>
+          <p class="steps__text">Данные хранятся на серверах в России в соответствии с 152-ФЗ <mark class="ph">[подтвердите]</mark>.</p>
+        </li>
+        <li class="steps__item">
+          <h3 class="steps__title">Удаление по запросу</h3>
+          <p class="steps__text">Магазин в любой момент может запросить удаление всех своих данных.</p>
+        </li>
+      </ul>
+      <p class="section__foot"><a href="/privacy">Политика обработки персональных данных</a></p>
+    </section>
+
+    <!-- НОВОЕ: о нас, партнёры, кейс -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section__head">
+        <span class="section__eyebrow">О нас</span>
+        <h2 class="section__title" id="about-title">Кто делает Vin-Scan</h2>
+      </div>
+
+      <div class="about">
+        <div>
+          <p class="about__story">Мы команда из Санкт-Петербурга. Начали Vin-Scan, потому что <mark class="ph">[реальная история: например, видели, как менеджеры тратят полдня на переписку «пришлите VIN»]</mark>. Наша задача — чтобы подбор детали занимал секунды, а не диалог из десяти сообщений.</p>
+          <ul class="team">
+            <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
+            <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
+          </ul>
+          <h3 class="subtitle">С нами тестируют</h3>
+          <ul class="partners">
+            <li>Логотип магазина</li><li>Логотип магазина</li><li>Логотип магазина</li><li>Логотип магазина</li>
+          </ul>
+        </div>
+
+        <article class="case">
+          <span class="case__label">Кейс пилота</span>
+          <h3 class="case__title"><mark class="ph">[Название магазина]</mark>, <mark class="ph">[город]</mark></h3>
+          <p><b>Задача.</b> <mark class="ph">[N]</mark> запросов в день в WhatsApp, менеджеры тратили до <mark class="ph">[N]</mark> минут на каждый подбор.</p>
+          <p><b>Что сделали.</b> Подключили Vin-Scan к WhatsApp и загрузили прайс.</p>
+          <p><b>Результат за <mark class="ph">[N]</mark> недель.</b> Время ответа сократилось с <mark class="ph">[X]</mark> до <mark class="ph">[Y]</mark>, конверсия из запроса в заказ выросла на <mark class="ph">[N]%</mark>.</p>
+          <blockquote class="case__quote">«<mark class="ph">[Цитата владельца или менеджера]</mark>»<cite><mark class="ph">[Имя, должность]</mark></cite></blockquote>
+        </article>
+      </div>
+    </section>
+
+    <!-- НОВОЕ: FAQ (нативный details, без JS) -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section__head">
+        <span class="section__eyebrow">FAQ</span>
+        <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+      </div>
+
+      <div class="faq">
+        <details class="faq__item"><summary class="faq__q">Что если фото СТС нечёткое или сделано под углом?</summary>
+          <p class="faq__a">Vin-Scan распознаёт большинство фото, сделанных на телефон. Если данные не удаётся считать уверенно, сервис попросит клиента переснять фото или ввести VIN вручную.</p></details>
+        <details class="faq__item"><summary class="faq__q">Можно ли подобрать деталь без СТС?</summary>
+          <p class="faq__a">Да. Можно отправить VIN, госномер <mark class="ph">[если поддерживается]</mark> или описать машину словами: «Солярис 2017, 1.6».</p></details>
+        <details class="faq__item"><summary class="faq__q">Подбор полностью автоматический?</summary>
+          <p class="faq__a">Нет, и это сделано специально. Vin-Scan готовит вариант, менеджер проверяет и отправляет его клиенту. Так ошибки не доходят до покупателя, а решение остаётся за вами.</p></details>
+        <details class="faq__item"><summary class="faq__q">Какие марки поддерживаются?</summary>
+          <p class="faq__a"><mark class="ph">[Список или «Все марки, представленные в каталогах X, включая китайские»]</mark>.</p></details>
+        <details class="faq__item"><summary class="faq__q">Показывает ли сервис мои цены и наличие?</summary>
+          <p class="faq__a">Да, если загрузить прайс или подключить учётную систему. Без них Vin-Scan выдаёт оригинальные номера и аналоги.</p></details>
+        <details class="faq__item"><summary class="faq__q">Нужно ли менять мессенджер или CRM?</summary>
+          <p class="faq__a">Нет. Vin-Scan подключается к тем каналам, которые вы уже используете.</p></details>
+        <details class="faq__item"><summary class="faq__q">Сколько времени занимает подключение?</summary>
+          <p class="faq__a"><mark class="ph">[1–3]</mark> рабочих дня для пилота.</p></details>
+        <details class="faq__item"><summary class="faq__q">Безопасно ли присылать фото документов?</summary>
+          <p class="faq__a">Да. Мы используем только данные автомобиля и храним их в России по 152-ФЗ. Подробности в разделе <a href="#security">о безопасности</a>.</p></details>
+        <details class="faq__item"><summary class="faq__q">Что будет после пилота?</summary>
+          <p class="faq__a">Вы решаете, продолжать или нет. Обязательств нет.</p></details>
+      </div>
+    </section>
+
+    <!-- Инфоблок 4: заявка (вместо кнопки «Написать на почту») -->
+    <section class="apply" id="apply" aria-labelledby="apply-title">
+      <div class="apply__content">
+        <h2 class="apply__title" id="apply-title">Станьте пилотным магазином</h2>
+        <p class="apply__text">На этапе закрытого тестирования мы подключаем ограниченное число магазинов. Оставьте заявку, ответим в течение одного рабочего дня.</p>
+        <div class="apply__alt">
+          <a class="btn btn--light" href="https://t.me/vinscan" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          <a class="apply__mail" href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a>
+        </div>
+      </div>
+
+      <form class="form" id="pilot-form" novalidate data-endpoint="" data-mailto="contact@vin-scan.ru">
+        <div class="form__row">
+          <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-shop">Магазин или сервис</label><input id="f-shop" name="shop" type="text" autocomplete="organization" required></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-city">Город</label><input id="f-city" name="city" type="text" autocomplete="address-level2" required></div>
+          <div class="field"><label for="f-contact">Телефон или Telegram</label><input id="f-contact" name="contact" type="text" autocomplete="tel" required></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-volume">Запросов на подбор в день</label>
+            <select id="f-volume" name="volume" required>
+              <option value="" selected disabled>Выберите</option>
+              <option>До 20</option><option>20–100</option><option>Более 100</option>
+            </select></div>
+          <div class="field"><label for="f-channel">Где общаетесь с клиентами</label>
+            <select id="f-channel" name="channel" required>
+              <option value="" selected disabled>Выберите</option>
+              <option>Telegram</option><option>WhatsApp</option><option>Сайт</option><option>Другое</option>
+            </select></div>
+        </div>
+
+        <label class="consent"><input type="checkbox" name="consent" required>
+          <span>Согласен на обработку персональных данных. <a href="/consent">Согласие</a> и <a href="/privacy">политика конфиденциальности</a>.</span></label>
+
+        <button class="btn btn--primary" type="submit">Отправить заявку</button>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
     </section>
 
   </main>
@@ -331,28 +606,27 @@
           <a href="/" class="footer__logo" aria-label="Vin-Scan — на главную">
             <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
           </a>
-          <!-- <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.<br>Сервис онлайн-консультирования для магазинов автозапчастей и автосервисов.</p> -->
           <p class="footer__about">Интеллектуальный подбор деталей по фото СТС и запросам клиентов.</p>
 
           <div class="footer__contacts">
-            <!-- <a href="tel:+70000000000" class="footer__phone">+7 (000) 000-00-00</a> -->
             <a href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a>
-            <!-- <span class="footer__hours">Пн–Пт, 9:00–18:00 (МСК)</span> -->
+            <a href="https://t.me/vinscan" target="_blank" rel="noopener noreferrer">Telegram: @vinscan</a>
           </div>
 
-
-
-          <!-- Виджет статуса Vin-Scan -->
+          <!-- Виджет статуса Vin-Scan. Начальный текст нейтральный, чтобы не висело «Проверка статуса...» -->
           <a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener"
             class="vs-status-badge">
             <span class="vs-dot"></span>
-            <span id="vs-status-text">Проверка статуса...</span>
+            <span id="vs-status-text">Состояние сервиса</span>
           </a>
 
           <script>
-            fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan')
-              .then(res => res.json())
+            const ctrl = new AbortController();
+            const t = setTimeout(() => ctrl.abort(), 5000);
+            fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan', {signal: ctrl.signal})
+              .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
               .then(data => {
+                clearTimeout(t);
                 const badge = document.getElementById('vinscan-status');
                 const text = document.getElementById('vs-status-text');
 
@@ -361,48 +635,29 @@
                 if (data.heartbeatList) {
                   for (const monitorId in data.heartbeatList) {
                     const beats = data.heartbeatList[monitorId];
-                    if (beats.length > 0) {
-                      const lastBeat = beats[beats.length - 1];
-                      if (lastBeat.status !== 1) {
-                        isAllUp = false;
-                        break;
-                      }
+                    if (beats.length > 0 && beats[beats.length - 1].status !== 1) {
+                      isAllUp = false;
+                      break;
                     }
                   }
                 }
 
-                if (isAllUp) {
-                  badge.classList.add('vs-status-up');
-                  text.innerText = 'Все системы в норме';
-                } else {
-                  badge.classList.add('vs-status-down');
-                  text.innerText = 'Сбои в работе сервиса';
-                }
+                badge.classList.add(isAllUp ? 'vs-status-up' : 'vs-status-down');
+                text.innerText = isAllUp ? 'Все системы в норме' : 'Сбои в работе сервиса';
               })
-              .catch(() => {
-                document.getElementById('vs-status-text').innerText = 'Состояние сервиса';
-              });
+              .catch(() => { /* остаётся «Состояние сервиса» */ });
           </script>
 
           <ul class="footer__social" aria-label="Мы в мессенджерах и соцсетях">
-            <!-- <li>
-              <a class="footer__social-link footer__social-link--vk" href="https://vk.com/vinscan"
-                target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте (откроется в новой вкладке)">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5c.6 5.2 3.4 8.5 8 8.5h.5v-3c1.7.2 3 1.4 3.6 3H19c-.8-2.6-2.6-4-3.7-4.6 1.1-.7 2.7-2.3 3.2-3.9h-3c-.6 1.6-2 3-3.5 3.2V7.5h-3v6.6c-1.5-.4-3.2-2.3-3.3-6.6z"/></svg>
-              </a>
-            </li> -->
-            <!-- <li>
+            <li>
               <a class="footer__social-link footer__social-link--tg" href="https://t.me/vinscan"
                 target="_blank" rel="noopener noreferrer" aria-label="Telegram (откроется в новой вкладке)">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M21.4 3.6 2.9 10.8c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.5-1.4zM8.7 13.4l9.3-5.9c.5-.3.9-.1.5.2l-7.6 6.9-.3 3.6-1.9-4.8z"/></svg>
               </a>
-            </li> -->
-            <!-- <li>
-              <a class="footer__social-link footer__social-link--max" href="https://max.ru/vinscan"
-                target="_blank" rel="noopener noreferrer" aria-label="MAX (откроется в новой вкладке)">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.5C6.8 2.5 2.5 6.4 2.5 11.3c0 2.3.9 4.3 2.4 5.9L4 21.5l4.6-1.6c1 .4 2.2.6 3.4.6 5.2 0 9.5-3.9 9.5-8.8S17.2 2.5 12 2.5zM7.8 14.8V8.4h1.6l2.6 3.4 2.6-3.4h1.6v6.4h-1.7v-3.9l-2.5 3.2-2.5-3.2v3.9z"/></svg>
-              </a>
-            </li> -->
+            </li>
+            <!-- VK и MAX: раскомментируйте, когда появятся страницы
+            <li><a class="footer__social-link footer__social-link--vk" href="https://vk.com/vinscan" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте (откроется в новой вкладке)">...</a></li>
+            <li><a class="footer__social-link footer__social-link--max" href="https://max.ru/vinscan" target="_blank" rel="noopener noreferrer" aria-label="MAX (откроется в новой вкладке)">...</a></li> -->
           </ul>
         </div>
 
@@ -411,26 +666,19 @@
           <ul class="footer__list">
             <li><a href="#how">Подбор по фото СТС</a></li>
             <li><a href="#how">Подбор по VIN-коду</a></li>
-            <li><a href="#cta">Тарифы</a></li>
+            <li><a href="#integrations">Интеграции</a></li>
+            <li><a href="#pricing">Тарифы</a></li>
           </ul>
         </nav>
-
-        <!-- <nav class="footer__col" aria-labelledby="f-solutions">
-          <h3 class="footer__title" id="f-solutions">Решения</h3>
-          <ul class="footer__list">
-            <li><a href="/solutions/shops">Магазинам автозапчастей</a></li>
-            <li><a href="/solutions/service">Автосервисам</a></li>
-            <li><a href="/solutions/marketplaces">Маркетплейсам</a></li>
-            <li><a href="/partners">Партнёрам</a></li>
-          </ul>
-        </nav> -->
 
         <nav class="footer__col" aria-labelledby="f-clients">
           <h3 class="footer__title" id="f-clients">Клиентам</h3>
           <ul class="footer__list">
             <li><a href="#how">Как это работает</a></li>
             <li><a href="#solutions">Решения для бизнеса</a></li>
-            <li><a href="#cta">Подключение пилота</a></li>
+            <li><a href="#pilot">Условия пилота</a></li>
+            <li><a href="#faq">Вопросы и ответы</a></li>
+            <li><a href="#apply">Подключение пилота</a></li>
           </ul>
         </nav>
 
