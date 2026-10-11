@@ -1,6 +1,6 @@
 /* ===== Новые блоки: демо, цифры, интеграции, пилот, тарифы, о нас, FAQ, заявка ===== */
 /* Подключается после page_main.css, использует переменные из base.css.
-   Интеграции, безопасность и пилот переиспользуют .audience, .steps и .section из page_main.css */
+  Интеграции, безопасность и пилот переиспользуют .audience, .steps и .section из page_main.css */
 
 /* Заглушки: жёлтая подсветка напоминает подставить значение. Уберите <mark class="ph">, когда заполните */
 .ph { padding: 0 0.25em; color: #92400e; background: #fef3c7; border-radius: 4px; font-weight: inherit; }
