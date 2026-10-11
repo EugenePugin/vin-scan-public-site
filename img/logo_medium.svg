@@ -1,5 +1,16 @@
 <svg width="252" height="252" viewBox="0 0 252 252" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="252" height="252" fill="white"/>
+<mask id="mask_pins">
+  <rect width="252" height="252" fill="white"/>
+  <path d="M126 79V60" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M126 59.5C129.038 59.5 131.5 57.0376 131.5 54C131.5 50.9624 129.038 48.5 126 48.5C122.962 48.5 120.5 50.9624 120.5 54C120.5 57.0376 122.962 59.5 126 59.5Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M160 95L173 79" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M177 78.5C180.038 78.5 182.5 76.0376 182.5 73C182.5 69.9624 180.038 67.5 177 67.5C173.962 67.5 171.5 69.9624 171.5 73C171.5 76.0376 173.962 78.5 177 78.5Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M92 159L79 172" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M75 182.5C78.0376 182.5 80.5 180.038 80.5 177C80.5 173.962 78.0376 171.5 75 171.5C71.9624 171.5 69.5 173.962 69.5 177C69.5 180.038 71.9624 182.5 75 182.5Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M126 174V191" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M126 202.5C129.038 202.5 131.5 200.038 131.5 197C131.5 193.962 129.038 191.5 126 191.5C122.962 191.5 120.5 193.962 120.5 197C120.5 200.038 122.962 202.5 126 202.5Z" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</mask>
+<g mask="url(#mask_pins)">
 <path d="M8 6H79L66 20H22V64L8 78V6Z" fill="#126B9B"/>
 <path d="M173 6H243V77L229 63V21H188L173 6Z" fill="#1A7EBA"/>
 <path d="M8 177L22 191V234H65L79 248H8V177Z" fill="#07426E"/>
@@ -7,14 +18,7 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M114 36C122 35.3333 129.667 35.3333 137 36C139.667 36 141.333 37.6667 142 41L145 54C150.333 56 155.667 58.6667 161 62L176 54C178 52.6667 180 53 182 55L195 69C197.667 71 198 73.3333 196 76L189 89C191 94.3333 193.333 99.6667 196 105L210 108C212.667 108.667 214 110.333 214 113V136C214 139.333 212.667 141.333 210 142L196 145C194 150.333 191.667 155.667 189 161L197 174C198.333 176.667 197.667 179 195 181L181 195C179 197 177 197.333 175 196L161 188C155.667 190.667 150.333 193.333 145 196L141 211C140.333 213.667 138.667 215 136 215H115C112.333 215 110.667 213.667 110 211L107 197C101 195 95.6667 192.667 91 190L76 198C74 199.333 71.6667 198.667 69 196L56 182C54 180 53.6667 178 55 176L63 162C59.6667 156.667 57 151 55 145L41 142C39 141.333 38 139.667 38 137V113C38 111 39.3333 109.667 42 109L55 106C57.6667 100 60 94.6667 62 90L55 77C53.6667 74.3333 54 72 56 70L70 55C72 53 74 52.6667 76 54L90 62C95.3333 59.3333 100.667 57 106 55L110 40C110.667 37.3333 112 36 114 36ZM186 126C186 110.087 179.679 94.8258 168.426 83.5736C157.174 72.3214 141.913 66 126 66C110.087 66 94.8258 72.3214 83.5736 83.5736C72.3214 94.8258 66 110.087 66 126C66 141.913 72.3214 157.174 83.5736 168.426C94.8258 179.679 110.087 186 126 186C141.913 186 157.174 179.679 168.426 168.426C179.679 157.174 186 141.913 186 126Z" fill="url(#paint0_linear_3_2)"/>
 <path d="M126 156C142.569 156 156 142.569 156 126C156 109.431 142.569 96 126 96C109.431 96 96 109.431 96 126C96 142.569 109.431 156 126 156Z" fill="url(#paint1_linear_3_2)"/>
 <path d="M114 74C104.67 76.2134 96.1149 80.9167 89.2468 87.6086C82.3788 94.3005 77.455 102.73 75 112M142 75C146.238 76.4836 150.27 78.4998 154 81M172 101C174.664 105.353 176.685 110.069 178 115M178 137C175.949 146.514 171.318 155.279 164.615 162.334C157.912 169.39 149.396 174.464 140 177M110 177C105.762 175.516 101.73 173.5 98 171M81 155C77.798 150.09 75.4325 144.684 74 139" stroke="url(#paint2_linear_3_2)" stroke-width="8"/>
-<path d="M126 79V60" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M126 59.5C129.038 59.5 131.5 57.0376 131.5 54C131.5 50.9624 129.038 48.5 126 48.5C122.962 48.5 120.5 50.9624 120.5 54C120.5 57.0376 122.962 59.5 126 59.5Z" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M160 95L173 79" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M177 78.5C180.038 78.5 182.5 76.0376 182.5 73C182.5 69.9624 180.038 67.5 177 67.5C173.962 67.5 171.5 69.9624 171.5 73C171.5 76.0376 173.962 78.5 177 78.5Z" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M92 159L79 172" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M75 182.5C78.0376 182.5 80.5 180.038 80.5 177C80.5 173.962 78.0376 171.5 75 171.5C71.9624 171.5 69.5 173.962 69.5 177C69.5 180.038 71.9624 182.5 75 182.5Z" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M126 174V191" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M126 202.5C129.038 202.5 131.5 200.038 131.5 197C131.5 193.962 129.038 191.5 126 191.5C122.962 191.5 120.5 193.962 120.5 197C120.5 200.038 122.962 202.5 126 202.5Z" stroke="#FEFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 <defs>
 <linearGradient id="paint0_linear_3_2" x1="4" y1="36" x2="4" y2="215" gradientUnits="userSpaceOnUse">
 <stop stop-color="#1C82B8"/>
