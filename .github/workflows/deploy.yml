@@ -3,7 +3,7 @@ name: Deploy to Yandex Object Storage
 on:
   push:
     branches:
-      - main     # если ваша основная ветка называется master, замените main на master
+      - main
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.YC_S3_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_S3_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: 'ru-central1'
+          AWS_DEFAULT_REGION: "ru-central1"
         run: |
           aws --endpoint-url=https://storage.yandexcloud.net s3 sync . s3://vin-scan.ru/ \
             --exclude ".git/*" \
