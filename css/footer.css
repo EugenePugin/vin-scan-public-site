@@ -52,7 +52,7 @@
   background: #fff;
   border-radius: 12px;
 }
-.footer__logo img { display: block; height: 40px; width: auto; }
+.footer__logo img { display: block; height: 48px; width: auto; }
 
 .footer__about { max-width: 38ch; margin: 1.25rem 0 1.5rem; }
 

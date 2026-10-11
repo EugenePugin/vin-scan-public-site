@@ -31,7 +31,7 @@
   padding: 1.25rem 2.5rem;
 }
 
-.header__logo { display: flex; flex-shrink: 0; }
+.header__logo { display: flex; flex-shrink: 0; margin-left: 0.75rem; }
 .header__logo img { display: block; height: 48px; width: auto; }
 
 .header__phone {
