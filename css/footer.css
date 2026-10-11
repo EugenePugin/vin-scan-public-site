@@ -8,7 +8,7 @@
   color: rgba(255, 255, 255, 0.64);
   background: #212123;
   border-radius: var(--radius-lg, 24px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
   font-size: 0.9375rem;
   line-height: 1.5;
 }

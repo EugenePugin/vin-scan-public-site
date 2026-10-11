@@ -30,10 +30,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Якорные ссылки не прячут заголовок под липкой шапкой */
-html { scroll-padding-top: 7.5rem; }
+html { background-color: var(--bg); scroll-padding-top: 7.5rem; }
 
 @media (max-width: 560px) {
   html { scroll-padding-top: 5rem; }
