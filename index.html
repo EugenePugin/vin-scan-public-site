@@ -566,8 +566,13 @@
             </select></div>
         </div>
 
-        <label class="consent"><input type="checkbox" name="consent" required>
-          <span>Согласен на обработку персональных данных. <a href="/consent">Согласие</a> и <a href="/privacy">политика конфиденциальности</a>.</span></label>
+        <div class="consent">
+          <input type="checkbox" id="f-consent" name="consent" required>
+          <span class="consent__text">
+            <label for="f-consent">Согласен на обработку персональных данных</label>
+            (<a href="/consent" target="_blank">согласие</a> и <a href="/privacy" target="_blank">политика конфиденциальности</a>).
+          </span>
+        </div>
 
         <button class="btn btn--primary" type="submit">Отправить заявку</button>
         <p class="form__status" role="status" aria-live="polite"></p>
