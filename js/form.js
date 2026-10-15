@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const status = form.querySelector('.form__status');
   const btn = form.querySelector('button[type="submit"]');
+  const group = form.querySelector('.field--group');
+  const channels = Array.from(form.querySelectorAll('input[name="channel"]'));
+
   const LABELS = {
     name: 'Имя',
     shop: 'Магазин или сервис',
@@ -21,9 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     status.className = 'form__status ' + (ok ? 'is-ok' : 'is-error');
   };
 
+  // Нужен хотя бы один канал: ошибку вешаем на первый чекбокс,
+  // чтобы reportValidity показал подсказку и поставил фокус в группу.
+  const syncChannels = () => {
+    const any = channels.some((c) => c.checked);
+    channels[0].setCustomValidity(any ? '' : 'Выберите хотя бы один вариант');
+    group.classList.toggle('is-invalid', !any && form.classList.contains('was-validated'));
+  };
+  channels.forEach((c) => c.addEventListener('change', syncChannels));
+  syncChannels();
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     form.classList.add('was-validated');
+    syncChannels();
 
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -31,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const data = Object.fromEntries(new FormData(form));
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd);
+    data.channel = fd.getAll('channel'); // массив: ["Telegram", "MAX"]
     delete data.consent;
     btn.disabled = true;
 
@@ -45,9 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!res.ok) throw new Error(String(res.status));
         form.reset();
         form.classList.remove('was-validated');
+        syncChannels();
         say('Спасибо! Ответим в течение одного рабочего дня.', true);
       } else {
-        const body = Object.keys(LABELS).map((k) => LABELS[k] + ': ' + (data[k] || '')).join('\n');
+        const body = Object.keys(LABELS)
+          .map((k) => LABELS[k] + ': ' + (Array.isArray(data[k]) ? data[k].join(', ') : (data[k] || '')))
+          .join('\n');
         window.location.href = 'mailto:' + form.dataset.mailto +
           '?subject=' + encodeURIComponent('Заявка на пилот Vin-Scan') +
           '&body=' + encodeURIComponent(body);

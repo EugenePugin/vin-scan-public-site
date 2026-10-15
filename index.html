@@ -7,6 +7,30 @@
   <title>Vin-Scan — Интеллектуальный подбор деталей по фото СТС/ПТС</title>
   <meta name="description"
     content="Интеллектуальный подбор деталей по фото СТС/ПТС и запросам клиентов. Сервис онлайн-консультирования Vin-Scan.">
+  <link rel="canonical" href="https://vin-scan.ru/">
+
+  <!-- Open Graph: Telegram, VK, WhatsApp, Яндекс -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vin-Scan">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://vin-scan.ru/">
+  <meta property="og:title" content="Vin-Scan: подбор запчастей по фото СТС за секунды">
+  <meta property="og:description"
+    content="Клиент присылает фото СТС или пишет запрос своими словами. Vin-Scan определяет VIN, подбирает детали, а менеджер получает готовый ответ в чате.">
+  <meta property="og:image" content="https://vin-scan.ru/img/og-cover.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Интерфейс Vin-Scan: подбор запчастей по фото СТС в мессенджере">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vin-Scan: подбор запчастей по фото СТС за секунды">
+  <meta name="twitter:description"
+    content="Клиент присылает фото СТС или пишет запрос своими словами. Vin-Scan определяет VIN и подбирает детали.">
+  <meta name="twitter:image" content="https://vin-scan.ru/img/og-cover.png">
+  <meta name="twitter:image:alt" content="Интерфейс Vin-Scan: подбор запчастей по фото СТС в мессенджере">
+
   <link rel="icon" href="/img/logo_small.svg" sizes="40x40" type="image/svg+xml">
   <link rel="icon" href="/img/logo_small.svg" sizes="96x96" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/img/logo_small.png" sizes="180x180">
@@ -21,6 +45,7 @@
   <script src="/js/slider.js" defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/form.js" defer></script>
+  <script src="/js/partners-marquee.js" defer></script>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -409,7 +434,7 @@
         </li>
         <li class="steps__item steps__item--accent">
           <h3 class="steps__title">Мест в пилоте</h3>
-          <p class="steps__text">Осталось 2 из 7. Оставьте заявку, пока есть свободные места.</p>
+          <p class="steps__text">Берём не более 3 новых магазинов в неделю для сохранения качества онбординга</p>
           <a class="btn btn--light pilot__btn" href="#apply">Занять место</a>
         </li>
       </ul>
@@ -468,39 +493,80 @@
       </ul>
     </section>
 
-    <!-- НОВОЕ: о нас, партнёры, кейс -->
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="section__head">
-        <span class="section__eyebrow">О нас</span>
-        <h2 class="section__title" id="about-title">Кто делает Vin-Scan</h2>
-      </div>
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="section__head">
+    <span class="section__eyebrow">О нас</span>
+    <h2 class="section__title" id="about-title">Кто делает Vin-Scan</h2>
+  </div>
 
-      <div class="about">
-        <div>
-          <p class="about__story">Мы — команда из Санкт-Петербурга и Крыма. <br>Идея Vin-Scan появилась на обычном заказе: клиенту нужны были запчасти в моторную группу, ходовую и тормоза на VW Passat B5 2000 года, американскую версию.<br> VIN не бился по каталогу, и пришлось выяснять всё вручную: марку, модель, год, объём двигателя, мощность, дорестайлинг это или рестайлинг, ведь в 2000 году выпускали обе версии.<br> В итоге каталог выдал кучу вариантов под все двигатели, все тормозные системы и разные рычаги передней подвески. <br>Менеджер тратит время, клиент отвечает на десяток вопросов, а риск ошибиться остаётся, и тогда деталь возвращают. Тогда мы и решили, что эту работу должен делать бот. <br>Наша задача — чтобы подбор детали занимал секунды, а не растягивался в
-диалог из десяти сообщений, и чтобы подходящая запчасть сразу попадала к клиенту.</p>
-          <!--
-          <ul class="team">
-            <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
-            <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
-          </ul>
-          -->
-          <h3 class="subtitle">С нами тестируют</h3>
-          <ul class="partners">
-            <li>AutoShop82</li><li>DavAvto29</li><li>LoftCar</li><li>Parts.Bam-Service</li><li>VinDoc</li>
-          </ul>
-        </div>
+  <div class="about">
+    <div>
+      <p class="about__story">Мы — команда из Санкт-Петербурга и Крыма. <br>Идея Vin-Scan появилась на обычном заказе: клиенту нужны были запчасти в моторную группу, ходовую и тормоза на VW Passat B5 2000 года, американскую версию.<br> VIN не бился по каталогу, и пришлось выяснять всё вручную: марку, модель, год, объём двигателя, мощность, дорестайлинг это или рестайлинг, ведь в 2000 году выпускали обе версии.<br> В итоге каталог выдал кучу вариантов под все двигатели, все тормозные системы и разные рычаги передней подвески. <br>Менеджер тратит время, клиент отвечает на десяток вопросов, а риск ошибиться остаётся, и тогда деталь возвращают. Тогда мы и решили, что эту работу должен делать бот. <br>Наша задача — чтобы подбор детали занимал секунды, а не растягивался в диалог из десяти сообщений, и чтобы подходящая запчасть сразу попадала к клиенту.</p>
+    </div>
 
-        <article class="case">
-          <span class="case__label">Кейс пилота</span>
-          <h3 class="case__title">AutoShop82, Симферополь</h3>
-          <p><b>Задача.</b> 100 запросов в день в Telegram и MAX, менеджеры тратили до 15 минут на каждый подбор.</p>
-          <p><b>Что сделали.</b> Подключили Vin-Scan к Telegram и загрузили прайс.</p>
-          <p><b>Результат за 1 неделю.</b> Время ответа сократилось с 15 минут до 30 секунд, конверсия из запроса в заказ выросла на 40%.</p>
-          <blockquote class="case__quote">«Vin-Scan быстро подбирает запчасти, ответ клиенту уходит за секунды. Продажи выросли, мы остались довольны и сразу взяли тариф «Бизнес» на полгода.»<cite>Ремзи, владелец трёх автомагазинов</cite></blockquote>
-        </article>
-      </div>
-    </section>
+    <article class="case">
+      <span class="case__label">Кейс пилота</span>
+      <h3 class="case__title">AutoShop82, Симферополь</h3>
+      <p><strong>Задача.</strong> 100 запросов в день в Telegram и MAX, менеджеры тратили до 15 минут на каждый подбор.</p>
+      <p><strong>Что сделали.</strong> Подключили Vin-Scan к Telegram и загрузили прайс.</p>
+      <p><strong>Результат за 1 неделю.</strong> Время ответа сократилось с 15 минут до 30 секунд, конверсия из запроса в заказ выросла на 40%.</p>
+
+      <blockquote class="case__quote">
+        <p>«Vin-Scan быстро подбирает запчасти, ответ клиенту уходит за секунды. Продажи выросли, мы остались довольны и сразу взяли тариф «Бизнес» на полгода.»</p>
+        <footer class="case__author">
+          <img class="case__avatar" src="/img/review/remzi.png" alt="" width="48" height="48" loading="lazy">
+          <span class="case__author-text">
+            <span class="case__author-name">Ремзи</span>
+            <span class="case__author-role">владелец трёх автомагазинов</span>
+          </span>
+        </footer>
+      </blockquote>
+    </article>
+  </div>
+
+  <!-- На всю ширину секции, вне сетки .about -->
+  <div class="partners-block">
+  <h3 class="subtitle">С нами тестируют</h3>
+  <ul class="partners">
+    <li>
+      <a class="partner" href="https://autoshop82.ru" target="_blank" rel="noopener noreferrer">
+        <span class="partner__logo"><img src="/img/partners/autoshop82.png" alt="Autoshop82" loading="lazy"></span>
+        <span class="partner__city">Симферополь</span>
+      </a>
+    </li>
+    <li>
+      <a class="partner" href="https://davavto29.ru" target="_blank" rel="noopener noreferrer">
+        <span class="partner__logo"><img src="/img/partners/davavto29.png" alt="ДАВ авто" loading="lazy"></span>
+        <span class="partner__city">Северодвинск</span>
+      </a>
+    </li>
+    <li>
+      <a class="partner" href="https://loftcar.ru" target="_blank" rel="noopener noreferrer">
+        <span class="partner__logo"><img src="/img/partners/loftcar.png" alt="LoftCar" loading="lazy"></span>
+        <span class="partner__city">Санкт-Петербург</span>
+      </a>
+    </li>
+    <li>
+      <a class="partner" href="https://parts.bam-service.ru" target="_blank" rel="noopener noreferrer">
+        <span class="partner__logo"><img src="/img/partners/bam-service.png" alt="БАМ-АВТО" loading="lazy"></span>
+        <span class="partner__city">Красноярск</span>
+      </a>
+    </li>
+    <li>
+      <a class="partner" href="https://multizap.ru" target="_blank" rel="noopener noreferrer">
+        <span class="partner__logo"><img src="/img/partners/multizap.png" alt="Multizap" loading="lazy"></span>
+        <span class="partner__city">Тольятти</span>
+      </a>
+    </li>
+    <li>
+      <a class="partner" href="https://pit-stop.online/" target="_blank" rel="noopener noreferrer">
+        <span class="partner__logo"><img src="/img/partners/pit-stop.png" alt="Pit-stop" loading="lazy"></span>
+        <span class="partner__city">Тольятти</span>
+      </a>
+    </li>    
+  </ul>
+</div>
+</section>
 
     <!-- НОВОЕ: FAQ (нативный details, без JS) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
@@ -528,6 +594,10 @@
           <p class="faq__a">Да. Мы используем только данные автомобиля и храним их в России по 152-ФЗ. <br>Подробности в нашей <a href="/privacy">политике конфиденциальности</a>.</p></details>
         <details class="faq__item"><summary class="faq__q">Что будет после пилота?</summary>
           <p class="faq__a">Вы решаете, продолжать или нет. Обязательств нет.</p></details>
+        <details class="faq__item"><summary class="faq__q">Если клиент прислал СТС и просит колодки, а через 5 минут в этом же диалоге просит ещё и диски — это 1 подбор или 2?</summary>
+          <p class="faq__a">Это один подбор. Подбор считается по автомобилю: пока клиент общается с ботом в одном диалоге и речь идёт о том же автомобиле из СТС, дополнительные запчасти (например, диски после колодок) входят в тот же подбор. Если клиент пришлёт СТС другого автомобиля, это будет новый подбор.</p></details>  
+        <details class="faq__item"><summary class="faq__q">Считается ли подбором запрос, если бот не смог прочитать СТС?</summary>
+          <p class="faq__a">Нет. Подбором считается только запрос, по которому бот распознал данные автомобиля и выдал результат. Если СТС не удалось прочитать (плохое фото, блики, обрезанный документ), запрос не тарифицируется. Клиент может отправить фото ещё раз или ввести VIN вручную.</p></details>    
       </div>
     </section>
 
@@ -543,26 +613,47 @@
       </div>
 
       <form class="form" id="pilot-form" novalidate data-endpoint="" data-mailto="contact@vin-scan.ru">
+       <div class="form__row">
+         <div class="field">
+           <label for="f-name">Имя</label>
+           <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+         </div>
+         <div class="field">
+           <label for="f-shop">Магазин или сервис</label>
+           <input id="f-shop" name="shop" type="text" autocomplete="organization" placeholder="Название, как его знают клиенты" required>
+         </div>
+       </div>
+
         <div class="form__row">
-          <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="f-shop">Магазин или сервис</label><input id="f-shop" name="shop" type="text" autocomplete="organization" required></div>
+          <div class="field">
+            <label for="f-city">Город</label>
+            <input id="f-city" name="city" type="text" autocomplete="address-level2" placeholder="Где работает ваш магазин или сервис" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Телефон или Telegram</label>
+            <input id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="+7 900 000-00-00 или @username" required>
+          </div>
         </div>
-        <div class="form__row">
-          <div class="field"><label for="f-city">Город</label><input id="f-city" name="city" type="text" autocomplete="address-level2" required></div>
-          <div class="field"><label for="f-contact">Телефон или Telegram</label><input id="f-contact" name="contact" type="text" autocomplete="tel" required></div>
-        </div>
-        <div class="form__row">
-          <div class="field"><label for="f-volume">Запросов на подбор в день</label>
+
+        <div class="field">
+          <label for="f-volume">Запросов на подбор в день</label>
             <select id="f-volume" name="volume" required>
-              <option value="" selected disabled>Выберите</option>
-              <option>До 20</option><option>20–100</option><option>Более 100</option>
-            </select></div>
-          <div class="field"><label for="f-channel">Где общаетесь с клиентами</label>
-            <select id="f-channel" name="channel" required>
-              <option value="" selected disabled>Выберите</option>
-              <option>Telegram</option><option>MAX</option><option>Сайт</option><option>Другое</option>
-            </select></div>
+              <option value="" selected disabled>Выберите примерное количество</option>
+              <option>До 20</option>
+              <option>20–100</option>
+              <option>Более 100</option>
+            </select>
         </div>
+
+      <fieldset class="field field--group" id="f-channel">
+        <legend>Где общаетесь с клиентами <span class="field__hint">можно выбрать несколько</span></legend>
+          <div class="choices">
+          <label class="choice"><input type="checkbox" name="channel" value="Telegram"><span>Telegram</span></label>
+          <label class="choice"><input type="checkbox" name="channel" value="MAX"><span>MAX</span></label>
+          <label class="choice"><input type="checkbox" name="channel" value="Сайт"><span>Сайт</span></label>
+          <label class="choice"><input type="checkbox" name="channel" value="Другое"><span>Другое</span></label>
+        </div>
+      </fieldset>
 
         <div class="consent">
           <input type="checkbox" id="f-consent" name="consent" required>
@@ -590,45 +681,11 @@
             <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
           </a>
           <p class="footer__about">Интеллектуальный подбор деталей по фото СТС/ПТС и запросам клиентов.</p>
-
+        
+        <div class="footer__reach">  
           <div class="footer__contacts">
             <a href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a>
           </div>
-
-          <!-- Виджет статуса Vin-Scan. Начальный текст нейтральный, чтобы не висело «Проверка статуса...» -->
-          <!-- <a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener"
-            class="vs-status-badge">
-            <span class="vs-dot"></span>
-            <span id="vs-status-text">Состояние сервиса</span>
-          </a> -->
-
-          <!-- <script>
-            const ctrl = new AbortController();
-            const t = setTimeout(() => ctrl.abort(), 5000);
-            fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan', {signal: ctrl.signal})
-              .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
-              .then(data => {
-                clearTimeout(t);
-                const badge = document.getElementById('vinscan-status');
-                const text = document.getElementById('vs-status-text');
-
-                // Проверяем последние статусы мониторов (1 = UP, 0 = DOWN)
-                let isAllUp = true;
-                if (data.heartbeatList) {
-                  for (const monitorId in data.heartbeatList) {
-                    const beats = data.heartbeatList[monitorId];
-                    if (beats.length > 0 && beats[beats.length - 1].status !== 1) {
-                      isAllUp = false;
-                      break;
-                    }
-                  }
-                }
-
-                badge.classList.add(isAllUp ? 'vs-status-up' : 'vs-status-down');
-                text.innerText = isAllUp ? 'Все системы в норме' : 'Сбои в работе сервиса';
-              })
-              .catch(() => { /* остаётся «Состояние сервиса» */ });
-          </script> -->
 
           <ul class="footer__social" aria-label="Мы в мессенджерах и соцсетях">
             <li>
@@ -641,7 +698,8 @@
             <li><a class="footer__social-link footer__social-link--vk" href="https://vk.com/vinscan" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте (откроется в новой вкладке)">...</a></li>
             <li><a class="footer__social-link footer__social-link--max" href="https://max.ru/vinscan" target="_blank" rel="noopener noreferrer" aria-label="MAX (откроется в новой вкладке)">...</a></li> -->
           </ul>
-        </div>
+        </div>  
+      </div>
 
         <nav class="footer__col" aria-labelledby="f-products">
           <h3 class="footer__title" id="f-products">Продукты</h3>
@@ -669,8 +727,6 @@
           <ul class="footer__list">
             <li><a href="/privacy">Политика конфиденциальности</a></li>
             <li><a href="/consent">Согласие на обработку персональных данных</a></li>
-            <!-- <li><a href="/terms">Пользовательское соглашение</a></li> -->
-            <!-- <li><a href="/requisites">Реквизиты</a></li> -->
           </ul>
         </nav>
 
