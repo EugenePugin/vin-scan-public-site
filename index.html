@@ -599,7 +599,7 @@
             <span id="vs-status-text">Состояние сервиса</span>
           </a> -->
 
-          <script>
+          <!-- <script>
             const ctrl = new AbortController();
             const t = setTimeout(() => ctrl.abort(), 5000);
             fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan', {signal: ctrl.signal})
@@ -625,7 +625,7 @@
                 text.innerText = isAllUp ? 'Все системы в норме' : 'Сбои в работе сервиса';
               })
               .catch(() => { /* остаётся «Состояние сервиса» */ });
-          </script>
+          </script> -->
 
           <ul class="footer__social" aria-label="Мы в мессенджерах и соцсетях">
             <li>
