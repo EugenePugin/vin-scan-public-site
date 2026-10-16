@@ -21,7 +21,7 @@ jobs:
           node-version: lts/*
 
       - name: Validate HTML
-        run: npx --yes html-validate@8.25.0 "**/*.html"
+        run: npx --yes html-validate@11.16.2 "**/*.html"
 
   deploy:
     needs: validate
