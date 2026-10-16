@@ -309,7 +309,7 @@
           </span>
           <h3 class="audience__title">Каталоги и источники данных</h3>
           <p class="audience__text">Подбор опирается на электронные каталоги и свою базу запчастей. Показываем оригинальные номера и аналоги из вашего ассортимента.</p>
-          <ul class="chips"><li>Одни из самых популярных оригинальных каталогов, входящие в число лучших</li><li>Ваши прайс-листы</li></ul>
+          <ul class="chips"><li>Оригинальные каталоги ведущих производителей автозапчастей</li><li>Ваши прайс-листы</li></ul>
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
@@ -394,7 +394,7 @@
         </li>
         <li class="steps__item steps__item--accent">
           <h3 class="steps__title">Мест в пилоте</h3>
-          <p class="steps__text">Осталось 2 из 7. Оставьте заявку, пока есть свободные места.</p>
+          <p class="steps__text">Набор в текущую группу закрытого тестирования ограничен.<br>Оставьте заявку, пока открыт приём.</p>
           <a class="btn btn--light pilot__btn" href="#apply">Занять место</a>
         </li>
       </ul>
@@ -470,10 +470,12 @@
             <li class="person"><span class="person__avatar" aria-hidden="true">ИФ</span><div><p class="person__name"><mark class="ph">[Имя Фамилия]</mark></p><p class="person__role"><mark class="ph">[Роль и опыт]</mark></p></div></li>
           </ul>
           -->
-          <h3 class="subtitle">С нами тестируют</h3>
-          <ul class="partners">
-            <li>AutoShop82</li><li>DavAvto29</li><li>LoftCar</li><li>Parts.Bam-Service</li><li>VinDoc</li>
-          </ul>
+<!-- Временно скрыто до подтверждения согласий
+<h3 class="subtitle">С нами тестируют</h3>
+<ul class="partners">
+  <li>AutoShop82</li><li>DavAvto29</li><li>LoftCar</li><li>Parts.Bam-Service</li><li>VinDoc</li>
+</ul>
+-->
         </div>
 
         <article class="case">
@@ -672,6 +674,36 @@
 
     </div>
   </footer>
+
+<div id="cookie-notice" style="
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  max-width: 440px;
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(8px);
+  color: #e5e7eb;
+  padding: 16px 20px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+">
+  <span>
+    Мы используем файлы cookie и Яндекс.Метрику для сбора статистики и улучшения работы сайта.
+    <br>Подробнее — в <a href="/privacy" style="color: #60a5fa; text-decoration: underline;">Политике конфиденциальности</a>.
+  </span>
+  <div style="display: flex; justify-content: flex-end;">
+    <button onclick="document.getElementById('cookie-notice').style.display='none';localStorage.setItem('cookie_accepted','1')"
+      style="background: #2563eb; color: #fff; border: none; padding: 7px 18px; border-radius: 6px; font-weight: 500; cursor: pointer;">
+      Понятно
+    </button>
+  </div>
+</div>
 
 </body>
 
