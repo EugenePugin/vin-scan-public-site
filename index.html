@@ -22,17 +22,7 @@
   <script src="/js/header.js" defer></script>
   <script src="/js/form.js" defer></script>
 
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () {(m[i].a = m[i].a || []).push(arguments)};
-      m[i].l = 1 * new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) {return;} }
-      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=113576256', 'ym');
-
-    ym(113576256, 'init', {ssr: true, webvisor: false, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true});
-  </script>
+  <script src="/js/metrika.js" defer></script>
 
   <!-- Микроразметка Schema.org для организации -->
   <script type="application/ld+json">
@@ -57,11 +47,6 @@
 </head>
 
 <body>
-  <noscript>
-    <div><img src="https://mc.yandex.ru/watch/113576256" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
-  <!-- /Yandex.Metrika counter -->
-
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <!-- ===== Шапка (header.css) ===== -->
@@ -690,35 +675,18 @@
     </div>
   </footer>
 
-<div id="cookie-notice" style="
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  max-width: 440px;
-  background: rgba(17, 24, 39, 0.95);
-  backdrop-filter: blur(8px);
-  color: #e5e7eb;
-  padding: 16px 20px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 9999;
-">
-  <span>
-    Мы используем файлы cookie и Яндекс.Метрику для сбора статистики и улучшения работы сайта.
-    <br>Подробнее — в <a href="/privacy" style="color: #60a5fa; text-decoration: underline;">Политике конфиденциальности</a>.
-  </span>
-  <div style="display: flex; justify-content: flex-end;">
-    <button onclick="document.getElementById('cookie-notice').style.display='none';localStorage.setItem('cookie_accepted','1')"
-      style="background: #2563eb; color: #fff; border: none; padding: 7px 18px; border-radius: 6px; font-weight: 500; cursor: pointer;">
-      Понятно
-    </button>
+  <div id="cookie-notice" class="cookie-notice">
+    <span>
+      Мы используем файлы cookie и Яндекс.Метрику для сбора статистики и улучшения работы сайта.
+      <br>Подробнее — в <a href="/privacy" class="cookie-notice__link">Политике конфиденциальности</a>.
+    </span>
+    <div class="cookie-notice__actions">
+      <button class="cookie-notice__btn"
+        onclick="document.getElementById('cookie-notice').style.display='none';localStorage.setItem('cookie_accepted','1')">
+        Понятно
+      </button>
+    </div>
   </div>
-</div>
 
 </body>
 
