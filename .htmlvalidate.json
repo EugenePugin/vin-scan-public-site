@@ -1,0 +1,12 @@
+{
+  "extends": [],
+  "rules": {
+    "doctype-style": "off",
+    "no-style-tag": "error",
+    "no-inline-style": "error",
+    "script-type": "off",
+    "void-style": "off",
+    "no-raw-characters": "off",
+    "element-permitted-content": "off"
+  }
+}
