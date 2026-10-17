@@ -129,21 +129,6 @@
 /* ===== О нас ===== */
 .about { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; align-items: start; }
 .about__story { margin-bottom: 1.5rem; color: var(--text-muted); }
-.team { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.person { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg); border-radius: var(--radius-md); }
-.person__avatar {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--primary-soft);
-  border-radius: 50%;
-}
-.person__name { font-weight: 700; }
-.person__role { font-size: 0.9375rem; color: var(--text-muted); }
 .subtitle { margin: 2rem 0 1rem; font-size: 1.125rem; font-weight: 700; }
 /* ===== С нами тестируют: на всю ширину ===== */
 .partners-block { margin-top: 3rem; }
@@ -188,7 +173,6 @@
   height: 100%;
   object-fit: contain; /* любой логотип вписывается целиком, без обрезки и искажений */
 }
-.partner__name { font-weight: 600; font-size: 0.9375rem; }
 .partner__city { font-size: 0.8125rem; color: var(--text-muted); }
 
 /* ===== Бегущая лента партнёров (десктоп) ===== */
@@ -260,7 +244,6 @@
 }
 
 @media (max-width: 900px) {
-  .team { grid-template-columns: 1fr; }
   .partners { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 

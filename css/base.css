@@ -34,7 +34,7 @@ body {
 }
 
 /* Якорные ссылки не прячут заголовок под липкой шапкой */
-html { background-color: var(--bg); scroll-padding-top: 7.5rem; }
+html { background-color: var(--bg); scroll-padding-top: 7.5rem; scroll-behavior: smooth; }
 
 @media (max-width: 560px) {
   html { scroll-padding-top: 5rem; }
@@ -96,18 +96,12 @@ button:focus-visible,
 .btn--primary { color: #fff; background: var(--primary); }
 .btn--primary:hover { color: #fff; background: var(--primary-hover); }
 
-.btn--ghost { color: var(--text); background: transparent; }
-.btn--ghost:hover { color: var(--text); background: var(--bg); }
-
 .btn--outline { color: var(--primary); background: #fff; border-color: var(--border); }
 .btn--outline:hover { color: var(--primary-hover); border-color: var(--primary); }
 
 /* Для тёмного/цветного фона */
 .btn--light { color: var(--primary); background: #fff; }
 .btn--light:hover { color: var(--primary-hover); background: var(--primary-soft); }
-
-.btn--outline-light { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
-.btn--outline-light:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

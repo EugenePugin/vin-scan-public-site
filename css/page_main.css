@@ -217,28 +217,6 @@
 
 .audience__title { margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 700; }
 .audience__text { flex: 1; margin-bottom: 1.25rem; color: var(--text-muted); }
-.audience__link { align-self: flex-start; }
-
-/* ===== Призыв к действию ===== */
-.cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 3rem 3.5rem;
-  color: #fff;
-  background: linear-gradient(135deg, #0369a1, #0c4a6e);
-  border-radius: var(--radius-lg);
-}
-
-.cta__title {
-  margin-bottom: 0.5rem;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 800;
-  line-height: 1.2;
-}
-.cta__text { max-width: 820px; color: rgba(255, 255, 255, 0.85); }
-.cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; flex-shrink: 0; }
 
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
@@ -249,7 +227,6 @@
 
 @media (max-width: 900px) {
   .audience { grid-template-columns: 1fr; }
-  .cta { flex-direction: column; align-items: flex-start; padding: 2.5rem; }
 }
 
 @media (max-width: 560px) {
@@ -267,66 +244,14 @@
   .page_main { gap: 1.25rem; padding-bottom: 2.5rem; }
   .section { padding: 2rem 1.25rem; border-radius: 18px; }
   .hero__features { grid-template-columns: 1fr; }
-  .hero__actions .btn,
-  .cta__actions .btn { width: 100%; }
-  .cta__actions { width: 100%; }
+  .hero__actions .btn { width: 100%; }
   .steps { grid-template-columns: 1fr; }
   .audience__card { padding: 1.5rem; }
-  .cta { padding: 2rem 1.25rem; border-radius: 18px; }
 }
 
 /* Телефон в горизонтальной ориентации: экран низкий, слайдер не должен стать крошечным */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero { --slider-w: min(100%, 320px); }
-}
-
-/* ===== Виджет статуса сервиса ===== */
-.vs-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  margin-top: 1rem; /* аккуратный отступ от почты */
-  border-radius: 20px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-}
-
-.vs-status-badge:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.vs-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #768390;
-  transition: all 0.3s ease;
-}
-
-.vs-status-up .vs-dot {
-  background: #2ecc71;
-  box-shadow: 0 0 8px rgba(46, 204, 113, 0.7);
-}
-
-.vs-status-down .vs-dot {
-  background: #e74c3c;
-  box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
-}
-
-/* Плавная прокрутка для всех якорных ссылок */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Отступ при якорном скролле, чтобы липкая шапка не перекрывала заголовки */
