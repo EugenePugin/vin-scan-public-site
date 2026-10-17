@@ -3,60 +3,11 @@
   Должен идти после @@2: переиспользует и дополняет его классы
   ========================================================================== */
 
-/* ===== Новые блоки: демо, цифры, интеграции, пилот, тарифы, о нас, FAQ, заявка ===== */
+/* ===== Новые блоки: цифры, интеграции, пилот, тарифы, о нас, FAQ, заявка ===== */
 /* Подключается после page_main.css, использует переменные из base.css.
   Интеграции, безопасность и пилот переиспользуют .audience, .steps и .section из page_main.css */
 
-/* Заглушки: жёлтая подсветка напоминает подставить значение. Уберите <mark class="ph">, когда заполните */
-.ph { padding: 0 0.25em; color: #92400e; background: #fef3c7; border-radius: 4px; font-weight: inherit; }
-
 .section__foot { margin-top: 2rem; color: var(--text-muted); }
-
-/* ===== Видео-демо ===== */
-.demo {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: center;
-}
-.demo__player { margin: 0; }
-.demo__player video { width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: var(--radius-md); }
-.demo__stub {
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 1rem;
-  aspect-ratio: 16 / 9;
-  color: #fff;
-  background: linear-gradient(135deg, #0369a1, #0c4a6e);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-}
-.demo__play {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 76px;
-  height: 76px;
-  color: var(--primary);
-  background: #fff;
-  border-radius: 50%;
-}
-.demo__play svg { width: 32px; height: 32px; margin-left: 4px; fill: currentColor; }
-.demo__stub-text { font-weight: 600; }
-.demo__note { margin-top: 0.75rem; font-size: 0.875rem; color: var(--text-muted); }
-
-.timeline { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-.timeline li {
-  display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr);
-  gap: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.9375rem;
-}
-.timeline li:last-child { padding-bottom: 0; border-bottom: 0; }
-.timeline__time { font-weight: 700; color: var(--primary); white-space: nowrap; }
 
 /* ===== Цифры ===== */
 .stats .steps__num { font-size: 2rem; line-height: 1.2; }
@@ -239,7 +190,7 @@
 
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
-  .demo, .about { grid-template-columns: minmax(0, 1fr); }
+  .about { grid-template-columns: minmax(0, 1fr); }
   .partners { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
@@ -248,7 +199,6 @@
 }
 
 @media (max-width: 560px) {
-  .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
   .plan { padding: 1.5rem; }
   .case { padding: 1.5rem; }
 }
