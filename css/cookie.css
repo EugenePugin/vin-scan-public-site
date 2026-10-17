@@ -1,8 +1,8 @@
 /* Плашка согласия на cookie */
 .cookie-card {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: 56px;
+  bottom: 56px;
   z-index: 2000;
   display: flex;
   flex-direction: column;
@@ -10,10 +10,12 @@
   gap: 12px;
   width: min(380px, calc(100vw - 48px));
   padding: 24px;
-  background: var(--surface, #fff);
-  border: 1px solid var(--border, #dde5ec);
+  background: var(--warm-surface, #fbf1e4);
+  border: 1px solid var(--warm-border, #ecd9c2);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(15, 40, 70, 0.15);
+  box-shadow:
+    0 18px 44px rgba(15, 40, 70, 0.22),
+    0 2px 6px rgba(15, 40, 70, 0.08);
 }
 
 .cookie-card[hidden] {
@@ -73,13 +75,15 @@
   background: var(--cookie-stroke, #4a2311);
 }
 
-@media (max-width: 560px) {
+/* С 1180px hero становится одной колонкой: айфон уходит вниз, плашку центрируем */
+@media (max-width: 1180px) {
   .cookie-card {
-    left: 12px;
-    right: 12px;
-    bottom: max(12px, env(safe-area-inset-bottom));
-    width: auto;
+    left: 50%;
+    right: auto;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    width: min(380px, calc(100vw - 64px));
     padding: 20px;
+    transform: translateX(-50%);
   }
 }
 
