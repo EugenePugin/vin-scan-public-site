@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const status = form.querySelector('.form__status');
   const btn = form.querySelector('button[type="submit"]');
+  const group = form.querySelector('.field--group');
+  const channels = Array.from(form.querySelectorAll('input[name="channel"]'));
+
+  // Блок «Другое»: чекбокс + поле для своего варианта
+  const otherCheck = document.getElementById('channel-other');
+  const otherWrap = document.getElementById('channel-other-wrap');
+  const otherInput = document.getElementById('channel-other-text');
+
   const LABELS = {
     name: 'Имя',
     shop: 'Магазин или сервис',
@@ -21,9 +29,46 @@ document.addEventListener('DOMContentLoaded', () => {
     status.className = 'form__status ' + (ok ? 'is-ok' : 'is-error');
   };
 
+  // Нужен хотя бы один канал: ошибку вешаем на первый чекбокс,
+  // чтобы reportValidity показал подсказку и поставил фокус в группу.
+  const syncChannels = () => {
+    if (!channels.length) return;
+    const any = channels.some((c) => c.checked);
+    channels[0].setCustomValidity(any ? '' : 'Выберите хотя бы один вариант');
+    if (group) {
+      group.classList.toggle('is-invalid', !any && form.classList.contains('was-validated'));
+    }
+  };
+
+  // «Другое»: показываем поле, делаем его обязательным, не пускаем пустую строку из пробелов.
+  const syncOther = (focus = false) => {
+    if (!otherCheck || !otherWrap || !otherInput) return;
+    const on = otherCheck.checked;
+    otherWrap.hidden = !on;
+    otherInput.required = on;
+    otherCheck.setAttribute('aria-expanded', String(on));
+    if (on) {
+      otherInput.setCustomValidity(otherInput.value.trim() ? '' : 'Опишите, где вы общаетесь с клиентами');
+      if (focus) otherInput.focus();
+    } else {
+      otherInput.value = '';
+      otherInput.setCustomValidity('');
+    }
+  };
+
+  channels.forEach((c) => c.addEventListener('change', syncChannels));
+  if (otherCheck && otherInput) {
+    otherCheck.addEventListener('change', () => syncOther(true));
+    otherInput.addEventListener('input', () => syncOther());
+  }
+  syncChannels();
+  syncOther();
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     form.classList.add('was-validated');
+    syncChannels();
+    syncOther();
 
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -31,7 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const data = Object.fromEntries(new FormData(form));
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd);
+    // массив: ["Telegram", "Телефон", "Другое: Авито-чат"]
+    data.channel = channels
+      .filter((c) => c.checked)
+      .map((c) => (c === otherCheck ? 'Другое: ' + otherInput.value.trim() : c.value));
+    delete data.channel_other; // текст уже внутри data.channel
     delete data.consent;
     btn.disabled = true;
 
@@ -45,9 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!res.ok) throw new Error(String(res.status));
         form.reset();
         form.classList.remove('was-validated');
+        syncChannels();
+        syncOther(); // reset не шлёт change, поэтому прячем поле вручную
         say('Спасибо! Ответим в течение одного рабочего дня.', true);
       } else {
-        const body = Object.keys(LABELS).map((k) => LABELS[k] + ': ' + (data[k] || '')).join('\n');
+        const body = Object.keys(LABELS)
+          .map((k) => LABELS[k] + ': ' + (Array.isArray(data[k]) ? data[k].join(', ') : (data[k] || '')))
+          .join('\n');
         window.location.href = 'mailto:' + form.dataset.mailto +
           '?subject=' + encodeURIComponent('Заявка на пилот Vin-Scan') +
           '&body=' + encodeURIComponent(body);
