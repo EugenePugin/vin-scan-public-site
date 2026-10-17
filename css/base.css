@@ -8,6 +8,9 @@
   --primary-hover: #075985;
   --primary-soft: #e0f2fe;
   --border: #dde5ec;
+  --warm-surface: #fbf1e4;   /* тёплая подложка: плашка тестирования, cookie */
+  --warm-border: #ecd9c2;
+  --warm-ink: #8a5a2b;
   --radius-lg: 24px;
   --radius-md: 16px;
   --shadow: 0 2px 12px rgba(15, 40, 70, 0.05);
