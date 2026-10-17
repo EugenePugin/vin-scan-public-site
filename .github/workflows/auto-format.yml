@@ -8,6 +8,7 @@ on:
 
 jobs:
   format:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -35,7 +36,6 @@ jobs:
       - name: Auto-commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "style: auto-format via `.editorconfig` [skip ci]"
-          # Используется [skip ci], чтобы предотвратить рекурсивный запуск
+          commit_message: "style: auto-format via `.editorconfig`"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
