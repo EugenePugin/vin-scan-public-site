@@ -2,7 +2,7 @@
 .cookie-card {
   position: fixed;
   right: 56px;
-  bottom: 56px;
+  bottom: 24px;
   z-index: 2000;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@
   .cookie-card {
     left: 50%;
     right: auto;
-    bottom: max(24px, env(safe-area-inset-bottom));
+    bottom: max(12px, env(safe-area-inset-bottom));
     width: min(380px, calc(100vw - 64px));
     padding: 20px;
     transform: translateX(-50%);
