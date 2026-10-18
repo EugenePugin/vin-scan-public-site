@@ -32,8 +32,19 @@
   padding: 1.25rem 2.5rem;
 }
 
-.header__logo { display: flex; flex-shrink: 0; margin-left: 0.75rem; }
-.header__logo img { height: 48px; width: auto; }
+.header__logo { --logo-size: 48px; position: relative; display: block; flex-shrink: 0; margin-left: 0.75rem; }
+.header__logo-static { display: block; height: var(--logo-size); width: auto; }
+.header__logo-gear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--logo-size) * (244 / 252));
+  height: var(--logo-size);
+  transform-origin: 49.59% 50%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header__logo:hover .header__logo-gear,
+.header__logo:focus-visible .header__logo-gear { transform: rotate(90deg); }
 
 /* ===== Навигация ===== */
 .nav {
@@ -137,11 +148,11 @@
 @media (max-width: 640px) {
   .header { margin-bottom: 1.25rem; }
   .header__inner { gap: 0.75rem; padding: 0.75rem 1rem; min-height: 64px; }
-  .header__logo img { height: 32px; }
+  .header__logo { --logo-size: 32px; }
   .header__burger { width: 40px; height: 40px; margin-left: auto; padding: 0 9px; }
 }
 
 @media (max-width: 480px) {
   .header__inner { gap: 0.5rem; padding: 0.75rem; }
-  .header__logo img { height: 28px; }
+  .header__logo { --logo-size: 28px; }
 }

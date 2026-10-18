@@ -40,12 +40,31 @@
 
 /* Логотип */
 .footer__logo {
-  display: inline-flex;
+  --logo-size: 48px;
+  position: relative;
+  display: inline-block;
   padding: 0.5rem 0.75rem;
   background: var(--surface);
   border-radius: var(--radius-sm);
 }
-.footer__logo img { height: 48px; width: auto; }
+.footer__logo-static {
+  display: block;
+  height: var(--logo-size);
+  width: auto;
+}
+.footer__logo-gear {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.75rem;
+  width: calc(var(--logo-size) * (244 / 252));
+  height: var(--logo-size);
+  transform-origin: 49.59% 50%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer__logo:hover .footer__logo-gear,
+.footer__logo:focus-visible .footer__logo-gear {
+  transform: rotate(90deg);
+}
 
 .footer__about { max-width: 38ch; margin: 1.25rem 0 1.5rem; }
 
@@ -91,7 +110,9 @@
 .footer__social-link--max:hover { background: linear-gradient(135deg, #3c8cff, #8c3cff); }
 
 @media (prefers-reduced-motion: reduce) {
+  .footer__logo-gear,
   .footer .footer__social-link { transition: none; }
+  .footer__logo:hover .footer__logo-gear,
   .footer .footer__social-link:hover { transform: none; }
 }
 
