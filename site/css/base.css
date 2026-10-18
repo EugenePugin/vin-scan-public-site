@@ -46,7 +46,7 @@
   --footer-bg: #212123;
   --footer-text: rgba(255, 255, 255, 0.64);
   --footer-link: rgba(255, 255, 255, 0.72);
-  --footer-link-hover: var(--accent);   /* 8.03:1 на #212123 */
+  --footer-link-hover: var(--brand-100);   /* 13.5:1 на #212123 */
   --footer-text-strong: var(--text-inverse);
   --text-on-dark-muted: rgba(255, 255, 255, 0.85);
   --text-on-dark-dim: rgba(255, 255, 255, 0.5);
@@ -157,7 +157,7 @@ button:focus-visible,
   font-size: 1rem;
   font-weight: 500;
   white-space: nowrap;
-  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 .btn:hover { text-decoration: none; }
 
@@ -167,9 +167,14 @@ button:focus-visible,
 .btn--outline { color: var(--primary); background: var(--surface); border-color: var(--border); }
 .btn--outline:hover { color: var(--primary-hover); background: var(--brand-50); border-color: var(--primary); }
 
-/* На тёмном и цветном фоне кнопка остаётся белой: темнеет только текст */
+/* На тёмном и цветном фоне кнопка светлеет и приподнимается */
 .btn--light { color: var(--primary); background: var(--surface); }
-.btn--light:hover { color: var(--primary-hover); background: var(--surface); box-shadow: var(--shadow-lg); }
+.btn--light:hover {
+  color: var(--brand-800);
+  background: var(--brand-50);
+  box-shadow: 0 10px 24px rgba(4, 32, 56, 0.28);
+  transform: translateY(-1px);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
