@@ -93,6 +93,16 @@ html { background-color: var(--bg); scroll-padding-top: 7.5rem; scroll-behavior:
 
 img { max-width: 100%; display: block; }
 
+/* Текст для скринридеров, скрытый визуально */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* Ссылка в тексте: темнеет и подчёркивается при наведении */
 a {
   color: var(--primary);

@@ -91,15 +91,6 @@
 .other-wrap { margin-top: 0.75rem; }
 .other-wrap[hidden] { display: none; }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
 .consent { display: flex; align-items: flex-start; gap: 0.625rem; margin-bottom: 1.25rem; font-size: 0.8125rem; color: var(--text-muted); }
 .consent input { flex: none; width: 18px; height: 18px; margin-top: 0.15rem; accent-color: var(--primary); }
 
