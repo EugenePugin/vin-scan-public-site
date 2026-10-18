@@ -97,7 +97,6 @@
 }
 .faq-aside__btn:hover {
   color: var(--text-inverse);
-  filter: brightness(1.08);
   background: var(--primary-hover);
 }
 

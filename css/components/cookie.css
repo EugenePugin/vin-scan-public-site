@@ -12,7 +12,7 @@
   padding: 24px;
   background: var(--warm-surface);
   border: 1px solid var(--warm-border);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-cookie);
 }
 
@@ -63,7 +63,7 @@
   color: var(--warm-ink-strong);
   background: var(--warm-accent);
   border: 0;
-  border-radius: 50px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
 }

@@ -73,7 +73,7 @@
   color: var(--warm-ink);
   background: var(--warm-surface);
   border: 1px solid var(--warm-border);
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
 }
 
 /* Заголовок собран из контуров логотипа, размер задаётся картинке */

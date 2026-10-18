@@ -21,7 +21,7 @@
   font-weight: 600;
   color: var(--primary);
   background: var(--primary-soft);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
 /* ===== Пилот ===== */
@@ -57,7 +57,7 @@
   text-transform: uppercase;
   color: var(--text-inverse);
   background: var(--primary);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 .plan__name { font-size: 1.25rem; font-weight: 700; }
 .plan__limit { margin-top: 0.25rem; font-size: 0.9375rem; color: var(--text-muted); }

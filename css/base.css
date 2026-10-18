@@ -149,10 +149,11 @@ button:focus-visible,
   height: 44px;
   padding: 0 1.25rem;
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   font-size: 1rem;
   font-weight: 500;
   white-space: nowrap;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .btn:hover { text-decoration: none; }
 
@@ -160,11 +161,11 @@ button:focus-visible,
 .btn--primary:hover { color: var(--text-inverse); background: var(--primary-hover); }
 
 .btn--outline { color: var(--primary); background: var(--surface); border-color: var(--border); }
-.btn--outline:hover { color: var(--primary-hover); border-color: var(--primary); }
+.btn--outline:hover { color: var(--primary-hover); background: var(--brand-50); border-color: var(--primary); }
 
-/* Для тёмного/цветного фона */
+/* На тёмном и цветном фоне кнопка остаётся белой: темнеет только текст */
 .btn--light { color: var(--primary); background: var(--surface); }
-.btn--light:hover { color: var(--primary-hover); background: var(--primary-soft); }
+.btn--light:hover { color: var(--primary-hover); background: var(--surface); box-shadow: var(--shadow-lg); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
