@@ -10,7 +10,10 @@
   const opened = new WeakMap();
   let active = items.find((item) => item.open) || null;
 
-  items.forEach((item) => opened.set(item, item.open));
+  items.forEach((item) => {
+    opened.set(item, item.open);
+    item.classList.toggle('is-open', item.open);
+  });
 
   const panelOf = (item) => item.querySelector('.faq__panel');
 
@@ -38,6 +41,7 @@
     const from = item.open ? panel.getBoundingClientRect().height : 0;
     stop(item);
     opened.set(item, shouldOpen);
+    item.classList.toggle('is-open', shouldOpen);
 
     if (shouldOpen) item.open = true;
 
