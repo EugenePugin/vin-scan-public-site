@@ -1,20 +1,68 @@
-/* ===== Общие стили для всех блоков ===== */
+/* ==========================================================================
+  @@0  БАЗА: токены, сброс, типографика, ссылки, кнопки, контейнер
+  ========================================================================== */
+
+/* Палитра. Основной синий взят из логотипа (слово «Scan»), голубой добавлен
+   как акцент для тёмных поверхностей. Остальные файлы используют только var(). */
 :root {
+  --brand-50: #eef7fc;
+  --brand-100: #dceef8;
+  --brand-200: #bfd7e8;
+  --brand-300: #5ac1fe;   /* акцент: только тёмные поверхности и декор */
+  --brand-400: #1c82b8;
+  --brand-600: #07689a;   /* основной синий, слово «Scan» в логотипе */
+  --brand-800: #0a446e;   /* тёмный конец градиента иконки */
+
+  --primary: var(--brand-600);
+  --primary-hover: var(--brand-800);
+  --primary-soft: var(--brand-100);
+  --primary-border: var(--brand-200);
+  --accent: var(--brand-300);
+  --primary-gradient: linear-gradient(135deg, var(--brand-600), var(--brand-800));
+
+  /* Нейтральные */
   --bg: #eaf1f6;
   --surface: #fff;
-  --text: #000;
+  --text: #0d1016;
   --text-muted: #5b6670;
-  --primary: #0369a1;
-  --primary-hover: #075985;
-  --primary-soft: #e0f2fe;
+  --text-placeholder: #6b7a89;
+  --text-inverse: #fff;
   --border: #dde5ec;
-  --warm-surface: #fbf1e4;   /* тёплая подложка: плашка тестирования, cookie */
+  --border-strong: #d5e0e8;
+
+  /* Статусы */
+  --danger: #dc2626;
+  --danger-strong: #b91c1c;
+  --success: #15803d;
+
+  /* Тёплая подложка: плашка тестирования, notice, cookie */
+  --warm-surface: #fbf1e4;
   --warm-border: #ecd9c2;
   --warm-ink: #8a5a2b;
-  --radius-lg: 24px;
+  --warm-accent: #eab789;
+  --warm-ink-strong: #4a2311;
+
+  /* Подвал и другие тёмные поверхности */
+  --footer-bg: #212123;
+  --footer-text: rgba(255, 255, 255, 0.64);
+  --footer-link: rgba(255, 255, 255, 0.72);
+  --footer-link-hover: var(--accent);   /* 8.03:1 на #212123 */
+  --footer-text-strong: var(--text-inverse);
+  --text-on-dark-muted: rgba(255, 255, 255, 0.85);
+  --text-on-dark-dim: rgba(255, 255, 255, 0.5);
+  --surface-on-dark: rgba(255, 255, 255, 0.08);
+  --border-on-dark: rgba(255, 255, 255, 0.1);
+
+  /* Радиусы и тени */
+  --radius-sm: 12px;
   --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
   --shadow: 0 2px 12px rgba(15, 40, 70, 0.05);
   --shadow-lg: 0 20px 48px rgba(15, 40, 70, 0.12);
+  --shadow-header: 0 1px 0 rgba(15, 40, 70, 0.06), 0 8px 20px rgba(15, 40, 70, 0.1), 0 18px 40px rgba(15, 40, 70, 0.1);
+  --shadow-cookie: 0 18px 44px rgba(15, 40, 70, 0.22), 0 2px 6px rgba(15, 40, 70, 0.08);
+
   --container: 1600px;   /* ширина шапки, контента и подвала */
   --gutter: 1.5rem;      /* отступ от краёв экрана */
 }
@@ -76,10 +124,10 @@ button:focus-visible,
   z-index: 200;
   padding: 0.75rem 1rem;
   background: var(--primary);
-  color: #fff;
+  color: var(--text-inverse);
   border-radius: 10px;
 }
-.skip-link:focus { top: 1rem; color: #fff; }
+.skip-link:focus { top: 1rem; color: var(--text-inverse); }
 
 /* ===== Кнопки ===== */
 .btn {
@@ -96,14 +144,14 @@ button:focus-visible,
 }
 .btn:hover { text-decoration: none; }
 
-.btn--primary { color: #fff; background: var(--primary); }
-.btn--primary:hover { color: #fff; background: var(--primary-hover); }
+.btn--primary { color: var(--text-inverse); background: var(--primary); }
+.btn--primary:hover { color: var(--text-inverse); background: var(--primary-hover); }
 
-.btn--outline { color: var(--primary); background: #fff; border-color: var(--border); }
+.btn--outline { color: var(--primary); background: var(--surface); border-color: var(--border); }
 .btn--outline:hover { color: var(--primary-hover); border-color: var(--primary); }
 
 /* Для тёмного/цветного фона */
-.btn--light { color: var(--primary); background: #fff; }
+.btn--light { color: var(--primary); background: var(--surface); }
 .btn--light:hover { color: var(--primary-hover); background: var(--primary-soft); }
 
 @media (prefers-reduced-motion: reduce) {

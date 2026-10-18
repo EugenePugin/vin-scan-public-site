@@ -1,7 +1,7 @@
 /* ===== FAQ ===== */
 .faq { display: flex; flex-direction: column; gap: 0.75rem; }
-.faq__item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); }
-.faq__item[open] { border-color: #bfd7e8; box-shadow: var(--shadow); }
+.faq__item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.faq__item[open] { border-color: var(--primary-border); box-shadow: var(--shadow); }
 .faq__q {
   display: flex;
   align-items: center;
@@ -44,8 +44,8 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.75rem;
-  background: #fff;
-  border: 1px solid #bfd7e8;
+  background: var(--surface);
+  border: 1px solid var(--primary-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
 }
@@ -84,7 +84,7 @@
   padding: 0.875rem 1.25rem;
   text-align: center;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-inverse);
   background: var(--primary);
   border-radius: var(--radius-md);
   text-decoration: none;
@@ -98,9 +98,9 @@
 .faq-aside__link:hover { text-decoration: underline; }
 
 .faq-aside__btn:hover {
-  color: #fff; /* нужный цвет текста при наведении */
+  color: var(--text-inverse);
   filter: brightness(1.08);
-  background: #075985;
+  background: var(--primary-hover);
 }
 
 /* Планшеты и мобильные: карточка уходит под FAQ */

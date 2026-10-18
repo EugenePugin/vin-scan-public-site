@@ -10,12 +10,10 @@
   gap: 12px;
   width: min(380px, calc(100vw - 48px));
   padding: 24px;
-  background: var(--warm-surface, #fbf1e4);
-  border: 1px solid var(--warm-border, #ecd9c2);
+  background: var(--warm-surface);
+  border: 1px solid var(--warm-border);
   border-radius: 16px;
-  box-shadow:
-    0 18px 44px rgba(15, 40, 70, 0.22),
-    0 2px 6px rgba(15, 40, 70, 0.08);
+  box-shadow: var(--shadow-cookie);
 }
 
 .cookie-card[hidden] {
@@ -29,14 +27,14 @@
 }
 
 .cookie-card__dough {
-  fill: var(--cookie-dough, #eab789);
-  stroke: var(--cookie-stroke, #4a2311);
+  fill: var(--warm-accent);
+  stroke: var(--warm-ink-strong);
   stroke-width: 2;
   stroke-linejoin: round;
 }
 
 .cookie-card__chip {
-  fill: var(--cookie-chip, #4a2311);
+  fill: var(--warm-ink-strong);
 }
 
 .cookie-card__heading {
@@ -50,7 +48,7 @@
   font-size: 0.8125rem;
   line-height: 1.5;
   text-align: center;
-  color: var(--text-muted, #5b6670);
+  color: var(--text-muted);
 }
 
 .cookie-card__text a {
@@ -62,8 +60,8 @@
   font: inherit;
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--cookie-stroke, #4a2311);
-  background: var(--cookie-dough, #eab789);
+  color: var(--warm-ink-strong);
+  background: var(--warm-accent);
   border: 0;
   border-radius: 50px;
   cursor: pointer;
@@ -71,8 +69,8 @@
 }
 
 .cookie-card__btn:hover {
-  color: var(--cookie-dough, #eab789);
-  background: var(--cookie-stroke, #4a2311);
+  color: var(--warm-accent);
+  background: var(--warm-ink-strong);
 }
 
 /* С 1180px hero становится одной колонкой: айфон уходит вниз, плашку центрируем */
