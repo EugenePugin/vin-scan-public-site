@@ -4,9 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vin-Scan — Интеллектуальный подбор деталей по фото СТС/ПТС</title>
+  <title>Vin-Scan — Интеллектуальный подбор деталей по фото СТС и VIN для магазинов на платформе ABCP</title>
   <meta name="description"
-    content="Интеллектуальный подбор деталей по фото СТС/ПТС и запросам клиентов. Сервис онлайн-консультирования Vin-Scan.">
+    content="Vin-Scan распознаёт СТС/ПТС, определяет VIN и подбирает автозапчасти прямо в чате на сайте или в Telegram и MAX. Интеграция с ABCP, пилот бесплатно 7 дней.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="yandex-verification" content="714844b526dd6dcf">
   <link rel="canonical" href="https://vin-scan.ru/">
 
   <!-- Open Graph: Telegram, VK, WhatsApp, Яндекс -->
@@ -58,24 +60,50 @@
   <script src="/js/metrika.js" defer></script>
 
   <!-- Микроразметка Schema.org для организации -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Vin-Scan",
-    "legalName": "ИП Пугин Е.А.",
-    "url": "https://vin-scan.ru",
-    "logo": "https://vin-scan.ru/img/logo_full.svg",
-    "email": "contact@vin-scan.ru",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Дыбенко ул., д. 8, корп. 2, стр. 1, кв./офис 12",
-      "addressLocality": "Санкт-Петербург",
-      "postalCode": "193230",
-      "addressCountry": "RU"
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vin-scan.ru/#org",
+      "name": "Vin-Scan",
+      "legalName": "ИП Пугин Е.А.",
+      "url": "https://vin-scan.ru",
+      "logo": "https://vin-scan.ru/img/logo_full.svg",
+      "email": "contact@vin-scan.ru",
+      "sameAs": ["https://t.me/abcp_master"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Дыбенко ул., д. 8, корп. 2, стр. 1, кв./офис 12",
+        "addressLocality": "Санкт-Петербург",
+        "postalCode": "193230",
+        "addressCountry": "RU"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vin-scan.ru/#website",
+      "url": "https://vin-scan.ru/",
+      "name": "Vin-Scan",
+      "inLanguage": "ru",
+      "publisher": { "@id": "https://vin-scan.ru/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Vin-Scan",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Telegram, MAX",
+      "description": "Сервис подбора автозапчастей по фото СТС/ПТС и VIN для магазинов и автосервисов на платформе ABCP.",
+      "offers": [
+        { "@type": "Offer", "name": "Старт", "price": "5000", "priceCurrency": "RUB" },
+        { "@type": "Offer", "name": "Бизнес", "price": "10000", "priceCurrency": "RUB" }
+      ],
+      "publisher": { "@id": "https://vin-scan.ru/#org" }
     }
-  }
-  </script>
+  ]
+}
+</script>
 
 </head>
 
@@ -121,10 +149,10 @@
         <div class="hero__badge">Сервис находится в режиме закрытого тестирования</div>
 
         <h1 class="hero__title" id="hero-title">
-          <span class="visually-hidden">Vin-Scan</span>
+          <span class="visually-hidden">Vin-Scan: подбор запчастей по фото СТС/ПТС</span>
           <img src="/img/logo_wordmark.svg" alt="" width="1015" height="171">
         </h1>
-        <p class="hero__subtitle">Интеллектуальный подбор деталей по фото СТС/ПТС и запросам клиентов</p>
+        <p class="hero__subtitle">Интеллектуальный подбор деталей по VIN и запросам клиентов в Telegram и MAX</p>
         <p class="hero__lead">
           Клиент присылает фото свидетельства о регистрации или пишет запрос своими словами.
           Vin-Scan распознаёт данные автомобиля, определяет VIN и подбирает подходящие детали,
@@ -798,24 +826,21 @@
       </div>
 
 <div class="footer__partners">
-  <p class="footer__partners-title" id="f-partners">Технологические партнёры</p>
-  <ul class="footer__partners-list" aria-labelledby="f-partners">
-    <li><a href="https://www.goodvin.net" target="_blank" rel="noopener">Goodvin</a></li>
-    <li><a href="https://beget.com" target="_blank" rel="noopener">Beget</a></li>
-    <li><a href="https://abcp.ru" target="_blank" rel="noopener">ABCP</a></li> <!-- подставьте реальный URL -->
+  <span class="footer__partners-title">Технологические партнёры:</span>
+  <ul class="footer__partners-list">
     <li><a href="https://yandex.cloud" target="_blank" rel="noopener">Yandex Cloud</a></li>
+    <li><a href="https://abcp.ru" target="_blank" rel="noopener">ABCP</a></li>
+    <li><a href="https://www.goodvin.net" target="_blank" rel="noopener">Goodvin</a></li>
   </ul>
 </div>
 
-      <div class="footer__bottom">
+<div class="footer__bottom">
+
+        <!-- Левая колонка: партнеры + реквизиты -->
         <div class="footer__legal">
           <p>© 2026 Vin-Scan (ИП Пугин Е.А.). Все права защищены.</p>
           <p>ИНН: 780516889552 · ОГРНИП: 326784700234590</p>
-          <p>Юридический адрес: 193230, г. Санкт-Петербург, Дыбенко ул., д. 8, корп. 2, стр. 1, кв./офис 12</p>
-        </div>
-        <p class="footer__note">Информация на сайте носит справочный характер<br>и не является публичной офертой.</p>
-      </div>
-
+          <p>Адрес: 193230, г. Санкт-Петербург, Дыбенко ул., д. 8, корп. 2, стр.1, кв./офис 12
     </div>
   </footer>
 
