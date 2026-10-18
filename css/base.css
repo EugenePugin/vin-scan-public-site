@@ -8,6 +8,9 @@
   --primary-hover: #075985;
   --primary-soft: #e0f2fe;
   --border: #dde5ec;
+  --warm-surface: #fbf1e4;   /* тёплая подложка: плашка тестирования, cookie */
+  --warm-border: #ecd9c2;
+  --warm-ink: #8a5a2b;
   --radius-lg: 24px;
   --radius-md: 16px;
   --shadow: 0 2px 12px rgba(15, 40, 70, 0.05);
@@ -34,7 +37,7 @@ body {
 }
 
 /* Якорные ссылки не прячут заголовок под липкой шапкой */
-html { background-color: var(--bg); scroll-padding-top: 7.5rem; }
+html { background-color: var(--bg); scroll-padding-top: 7.5rem; scroll-behavior: smooth; }
 
 @media (max-width: 560px) {
   html { scroll-padding-top: 5rem; }
@@ -96,9 +99,6 @@ button:focus-visible,
 .btn--primary { color: #fff; background: var(--primary); }
 .btn--primary:hover { color: #fff; background: var(--primary-hover); }
 
-.btn--ghost { color: var(--text); background: transparent; }
-.btn--ghost:hover { color: var(--text); background: var(--bg); }
-
 .btn--outline { color: var(--primary); background: #fff; border-color: var(--border); }
 .btn--outline:hover { color: var(--primary-hover); border-color: var(--primary); }
 
@@ -106,53 +106,10 @@ button:focus-visible,
 .btn--light { color: var(--primary); background: #fff; }
 .btn--light:hover { color: var(--primary-hover); background: var(--primary-soft); }
 
-.btn--outline-light { color: #fff; border-color: rgba(255, 255, 255, 0.45); }
-.btn--outline-light:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Плашка согласия на куки */
-.cookie-notice {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  max-width: 440px;
-  background: rgba(17, 24, 39, 0.95);
-  backdrop-filter: blur(8px);
-  color: #e5e7eb;
-  padding: 16px 20px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 9999;
-}
-
-.cookie-notice__link {
-  color: #60a5fa;
-  text-decoration: underline;
-}
-
-.cookie-notice__actions {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.cookie-notice__btn {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  padding: 7px 18px;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
 }

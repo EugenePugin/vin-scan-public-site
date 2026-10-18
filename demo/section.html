@@ -1,0 +1,36 @@
+<!-- Демо-блок. Вставить в index.html после секции «Как это работает», когда будет видео -->
+<section class="section" id="demo" aria-labelledby="demo-title">
+  <div class="section__head">
+    <span class="section__eyebrow">Демо</span>
+    <h2 class="section__title" id="demo-title">Посмотрите, как это работает: 60 секунд</h2>
+    <p class="section__text">Реальный чат: клиент присылает фото СТС, через <mark class="ph">[N]</mark> секунд
+      менеджер получает марку, модель, VIN и список подходящих деталей с артикулами.</p>
+  </div>
+
+  <div class="demo">
+    <figure class="demo__player">
+      <!-- Когда ролик будет готов, замените заглушку на:
+      <video controls preload="none" poster="/img/demo/poster.jpg"><source src="/video/demo.mp4" type="video/mp4"></video>
+      -->
+      <div class="demo__stub" role="img" aria-label="Здесь будет видео-демо">
+        <span class="demo__play" aria-hidden="true"><svg viewBox="0 0 24 24">
+            <path d="M8 5.5v13l10-6.5z" />
+          </svg></span>
+        <span class="demo__stub-text">Видео-демо, 45–60 секунд</span>
+      </div>
+      <figcaption class="demo__note">В ролике используется тестовое СТС с вымышленными данными.</figcaption>
+    </figure>
+
+    <ol class="timeline">
+      <li><span class="timeline__time">0–5 с</span><span>Клиент пишет «нужны передние колодки» и прикрепляет фото
+          СТС.</span></li>
+      <li><span class="timeline__time">5–15 с</span><span>У менеджера появляется карточка: марка, модель, год,
+          VIN.</span></li>
+      <li><span class="timeline__time">15–35 с</span><span>Список деталей: оригинальный номер, аналоги, наличие и цена
+          из прайса магазина.</span></li>
+      <li><span class="timeline__time">35–50 с</span><span>Менеджер нажимает «Отправить», клиент получает
+          варианты.</span></li>
+      <li><span class="timeline__time">50–60 с</span><span>Без ручного ввода VIN. Без лишних уточнений.</span></li>
+    </ol>
+  </div>
+</section>
