@@ -22,6 +22,7 @@
   color: var(--primary);
   background: var(--primary-soft);
   border-radius: var(--radius-pill);
+  transition: color 0.25s ease, background-color 0.25s ease;
 }
 
 /* ===== Пилот ===== */
