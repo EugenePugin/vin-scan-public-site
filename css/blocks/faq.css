@@ -2,29 +2,34 @@
 .faq { display: flex; flex-direction: column; gap: 0.75rem; }
 .faq__item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
 .faq__item[open] { border-color: var(--primary-border); box-shadow: var(--shadow); }
+
+/* Плюс, который в открытом пункте складывается в минус */
 .faq__q {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.125rem 1.5rem;
+  position: relative;
+  padding: 1.125rem 3.25rem 1.125rem 1.5rem;
   font-weight: 600;
   cursor: pointer;
   list-style: none;
 }
 .faq__q::-webkit-details-marker { display: none; }
+.faq__q::before,
 .faq__q::after {
   content: "";
-  flex: none;
-  width: 10px;
-  height: 10px;
-  border: solid var(--primary);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 12px;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 2px;
+  background: var(--primary);
   transition: transform 0.2s ease;
 }
-.faq__item[open] .faq__q::after { transform: rotate(-135deg); }
+.faq__q::after { transform: rotate(90deg); }
+.faq__item[open] .faq__q::after { transform: rotate(0deg); }
 .faq__q:focus-visible { outline: 2px solid var(--primary); outline-offset: -3px; }
+
+/* Высоту панели задаёт js на время раскрытия, поэтому overflow здесь не нужен */
 .faq__a { padding: 0 1.5rem 1.25rem; color: var(--text-muted); }
 
 /* ===== FAQ layout ===== */
@@ -107,6 +112,8 @@
 }
 
 @media (max-width: 560px) {
-  .faq__q { padding: 1rem 1.125rem; }
+  .faq__q { padding: 1rem 3rem 1rem 1.125rem; }
+  .faq__q::before,
+  .faq__q::after { right: 1.125rem; }
   .faq__a { padding: 0 1.125rem 1rem; }
 }
