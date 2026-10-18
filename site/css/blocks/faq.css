@@ -1,30 +1,35 @@
 /* ===== FAQ ===== */
 .faq { display: flex; flex-direction: column; gap: 0.75rem; }
-.faq__item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); }
-.faq__item[open] { border-color: #bfd7e8; box-shadow: var(--shadow); }
+.faq__item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.faq__item.is-open { border-color: var(--primary-border); box-shadow: var(--shadow); }
+
+/* Шестерёнка из логотипа поворачивается вместе с раскрытием */
+.faq__sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .faq__q {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.125rem 1.5rem;
+  position: relative;
+  padding: 1.125rem 3.5rem 1.125rem 1.5rem;
   font-weight: 600;
   cursor: pointer;
   list-style: none;
 }
 .faq__q::-webkit-details-marker { display: none; }
-.faq__q::after {
-  content: "";
-  flex: none;
-  width: 10px;
-  height: 10px;
-  border: solid var(--primary);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
+.faq__gear {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  color: var(--primary);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
-.faq__item[open] .faq__q::after { transform: rotate(-135deg); }
+.faq__item.is-open .faq__gear {
+  color: var(--primary-hover);
+  transform: rotate(90deg);
+}
 .faq__q:focus-visible { outline: 2px solid var(--primary); outline-offset: -3px; }
+
+/* Высоту панели задаёт js на время раскрытия, поэтому overflow здесь не нужен */
 .faq__a { padding: 0 1.5rem 1.25rem; color: var(--text-muted); }
 
 /* ===== FAQ layout ===== */
@@ -44,8 +49,8 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.75rem;
-  background: #fff;
-  border: 1px solid #bfd7e8;
+  background: var(--surface);
+  border: 1px solid var(--primary-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
 }
@@ -84,7 +89,7 @@
   padding: 0.875rem 1.25rem;
   text-align: center;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-inverse);
   background: var(--primary);
   border-radius: var(--radius-md);
   text-decoration: none;
@@ -95,21 +100,19 @@
   color: var(--primary);
   text-decoration: none;
 }
-.faq-aside__link:hover { text-decoration: underline; }
-
 .faq-aside__btn:hover {
-  color: #fff; /* нужный цвет текста при наведении */
-  filter: brightness(1.08);
-  background: #075985;
+  color: var(--text-inverse);
+  background: var(--primary-hover);
 }
 
 /* Планшеты и мобильные: карточка уходит под FAQ */
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
   .faq-layout { grid-template-columns: 1fr; }
   .faq-aside { position: static; }
 }
 
-@media (max-width: 560px) {
-  .faq__q { padding: 1rem 1.125rem; }
+@media (max-width: 640px) {
+  .faq__q { padding: 1rem 3.25rem 1rem 1.125rem; }
+  .faq__gear { right: 1.125rem; }
   .faq__a { padding: 0 1.125rem 1rem; }
 }

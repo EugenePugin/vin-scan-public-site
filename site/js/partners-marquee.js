@@ -6,12 +6,15 @@
   const mq = window.matchMedia('(min-width: 1181px)');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  let active = false, raf = 0, last = 0, pos = 0, L = 0;
+  let active = false, raf = 0, last = 0, pos = 0, L = 0, speed = 0;
   let hovered = false, focused = false, dragging = false, touching = false, visible = true;
   let clones = [], cleanups = [], io = null;
 
   const paused = () =>
     hovered || focused || dragging || touching || !visible || reduceMotion.matches;
+
+  // Скорость плавно подходит к целевой, поэтому лента не встаёт рывком
+  const targetSpeed = () => (paused() ? 0 : SPEED);
 
   const on = (el, ev, fn, opt) => {
     el.addEventListener(ev, fn, opt);
@@ -29,12 +32,17 @@
     else if (sl <= 0) sl += L;
     if (sl !== list.scrollLeft) list.scrollLeft = sl;
 
-    // Пауза или пользователь сам двигает ленту (колесо, тачпад, инерция)
-    if (paused() || Math.abs(sl - pos) > 1.5) {
+    // Пользователь сам двигает ленту (колесо, тачпад, инерция) -- забираем позицию у него
+    if (Math.abs(sl - pos) > 1.5) {
       pos = sl;
+      speed = 0;
       return;
     }
-    pos += SPEED * dt;
+
+    speed += (targetSpeed() - speed) * Math.min(1, dt * 8);
+    if (speed < 0.5 && paused()) speed = 0;
+
+    pos += speed * dt;
     list.scrollLeft = pos;
   }
 
@@ -66,6 +74,7 @@
 
     list.scrollLeft = L;
     pos = L;
+    speed = 0;
 
     on(list, 'mouseenter', () => { hovered = true; });
     on(list, 'mouseleave', () => { hovered = false; });

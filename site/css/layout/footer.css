@@ -7,9 +7,9 @@
   width: min(100% - 2 * var(--gutter), var(--container));
   margin: auto auto var(--gutter, 16px); /* сверху auto прижимает подвал к низу, по бокам центрирует */
   overflow: hidden;                      /* ничего не вылезает за скругление */
-  color: rgba(255, 255, 255, 0.64);
-  background: #212123;
-  border-radius: var(--radius-lg, 24px);
+  color: var(--footer-text);
+  background: var(--footer-bg);
+  border-radius: var(--radius-lg);
   box-shadow: none;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -21,9 +21,9 @@
   hyphens: auto;
 }
 
-.footer a { color: rgba(255, 255, 255, 0.72); font-weight: 400; text-decoration: none; }
-.footer a:hover { color: #fff; }
-.footer a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 4px; }
+.footer a { color: var(--footer-link); font-weight: 400; text-decoration: none; }
+.footer a:hover { color: var(--footer-link-hover); text-decoration: none; }
+.footer a:focus-visible { outline: 2px solid var(--text-inverse); outline-offset: 3px; border-radius: 4px; }
 
 .footer__inner { padding: 4rem 2.5rem 2rem; }
 
@@ -33,19 +33,38 @@
   grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
   gap: 3rem 2.5rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-on-dark);
   align-items: start;
 }
 .footer__top > * { min-width: 0; }
 
 /* Логотип */
 .footer__logo {
-  display: inline-flex;
+  --logo-size: 48px;
+  position: relative;
+  display: inline-block;
   padding: 0.5rem 0.75rem;
-  background: #fff;
-  border-radius: 12px;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
 }
-.footer__logo img { height: 48px; width: auto; }
+.footer__logo-static {
+  display: block;
+  height: var(--logo-size);
+  width: auto;
+}
+.footer__logo-gear {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.75rem;
+  width: calc(var(--logo-size) * (244 / 252));
+  height: var(--logo-size);
+  transform-origin: 49.59% 50%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer__logo:hover .footer__logo-gear,
+.footer__logo:focus-visible .footer__logo-gear {
+  transform: rotate(90deg);
+}
 
 .footer__about { max-width: 38ch; margin: 1.25rem 0 1.5rem; }
 
@@ -79,19 +98,21 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  color: var(--text-inverse);
+  background: var(--surface-on-dark);
+  border-radius: var(--radius-sm);
   transition: background 0.2s ease, transform 0.2s ease;
 }
 .footer__social-link svg { width: 22px; height: 22px; fill: currentColor; }
-.footer .footer__social-link:hover { transform: translateY(-2px); }
+.footer .footer__social-link:hover { color: var(--text-inverse); transform: translateY(-2px); }
 .footer__social-link--vk:hover  { background: #0077ff; }
 .footer__social-link--tg:hover  { background: #229ed9; }
 .footer__social-link--max:hover { background: linear-gradient(135deg, #3c8cff, #8c3cff); }
 
 @media (prefers-reduced-motion: reduce) {
+  .footer__logo-gear,
   .footer .footer__social-link { transition: none; }
+  .footer__logo:hover .footer__logo-gear,
   .footer .footer__social-link:hover { transform: none; }
 }
 
@@ -100,7 +121,7 @@
   margin-bottom: 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--footer-text-strong);
 }
 .footer__list {
   list-style: none;
@@ -170,18 +191,16 @@
   gap: 1rem 2rem;
   padding-top: 1.5rem;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-on-dark-dim);
 }
 .footer__bottom > * { min-width: 0; }
 .footer__legal { flex: 1 1 28rem; }
 .footer__note  { flex: 0 1 48ch; }
 .footer .footer__legal p + p { margin-top: 0.25rem; }
 
-
 /* ===== Адаптив ===== */
-/* До 960px все 4 колонки стоят в одну ровную линию.
-  Перенос бренда наверх делаем только на планшетах (<= 960px) */
-@media (max-width: 960px) {
+/* До 900px бренд переезжает наверх, ссылки стоят в три колонки */
+@media (max-width: 900px) {
   .footer__inner { padding: 3.5rem 2rem 2rem; }
   .footer__top {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -192,19 +211,15 @@
   }
 }
 
-/* На небольших планшетах (<= 720px) — по 2 колонки */
-@media (max-width: 720px) {
+/* На смартфонах -- по 2 колонки и компактные отступы */
+@media (max-width: 640px) {
+  .footer { border-radius: 18px; font-size: 0.875rem; }
+  .footer__inner { padding: 2rem 1.25rem 1.5rem; }
   .footer__top {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem 1.5rem;
+    padding-bottom: 2rem;
   }
-}
-
-/* На смартфонах (<= 560px) */
-@media (max-width: 560px) {
-  .footer { border-radius: 18px; font-size: 0.875rem; }
-  .footer__inner { padding: 2rem 1.25rem 1.5rem; }
-  .footer__top { padding-bottom: 2rem; }
   .footer__partners {
     flex-direction: column;
     align-items: flex-start;
@@ -215,8 +230,8 @@
   .footer__legal, .footer__note { flex: none; }
 }
 
-/* На узких смартфонах (<= 440px) — всё строго в 1 колонку */
-@media (max-width: 440px) {
+/* На узких смартфонах -- всё строго в 1 колонку */
+@media (max-width: 480px) {
   .footer__top {
     grid-template-columns: 1fr;
   }

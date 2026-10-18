@@ -40,19 +40,20 @@
   <link rel="preload" as="image" href="/img/chat/chat-1.jpg" fetchpriority="high">
   <!-- Базовые стили подключаются перед стилями страницы -->
   <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/page_main.css">
-  <link rel="stylesheet" href="/css/chat_slider.css">
-  <link rel="stylesheet" href="/css/page_blocks.css">
-  <link rel="stylesheet" href="/css/faq.css">
-  <link rel="stylesheet" href="/css/apply.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/cookie.css">
+  <link rel="stylesheet" href="/css/layout/header.css">
+  <link rel="stylesheet" href="/css/blocks/page.css">
+  <link rel="stylesheet" href="/css/components/chat-slider.css">
+  <link rel="stylesheet" href="/css/blocks/blocks.css">
+  <link rel="stylesheet" href="/css/blocks/faq.css">
+  <link rel="stylesheet" href="/css/blocks/apply.css">
+  <link rel="stylesheet" href="/css/layout/footer.css">
+  <link rel="stylesheet" href="/css/components/cookie.css">
 
   <script src="/js/slider.js" defer></script>
   <script src="/js/header.js" defer></script>
   <script src="/js/form.js" defer></script>
   <script src="/js/partners-marquee.js" defer></script>
+  <script src="/js/faq.js" defer></script>
 
   <script src="/js/consent.js" defer></script>
   <script src="/js/metrika.js" defer></script>
@@ -113,7 +114,8 @@
     <div class="header__inner">
 
       <a href="/" class="header__logo" aria-label="Vin-Scan — на главную">
-        <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
+        <img class="header__logo-static" src="/img/logo_header.svg" alt="" width="789" height="252">
+        <img class="header__logo-gear" src="/img/logo_gear.svg" alt="" width="244" height="252" aria-hidden="true">
       </a>
 
       <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false"
@@ -146,7 +148,10 @@
       <div class="hero__content">
         <div class="hero__badge">Сервис находится в режиме закрытого тестирования</div>
 
-        <h1 class="hero__title" id="hero-title">Vin-Scan: подбор запчастей по фото СТС/ПТС</h1>
+        <h1 class="hero__title" id="hero-title">
+          <span class="visually-hidden">Vin-Scan: подбор запчастей по фото СТС/ПТС</span>
+          <img src="/img/logo_wordmark.svg" alt="" width="1015" height="171">
+        </h1>
         <p class="hero__subtitle">Интеллектуальный подбор деталей по VIN и запросам клиентов в Telegram и MAX</p>
         <p class="hero__lead">
           Клиент присылает фото свидетельства о регистрации или пишет запрос своими словами.
@@ -324,7 +329,12 @@
       <ul class="audience">
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z" /></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 4.4c4.3 0 7.8 3 7.8 6.7s-3.5 6.7-7.8 6.7c-1 0-1.9-.15-2.8-.43L5 19l1.2-3.2a6.4 6.4 0 0 1-1.9-4.7c0-3.7 3.5-6.7 7.7-6.7Z" />
+              <circle class="audience__icon-dot" cx="8.7" cy="11.1" r="0.95" />
+              <circle class="audience__icon-dot" cx="12" cy="11.1" r="0.95" />
+              <circle class="audience__icon-dot" cx="15.3" cy="11.1" r="0.95" />
+            </svg>
           </span>
           <h3 class="audience__title">Мессенджеры и каналы</h3>
           <p class="audience__text">Клиент пишет в привычный чат, а менеджер получает готовый подбор в мессенджер.</p>
@@ -332,15 +342,21 @@
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 5h16v4H4zM4 11h16v4H4zM4 17h16v2H4z" /></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 7v14" />
+              <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+            </svg>
           </span>
           <h3 class="audience__title">Каталоги и источники данных</h3>
           <p class="audience__text">Подбор опирается на электронные каталоги и свою базу запчастей. Показываем оригинальные номера и аналоги из вашего ассортимента.</p>
-          <ul class="chips"><li>Оригинальные каталоги ведущих<br> производителей автозапчастей</li><li>Ваши прайс-листы</li></ul>
+          <ul class="chips"><li>Каталоги производителей</li><li>Ваши прайс-листы</li></ul>
         </li>
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" /></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </svg>
           </span>
           <h3 class="audience__title">Интеграция с ABCP</h3>
           <p class="audience__text">Vin-Scan работает с платформой ABCP. Цены и наличие берутся из вашего аккаунта по API, поэтому клиент получает подбор с вашим ассортиментом и индивидуальной ценой.</p>
@@ -362,7 +378,10 @@
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
-              <path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6" />
+              <path d="M4 10.5V19a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8.5" />
+              <path d="M3 10.5 5 4.5h14l2 6" />
+              <path d="M3 10.5a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0" />
+              <path d="M9.5 20v-5h5v5" />
             </svg>
           </span>
           <h3 class="audience__title">Магазинам автозапчастей, использующим платформу ABCP</h3>
@@ -372,7 +391,7 @@
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
-              <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" />
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
             </svg>
           </span>
           <h3 class="audience__title">Автосервисам использующим платформу ABCP</h3>
@@ -381,7 +400,8 @@
         <li class="audience__card">
           <span class="audience__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
-              <path d="M5 12h14M13 6l6 6-6 6" />
+              <path d="M4 12h15" />
+              <path d="m13.5 6 6 6-6 6" />
             </svg>
           </span>
           <h3 class="audience__title">Планируете перейти на ABCP</h3>
@@ -505,9 +525,9 @@
     <article class="case">
       <span class="case__label">Кейс пилота</span>
       <h3 class="case__title">AutoShop82, Симферополь</h3>
-      <p><strong>Задача.</strong> 100 запросов в день в Telegram и MAX, менеджеры тратили до 15 минут на каждый подбор.</p>
-      <p><strong>Что сделали.</strong> Подключили Vin-Scan к Telegram и загрузили прайс.</p>
-      <p><strong>Результат за 1 неделю.</strong> Время ответа сократилось с 15 минут до 30 секунд, конверсия из запроса в заказ выросла на 40%.</p>
+      <p><strong>Задача:</strong> 100 запросов в день в Telegram и MAX, менеджеры тратили до 15 минут на каждый подбор.</p>
+      <p><strong>Что сделали:</strong> подключили Vin-Scan к Telegram и загрузили прайс.</p>
+      <p><strong>Результат за 1 неделю:</strong> время ответа сократилось с 15 минут до 30 секунд, конверсия из запроса в заказ выросла на 40%.</p>
 
       <blockquote class="case__quote">
         <p>«Vin-Scan быстро подбирает запчасти, ответ клиенту уходит за секунды. Мы протестировали сервис в боевых условиях, увидели рост продаж и первыми забронировали тариф "Бизнес" на полгода вперёд»</p>
@@ -566,7 +586,7 @@
 </div>
 </section>
 
-    <!-- НОВОЕ: FAQ (нативный details, без JS) -->
+    <!-- FAQ: нативный details, один открытый пункт -->
 <section class="section" id="faq" aria-labelledby="faq-title">
   <div class="section__head">
     <span class="section__eyebrow">FAQ</span>
@@ -575,28 +595,79 @@
 
   <div class="faq-layout">
       <div class="faq">
-        <details class="faq__item"><summary class="faq__q">Что если фото СТС/ПТС нечёткое или сделано под углом?</summary>
-          <p class="faq__a">Алгоритмы Vin-Scan справляются с бликами, плохим освещением и сложными ракурсами. Если же качество снимка не позволит гарантировать точность, Vin-Scan попросит клиента прислать повторное фото или написать VIN-код вручную.</p></details>
-        <details class="faq__item"><summary class="faq__q">Можно ли подобрать деталь без СТС/ПТС?</summary>
-          <p class="faq__a">Да. Клиент может просто прислать VIN текстом или описать автомобиль своими словами: например, «Солярис 2017, 1.6».</p></details>
-        <details class="faq__item"><summary class="faq__q">Подбор полностью автоматический?</summary>
-          <p class="faq__a">Нет, и это осознанное решение для защиты от возвратов. Vin-Scan берёт на себя рутину: мгновенно определяет автомобиль и предлагает подходящие детали. Менеджер лишь проверяет выбранный клиентом вариант и оформляет заказ.</p></details>
-        <details class="faq__item"><summary class="faq__q">Какие марки поддерживаются?</summary>
-          <p class="faq__a">Абсолютное большинство марок, представленных ведущими российскими поставщиками автозапчастей.</p></details>
-        <details class="faq__item"><summary class="faq__q">Показывает ли сервис мои цены и наличие?</summary>
-          <p class="faq__a">Да. При интеграции с вашим аккаунтом ABCP клиент видит актуальные данные по наличию и ценам от ваших поставщиков с вашей информацией по ценам деталей.</p></details>
-        <details class="faq__item"><summary class="faq__q">Нужно ли менять мессенджер?</summary>
-          <p class="faq__a">Нет. Vin-Scan подключается к Telegram и MAX, которые вы уже используете.</p></details>
-        <details class="faq__item"><summary class="faq__q">Сколько времени занимает подключение?</summary>
-          <p class="faq__a">Всего 1 рабочий день. Мы поможем быстро подключить чат-бот к вашему сайту, чтобы вы сразу могли начать тест.</p></details>
-        <details class="faq__item"><summary class="faq__q">Безопасно ли присылать фото документов?</summary>
-          <p class="faq__a">Да. Мы используем только данные автомобиля и храним их в России по 152-ФЗ. <br>Подробности в нашей <a href="/privacy">политике конфиденциальности</a>.</p></details>
-        <details class="faq__item"><summary class="faq__q">Что будет после пилота?</summary>
-          <p class="faq__a">Вы решаете, продолжать или нет. Обязательств нет.</p></details>
-        <details class="faq__item"><summary class="faq__q">Если клиент прислал СТС и просит колодки, а через 5 минут в этом же диалоге просит ещё и диски — это 1 подбор или 2?</summary>
-          <p class="faq__a">Это один подбор. Подбор считается по автомобилю: пока клиент общается с ботом в одном диалоге и речь идёт о том же автомобиле из СТС, дополнительные запчасти (например, диски после колодок) входят в тот же подбор. Если клиент пришлёт СТС другого автомобиля, это будет новый подбор.</p></details>
-        <details class="faq__item"><summary class="faq__q">Считается ли подбором запрос, если бот не смог прочитать СТС?</summary>
-          <p class="faq__a">Нет. Подбором считается только запрос, по которому бот распознал данные автомобиля и выдал результат. Если СТС не удалось прочитать (плохое фото, блики, обрезанный документ), запрос не тарифицируется. Клиент может отправить фото ещё раз или ввести VIN вручную.</p></details>
+        <svg class="faq__sprite" aria-hidden="true" focusable="false">
+          <symbol id="faq-gear" viewBox="10 10 232 232">
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M111.025 14.624C121.008 13.792 130.576 13.792 139.727 14.624C143.055 14.624 145.134 16.7039 145.967 20.8635L149.71 37.0864C156.365 39.5822 163.022 42.91 169.677 47.0697L188.396 37.0864C190.891 35.4225 193.387 35.8385 195.883 38.3343L212.106 55.805C215.434 58.3009 215.85 61.2126 213.354 64.5404L204.618 80.7633C207.114 87.4187 210.026 94.0743 213.354 100.73L230.824 104.474C234.153 105.306 235.816 107.385 235.816 110.713V139.415C235.816 143.574 234.153 146.07 230.824 146.903L213.354 150.646C210.858 157.301 207.947 163.958 204.618 170.613L214.602 186.836C216.265 190.164 215.434 193.075 212.106 195.571L194.635 213.042C192.139 215.538 189.643 215.953 187.148 214.29L169.677 204.306C163.022 207.635 156.365 210.962 149.71 214.29L144.719 233.008C143.886 236.337 141.807 238 138.479 238H112.273C108.945 238 106.866 236.337 106.033 233.008L102.29 215.538C94.8022 213.042 88.1467 210.13 82.3231 206.802L63.6044 216.786C61.1086 218.449 58.1969 217.618 54.8691 214.29L38.6462 196.819C36.1504 194.323 35.7345 191.827 37.3983 189.331L47.3816 171.861C43.2219 165.206 39.8941 158.134 37.3983 150.646L19.9276 146.903C17.4317 146.07 16.1838 143.991 16.1838 140.663V110.713C16.1838 108.217 17.8477 106.554 21.1755 105.721L37.3983 101.978C40.7261 94.4903 43.6379 87.8348 46.1337 82.0112L37.3983 65.7883C35.7345 62.4605 36.1504 59.5488 38.6462 57.0529L56.117 38.3343C58.6128 35.8385 61.1086 35.4225 63.6044 37.0864L81.0752 47.0697C87.7307 43.7419 94.3863 40.8301 101.042 38.3343L106.033 19.6156C106.866 16.2878 108.529 14.624 111.025 14.624ZM200.875 126.936C200.875 107.078 192.987 88.0333 178.944 73.9916C164.902 59.9499 145.858 52.0613 126 52.0613C106.142 52.0613 87.0974 59.9499 73.0556 73.9916C59.0139 88.0333 51.1253 107.078 51.1253 126.936C51.1253 146.794 59.0139 165.838 73.0556 179.88C87.0974 193.923 106.142 201.811 126 201.811C145.858 201.811 164.902 193.923 178.944 179.88C192.987 165.838 200.875 146.794 200.875 126.936Z" />
+            <path fill="currentColor" d="M126 164.373C146.677 164.373 163.437 147.613 163.437 126.936C163.437 106.259 146.677 89.4986 126 89.4986C105.323 89.4986 88.5626 106.259 88.5626 126.936C88.5626 147.613 105.323 164.373 126 164.373Z" />
+            <path fill="none" stroke="currentColor" stroke-width="9.98328" d="M111.025 62.0446C99.3821 64.8067 88.7061 70.676 80.1353 79.0269C71.5646 87.3778 65.4202 97.8971 62.3566 109.465M145.967 63.2925C151.255 65.1439 156.287 67.6599 160.942 70.78M183.404 95.7382C186.728 101.17 189.25 107.055 190.891 113.209M190.891 140.663C188.332 152.536 182.553 163.474 174.188 172.278C165.823 181.083 155.196 187.415 143.471 190.579M106.033 190.579C100.745 188.727 95.7128 186.212 91.0585 183.092M69.844 163.125C65.8482 156.998 62.8963 150.252 61.1086 143.159" />
+          </symbol>
+        </svg>
+        <details class="faq__item">
+          <summary class="faq__q">Что если фото СТС/ПТС нечёткое или сделано под углом?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Алгоритмы Vin-Scan справляются с бликами, плохим освещением и сложными ракурсами. Если же качество снимка не позволит гарантировать точность, Vin-Scan попросит клиента прислать повторное фото или написать VIN-код вручную.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Можно ли подобрать деталь без СТС/ПТС?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Да. Клиент может просто прислать VIN текстом или описать автомобиль своими словами: например, «Солярис 2017, 1.6».</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Подбор полностью автоматический?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Нет, и это осознанное решение для защиты от возвратов. Vin-Scan берёт на себя рутину: мгновенно определяет автомобиль и предлагает подходящие детали. Менеджер лишь проверяет выбранный клиентом вариант и оформляет заказ.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Какие марки поддерживаются?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Абсолютное большинство марок, представленных ведущими российскими поставщиками автозапчастей.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Показывает ли сервис мои цены и наличие?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Да. При интеграции с вашим аккаунтом ABCP клиент видит актуальные данные по наличию и ценам от ваших поставщиков с вашей информацией по ценам деталей.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Нужно ли менять мессенджер?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Нет. Vin-Scan подключается к Telegram и MAX, которые вы уже используете.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Сколько времени занимает подключение?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Всего 1 рабочий день. Мы поможем быстро подключить чат-бот к вашему сайту, чтобы вы сразу могли начать тест.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Безопасно ли присылать фото документов?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Да. Мы используем только данные автомобиля и храним их в России по 152-ФЗ. <br>Подробности в нашей <a href="/privacy">политике конфиденциальности</a>.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Что будет после пилота?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Вы решаете, продолжать или нет. Обязательств нет.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Если клиент прислал СТС и просит колодки, а через 5 минут в этом же диалоге просит ещё и диски — это 1 подбор или 2?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Это один подбор. Подбор считается по автомобилю: пока клиент общается с ботом в одном диалоге и речь идёт о том же автомобиле из СТС, дополнительные запчасти (например, диски после колодок) входят в тот же подбор. Если клиент пришлёт СТС другого автомобиля, это будет новый подбор.</p>
+          </div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Считается ли подбором запрос, если бот не смог прочитать СТС?<svg class="faq__gear" aria-hidden="true" focusable="false"><use href="#faq-gear"></use></svg></summary>
+          <div class="faq__panel">
+            <p class="faq__a">Нет. Подбором считается только запрос, по которому бот распознал данные автомобиля и выдал результат. Если СТС не удалось прочитать (плохое фото, блики, обрезанный документ), запрос не тарифицируется. Клиент может отправить фото ещё раз или ввести VIN вручную.</p>
+          </div>
+        </details>
       </div>
 
     <aside class="faq-aside" aria-label="Связаться с нами">
@@ -689,7 +760,7 @@
       <div id="channel-other-wrap" class="other-wrap" hidden>
         <label for="channel-other-text" class="visually-hidden">Укажите, где ещё вы общаетесь с клиентами</label>
         <input type="text" id="channel-other-text" name="channel_other"
-              maxlength="150" placeholder="Например: Онлайн чат на сайте" autocomplete="off">
+              maxlength="150" placeholder="Например: онлайн чат на сайте" autocomplete="off">
       </div>
     </fieldset>
 
@@ -715,7 +786,8 @@
 
         <div class="footer__brand">
           <a href="/" class="footer__logo" aria-label="Vin-Scan — на главную">
-            <img src="/img/logo_full.svg" alt="Vin-Scan" width="160" height="48">
+            <img class="footer__logo-static" src="/img/logo_header.svg" alt="Vin-Scan" width="789" height="252">
+            <img class="footer__logo-gear" src="/img/logo_gear.svg" alt="" width="244" height="252" aria-hidden="true">
           </a>
           <p class="footer__about">Интеллектуальный подбор деталей по фото СТС/ПТС и запросам клиентов.</p>
 
@@ -772,9 +844,9 @@
 <div class="footer__partners">
   <span class="footer__partners-title">Технологические партнёры:</span>
   <ul class="footer__partners-list">
-    <li><a href="https://cloud.yandex.ru" target="_blank" rel="noopener">Yandex Cloud</a></li>
+    <li><a href="https://yandex.cloud" target="_blank" rel="noopener">Yandex Cloud</a></li>
     <li><a href="https://abcp.ru" target="_blank" rel="noopener">ABCP</a></li>
-    <li><a href="https://goodvin.net" target="_blank" rel="noopener">Goodvin</a></li>
+    <li><a href="https://www.goodvin.net" target="_blank" rel="noopener">Goodvin</a></li>
   </ul>
 </div>
 

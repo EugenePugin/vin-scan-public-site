@@ -39,9 +39,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_S3_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "ru-central1"
         run: |
-          aws --endpoint-url=https://storage.yandexcloud.net s3 sync . s3://vin-scan.ru/ \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "*.md" \
+          aws --endpoint-url=https://storage.yandexcloud.net s3 sync site s3://vin-scan.ru/ \
             --cache-control "no-cache, must-revalidate" \
             --delete

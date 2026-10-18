@@ -70,22 +70,25 @@
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--warm-ink, #8a5a2b);
-  background: var(--warm-surface, #fbf1e4);
-  border: 1px solid var(--warm-border, #ecd9c2);
-  border-radius: 9999px;
+  color: var(--warm-ink);
+  background: var(--warm-surface);
+  border: 1px solid var(--warm-border);
+  border-radius: var(--radius-pill);
 }
 
+/* Заголовок собран из контуров логотипа, размер задаётся картинке */
 .hero__title {
   margin-bottom: 1rem;
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
-  font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.03em;
+}
+
+.hero__title img {
+  width: auto;
+  height: clamp(2.75rem, 5.5vw, 4.25rem);
 }
 
 .hero__subtitle {
-  max-width: 34ch;
+  max-width: 48ch;
   margin-bottom: 1rem;
   font-size: clamp(1.125rem, 1.6vw, 1.375rem);
   font-weight: 500;
@@ -93,7 +96,7 @@
 }
 
 .hero__lead {
-  max-width: 62ch;
+  max-width: 72ch;
   margin-bottom: 1.75rem;
   color: var(--text-muted);
 }
@@ -122,7 +125,7 @@
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 50%;
-  background: var(--primary-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.2 2.2 4.8-4.8' fill='none' stroke='%230369a1' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+  background: var(--primary-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.2 2.2 4.8-4.8' fill='none' stroke='%2307689a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
 }
 
 .hero__contact {
@@ -184,12 +187,12 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 .audience__card:hover {
-  border-color: #bfd7e8;
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
@@ -204,6 +207,7 @@
   color: var(--primary);
   background: var(--primary-soft);
   border-radius: 14px;
+  transition: color 0.25s ease, background-color 0.25s ease;
 }
 .audience__icon svg {
   width: 26px;
@@ -214,9 +218,21 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.audience__icon-dot { fill: currentColor; stroke: none; }
+
+/* Наведение на карточку: инвертируются только значок и чипсы */
+.audience__card:hover .audience__icon {
+  color: var(--primary-soft);
+  background: var(--primary);
+}
 
 .audience__title { margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 700; }
 .audience__text { flex: 1; margin-bottom: 1.25rem; color: var(--text-muted); }
+
+.audience__card:hover .chips li {
+  color: var(--primary-soft);
+  background: var(--primary);
+}
 
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
@@ -229,7 +245,7 @@
   .audience { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   /* На телефоне элементы интерфейса компактнее, запас по высоте меньше */
   .hero {
     --slider-w: clamp(240px, calc((100vh - 200px) * var(--photo-ratio)), 568px);
@@ -242,7 +258,7 @@
 
   /* остальные правила 560px без изменений */
   .page_main { gap: 1.25rem; padding-bottom: 2.5rem; }
-  .section { padding: 2rem 1.25rem; border-radius: 18px; }
+  .section { padding: 2rem 1.25rem; }
   .hero__features { grid-template-columns: 1fr; }
   .hero__actions .btn { width: 100%; }
   .steps { grid-template-columns: 1fr; }
