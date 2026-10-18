@@ -190,11 +190,9 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 .audience__card:hover {
-  background: var(--primary);
-  border-color: var(--primary);
   box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
@@ -222,31 +220,16 @@
 }
 .audience__icon-dot { fill: currentColor; stroke: none; }
 
-/* Наведение на карточку: тёмная подложка, светлый значок и текст */
+/* Наведение на карточку: инвертируются только значок и чипсы */
 .audience__card:hover .audience__icon {
-  color: var(--primary);
-  background: var(--surface);
-}
-
-.audience__title { margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 700; transition: color 0.25s ease; }
-.audience__text { flex: 1; margin-bottom: 1.25rem; color: var(--text-muted); transition: color 0.25s ease; }
-
-.audience__card:hover .audience__title { color: var(--text-inverse); }
-.audience__card:hover .audience__text { color: var(--text-on-dark-muted); }
-.audience__card:hover .chips li { color: var(--text-inverse); background: var(--surface-on-dark); }
-
-/* Интеграции: подсвечиваются только значок и чипсы, карточка остаётся светлой */
-.audience--integrations .audience__card:hover {
-  background: var(--surface);
-  border-color: var(--border);
-}
-.audience--integrations .audience__card:hover .audience__icon {
   color: var(--primary-soft);
   background: var(--primary);
 }
-.audience--integrations .audience__card:hover .audience__title { color: var(--text); }
-.audience--integrations .audience__card:hover .audience__text { color: var(--text-muted); }
-.audience--integrations .audience__card:hover .chips li {
+
+.audience__title { margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 700; }
+.audience__text { flex: 1; margin-bottom: 1.25rem; color: var(--text-muted); }
+
+.audience__card:hover .chips li {
   color: var(--primary-soft);
   background: var(--primary);
 }

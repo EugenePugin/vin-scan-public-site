@@ -14,11 +14,12 @@
 .stats .steps__text { color: var(--text); }
 
 /* ===== Интеграции: чипсы ===== */
-.chips { list-style: none; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.5rem; margin-top: auto; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
 .chips li {
   padding: 0.25rem 0.75rem;
   font-size: 0.8125rem;
   font-weight: 600;
+  white-space: nowrap;
   color: var(--primary);
   background: var(--primary-soft);
   border-radius: var(--radius-pill);
