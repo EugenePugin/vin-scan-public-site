@@ -63,7 +63,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.25rem;
-  margin-bottom: 1.5rem; /* отступ, который раньше был у .footer__contacts */
+  margin-bottom: 1.5rem;
 }
 .footer__reach .footer__contacts {
   margin-bottom: 0;
@@ -71,7 +71,7 @@
 }
 
 /* Мессенджеры */
-.footer__social { list-style: none; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.footer__social { list-style: none; display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0; padding: 0; }
 
 .footer .footer__social-link {
   display: inline-flex;
@@ -107,16 +107,68 @@
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
+  margin: 0;
+  padding: 0;
 }
 
-/* Нижняя строка */
+/* Партнёры */
+.footer__partners {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem 1.5rem;
+  padding: 1.75rem 0 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06); /* тонкий деликатный разделитель перед реквизитами */
+}
+
+.footer__partners-title,
+.footer__partners-label {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.02em;
+}
+
+.footer__partners-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.footer .footer__partners-list a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer .footer__partners-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Точки-разделители между элементами (работает и для li, и для a) */
+.footer__partners-list li + li::before,
+.footer__partners-dot {
+  content: "·";
+  margin-right: 1rem;
+  color: rgba(255, 255, 255, 0.22);
+  user-select: none;
+}
+
+/* Нижняя строка (юридические данные) */
 .footer__bottom {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem 2rem;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -125,34 +177,6 @@
 .footer__note  { flex: 0 1 48ch; }
 .footer .footer__legal p + p { margin-top: 0.25rem; }
 
-/* Партнёры */
-.footer__partners {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 2rem;
-  padding: 2rem 0 0;
-}
-.footer__partners-title {
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-.footer__partners-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.75rem;
-}
-.footer .footer__partners-list a {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
-}
-.footer .footer__partners-list a:hover { color: #fff; }
-
-@media (max-width: 560px) {
-  .footer__partners { flex-direction: column; align-items: flex-start; padding-top: 1.5rem; }
-}
 
 /* ===== Адаптив ===== */
 /* До 960px все 4 колонки стоят в одну ровную линию.
@@ -181,7 +205,13 @@
   .footer { border-radius: 18px; font-size: 0.875rem; }
   .footer__inner { padding: 2rem 1.25rem 1.5rem; }
   .footer__top { padding-bottom: 2rem; }
-  .footer__bottom { flex-direction: column; padding-top: 1.5rem; }
+  .footer__partners {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.25rem 0 1rem;
+  }
+  .footer__bottom { flex-direction: column; padding-top: 1.25rem; }
   .footer__legal, .footer__note { flex: none; }
 }
 
