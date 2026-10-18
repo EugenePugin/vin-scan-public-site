@@ -12,7 +12,8 @@
 .apply__title { margin-bottom: 0.75rem; font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800; line-height: 1.2; }
 .apply__text { margin-bottom: 1.5rem; color: var(--text-on-dark-muted); }
 .apply__alt { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
-.apply .apply__mail { color: var(--text-inverse); text-decoration: underline; }
+.apply .apply__mail { color: var(--text-on-dark-muted); text-decoration: underline; text-underline-offset: 0.18em; }
+.apply .apply__mail:hover { color: var(--text-inverse); }
 
 .form { padding: 2rem; color: var(--text); background: var(--surface); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); }
 .form__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }

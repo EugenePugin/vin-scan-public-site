@@ -95,8 +95,6 @@
   color: var(--primary);
   text-decoration: none;
 }
-.faq-aside__link:hover { text-decoration: underline; }
-
 .faq-aside__btn:hover {
   color: var(--text-inverse);
   filter: brightness(1.08);
