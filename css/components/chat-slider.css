@@ -172,7 +172,7 @@
 
 .chat-slider.is-single .chat-slider__controls { display: none; }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   .chat-slider__window { border-radius: 16px; }
   .chat-slider__bar { padding: 0.625rem 0.875rem; font-size: 0.8125rem; }
   .chat-slider__caption { padding: 0.75rem 1rem; font-size: 0.875rem; }

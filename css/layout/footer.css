@@ -9,7 +9,7 @@
   overflow: hidden;                      /* ничего не вылезает за скругление */
   color: var(--footer-text);
   background: var(--footer-bg);
-  border-radius: var(--radius-lg, 24px);
+  border-radius: var(--radius-lg);
   box-shadow: none;
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -147,14 +147,9 @@
   font-size: 0.9375rem;
   font-weight: 500;
 }
-@media (max-width: 560px) {
-  .footer__partners { flex-direction: column; align-items: flex-start; padding-top: 1.5rem; }
-}
-
 /* ===== Адаптив ===== */
-/* До 960px все 4 колонки стоят в одну ровную линию.
-  Перенос бренда наверх делаем только на планшетах (<= 960px) */
-@media (max-width: 960px) {
+/* До 900px бренд переезжает наверх, ссылки стоят в три колонки */
+@media (max-width: 900px) {
   .footer__inner { padding: 3.5rem 2rem 2rem; }
   .footer__top {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -165,25 +160,22 @@
   }
 }
 
-/* На небольших планшетах (<= 720px) — по 2 колонки */
-@media (max-width: 720px) {
+/* На смартфонах -- по 2 колонки и компактные отступы */
+@media (max-width: 640px) {
+  .footer { font-size: 0.875rem; }
+  .footer__inner { padding: 2rem 1.25rem 1.5rem; }
   .footer__top {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem 1.5rem;
+    padding-bottom: 2rem;
   }
-}
-
-/* На смартфонах (<= 560px) */
-@media (max-width: 560px) {
-  .footer { border-radius: 18px; font-size: 0.875rem; }
-  .footer__inner { padding: 2rem 1.25rem 1.5rem; }
-  .footer__top { padding-bottom: 2rem; }
   .footer__bottom { flex-direction: column; padding-top: 1.5rem; }
   .footer__legal, .footer__note { flex: none; }
+  .footer__partners { flex-direction: column; align-items: flex-start; padding-top: 1.5rem; }
 }
 
-/* На узких смартфонах (<= 440px) — всё строго в 1 колонку */
-@media (max-width: 440px) {
+/* На узких смартфонах -- всё строго в 1 колонку */
+@media (max-width: 480px) {
   .footer__top {
     grid-template-columns: 1fr;
   }

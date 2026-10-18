@@ -134,14 +134,14 @@
   .header__actions .btn { width: 100%; }
 }
 
-@media (max-width: 560px) {
-  .header { --header-radius: 18px; margin-bottom: 1.25rem; }
+@media (max-width: 640px) {
+  .header { margin-bottom: 1.25rem; }
   .header__inner { gap: 0.75rem; padding: 0.75rem 1rem; min-height: 64px; }
   .header__logo img { height: 32px; }
   .header__burger { width: 40px; height: 40px; margin-left: auto; padding: 0 9px; }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .header__inner { gap: 0.5rem; padding: 0.75rem; }
   .header__logo img { height: 28px; }
 }

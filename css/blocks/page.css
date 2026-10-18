@@ -232,7 +232,7 @@
   .audience { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   /* На телефоне элементы интерфейса компактнее, запас по высоте меньше */
   .hero {
     --slider-w: clamp(240px, calc((100vh - 200px) * var(--photo-ratio)), 568px);
@@ -245,7 +245,7 @@
 
   /* остальные правила 560px без изменений */
   .page_main { gap: 1.25rem; padding-bottom: 2.5rem; }
-  .section { padding: 2rem 1.25rem; border-radius: 18px; }
+  .section { padding: 2rem 1.25rem; }
   .hero__features { grid-template-columns: 1fr; }
   .hero__actions .btn { width: 100%; }
   .steps { grid-template-columns: 1fr; }

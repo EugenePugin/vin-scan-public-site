@@ -67,8 +67,12 @@
   --gutter: 1.5rem;      /* отступ от краёв экрана */
 }
 
-@media (max-width: 560px) {
-  :root { --gutter: 0.75rem; }
+/* Брейкпоинты: 1180 -- планшет, 900 -- узкий планшет, 640 -- смартфон, 480 -- узкий смартфон */
+@media (max-width: 640px) {
+  :root {
+    --gutter: 0.75rem;
+    --radius-lg: 18px;
+  }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -87,7 +91,7 @@ body {
 /* Якорные ссылки не прячут заголовок под липкой шапкой */
 html { background-color: var(--bg); scroll-padding-top: 7.5rem; scroll-behavior: smooth; }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   html { scroll-padding-top: 5rem; }
 }
 

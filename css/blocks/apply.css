@@ -104,8 +104,8 @@
   .apply { grid-template-columns: minmax(0, 1fr); padding: 2.5rem; gap: 2rem; }
 }
 
-@media (max-width: 560px) {
-  .apply { padding: 2rem 1.25rem; border-radius: 18px; }
+@media (max-width: 640px) {
+  .apply { padding: 2rem 1.25rem; }
   .apply__alt .btn { width: 100%; }
   .form { padding: 1.25rem; }
   .form__row { grid-template-columns: 1fr; }
