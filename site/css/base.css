@@ -105,6 +105,8 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 
+.nowrap { white-space: nowrap; }
+
 /* Ссылка в тексте: темнеет и подчёркивается при наведении */
 a {
   color: var(--primary);
