@@ -79,7 +79,7 @@
 
 /* ===== О нас ===== */
 .about { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; align-items: start; }
-.about__story { margin-bottom: 1.5rem; color: var(--text-muted); }
+.about__story { margin-bottom: 1.5rem; color: var(--text); }
 .subtitle { margin: 2rem 0 1rem; font-size: 1.125rem; font-weight: 700; }
 /* ===== С нами тестируют: на всю ширину ===== */
 .partners-block { margin-top: 3rem; }
