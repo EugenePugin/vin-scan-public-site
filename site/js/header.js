@@ -1,5 +1,13 @@
 // Добавляет шапке класс is-stuck, когда она прилипла к верху экрана
 (() => {
+  // Отключаем автоматическое восстановление скролла браузером при обновлении страницы
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+
   const header = document.querySelector('.header');
   if (!header) return;
 

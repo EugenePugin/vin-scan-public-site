@@ -106,7 +106,7 @@
 }
 
 /* Планшеты и мобильные: карточка уходит под FAQ */
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
   .faq-layout { grid-template-columns: 1fr; }
   .faq-aside { position: static; }
 }
