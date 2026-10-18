@@ -10,10 +10,10 @@
   position: absolute;
   inset: 4% 0 0 4%;
   z-index: 0;
-  /* --brand-600 и --brand-300 с прозрачностью: в rgba() var() не подставить */
+  /* --brand-600 и --brand-400 с прозрачностью: в rgba() var() не подставить */
   background:
     radial-gradient(circle at 25% 30%, rgba(7, 104, 154, 0.18), transparent 60%),
-    radial-gradient(circle at 80% 75%, rgba(90, 193, 254, 0.16), transparent 55%);
+    radial-gradient(circle at 80% 75%, rgba(28, 130, 184, 0.16), transparent 55%);
   filter: blur(12px);
   pointer-events: none;
 }

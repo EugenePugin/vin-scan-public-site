@@ -235,6 +235,22 @@
 .audience__card:hover .audience__text { color: var(--text-on-dark-muted); }
 .audience__card:hover .chips li { color: var(--text-inverse); background: var(--surface-on-dark); }
 
+/* Интеграции: подсвечиваются только значок и чипсы, карточка остаётся светлой */
+.audience--integrations .audience__card:hover {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.audience--integrations .audience__card:hover .audience__icon {
+  color: var(--primary-soft);
+  background: var(--primary);
+}
+.audience--integrations .audience__card:hover .audience__title { color: var(--text); }
+.audience--integrations .audience__card:hover .audience__text { color: var(--text-muted); }
+.audience--integrations .audience__card:hover .chips li {
+  color: var(--primary-soft);
+  background: var(--primary);
+}
+
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
   .section { padding: 2.5rem; }
