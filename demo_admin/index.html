@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">     
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Главная — Vin-Scan</title>
+<link rel="stylesheet" href="kss/base.css">
+<link rel="stylesheet" href="kss/admin.css">
+<link rel="stylesheet" href="kss/components.css">
+<link rel="stylesheet" href="kss/home.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Набор иконок (подключаются через use) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7"/></symbol><symbol id="i-widgets" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17.2v.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol><symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20.5 8H6.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol><symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol></svg>
+
+<!-- ===== Левая панель ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar__brand">
+<!-- Логотип: вставьте свой img внутрь ссылки ниже, например -->
+     <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan">
+<a class="logo" href="index.html" aria-label="Vin-Scan, на главную"></a>
+</div>
+
+<nav class="side-nav" aria-label="Разделы админ-панели">
+<p class="side-nav__caption">Разделы</p>
+<ul class="side-nav__list">
+<li>
+<a class="side-nav__link" href="index.html" aria-current="page">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+<span>Главная</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="stats.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+<span>Статистика использования</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="widgets.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-widgets"/></svg></span>
+<span>Управление веб-виджетами</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="dialogs.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span>
+<span>История диалогов</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="clients.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+<span>Клиенты</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- ===== Правая часть ===== -->
+<div class="admin-main">
+<header class="topbar">
+<button class="topbar__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+<svg class="icon"><use href="#i-menu"/></svg>
+</button>
+
+<p class="topbar__crumb">Панель администратора</p>
+
+<div class="topbar__actions">
+<a class="topbar__pill topbar__pill--help" href="/help">
+<svg class="icon"><use href="#i-help"/></svg>
+<span class="topbar__label">Помощь</span>
+</a>
+
+<a class="topbar__pill topbar__pill--balance" href="/balance" aria-label="Баланс: 0 рублей">
+<svg class="icon"><use href="#i-wallet"/></svg>
+<span><strong>0</strong> ₽</span>
+</a>
+
+<div class="user-menu">
+<button class="user-menu__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+<span class="user-menu__avatar" aria-hidden="true">А</span>
+<span class="user-menu__name topbar__label">Кабинет</span>
+<svg class="icon user-menu__chevron"><use href="#i-chevron"/></svg>
+</button>
+
+<div class="user-menu__panel" id="user-menu" hidden>
+<div class="user-menu__head">
+<span class="user-menu__avatar user-menu__avatar--lg" aria-hidden="true">А</span>
+<div>
+<p class="user-menu__title">Администратор</p>
+<p class="user-menu__mail">admin@vin-scan.ru</p>
+</div>
+</div>
+<ul class="user-menu__list">
+<li><a href="/profile"><svg class="icon"><use href="#i-user"/></svg>Мой профиль</a></li>
+<li><a href="/account"><svg class="icon"><use href="#i-cabinet"/></svg>Личный кабинет</a></li>
+</ul>
+<div class="user-menu__foot">
+<a class="user-menu__logout" href="/logout"><svg class="icon"><use href="#i-logout"/></svg>Выход</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main id="main" class="page">
+<section class="head-card" aria-labelledby="home-title">
+<div><h1 id="home-title" class="head-card__title">Главная</h1>
+<p class="head-card__text">Сводка по использованию веб-виджета: сколько посетителей увидели чат на Вашем сайте и сколько из них действительно написали сообщение. Подробные показатели собраны в разделе <a href="stats.html">«Статистика использования»</a>.</p></div>
+<div class="head-card__actions"><div class="seg" role="group" aria-label="Период"><button class="seg__btn" type="button" aria-pressed="false">7 дней</button><button class="seg__btn" type="button" aria-pressed="true">30 дней</button><button class="seg__btn" type="button" aria-pressed="false">90 дней</button></div></div>
+</section>
+<section class="kpis" aria-label="Ключевые показатели за 30 дней">
+<div class="kpi "><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg></span><div><p class="kpi__value">764</p><p class="kpi__label">Просмотры виджета</p><p class="kpi__delta">+18% к прошлому периоду</p></div></div>
+<div class="kpi "><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg></span><div><p class="kpi__value">251</p><p class="kpi__label">Написали в чат</p><p class="kpi__delta">33% от просмотров</p></div></div>
+<div class="kpi kpi--ok"><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><p class="kpi__value">312</p><p class="kpi__label">Диалогов завершено</p><p class="kpi__delta">+9% к прошлому периоду</p></div></div>
+<div class="kpi kpi--warn"><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg></span><div><p class="kpi__value">41</p><p class="kpi__label">Заказов из чата</p><p class="kpi__delta">+5 к прошлому периоду</p></div></div>
+</section>
+<div class="home-grid">
+<section class="card" aria-labelledby="chart-title">
+<div class="card__head"><h2 id="chart-title" class="card__title">Использование виджета</h2>
+<ul class="legend"><li class="legend__item"><span class="legend__mark" style="--c:var(--primary)"></span>Просмотры</li><li class="legend__item"><span class="legend__mark" style="--c:var(--chart-orange)"></span>Использование (написали в чат)</li></ul></div>
+<svg class="chart" viewBox="0 0 640 360" role="img" aria-labelledby="chart-t chart-d">
+<title id="chart-t">Просмотры и использование виджета за 30 дней</title>
+<desc id="chart-d">Две линии по дням: сколько раз открыли страницу с виджетом и сколько посетителей написали в чат. Всего просмотров 764, написали в чат 251.</desc>
+<defs><linearGradient id="area-views" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07689a" stop-opacity="0.2"/><stop offset="1" stop-color="#07689a" stop-opacity="0"/></linearGradient></defs>
+<line class="chart__grid" x1="46" x2="626" y1="288.0" y2="288.0"/><text class="chart__tick" x="38" y="292.0" text-anchor="end">0</text><line class="chart__grid" x1="46" x2="626" y1="233.2" y2="233.2"/><text class="chart__tick" x="38" y="237.2" text-anchor="end">14</text><line class="chart__grid" x1="46" x2="626" y1="178.4" y2="178.4"/><text class="chart__tick" x="38" y="182.4" text-anchor="end">28</text><line class="chart__grid" x1="46" x2="626" y1="123.6" y2="123.6"/><text class="chart__tick" x="38" y="127.6" text-anchor="end">42</text><line class="chart__grid" x1="46" x2="626" y1="68.8" y2="68.8"/><text class="chart__tick" x="38" y="72.8" text-anchor="end">56</text><line class="chart__grid" x1="46" x2="626" y1="14.0" y2="14.0"/><text class="chart__tick" x="38" y="18.0" text-anchor="end">70</text><text class="chart__tick" transform="rotate(-45 46.0 304)" x="46.0" y="304" text-anchor="end">20.09.2026</text><text class="chart__tick" transform="rotate(-45 86.0 304)" x="86.0" y="304" text-anchor="end">22.09.2026</text><text class="chart__tick" transform="rotate(-45 126.0 304)" x="126.0" y="304" text-anchor="end">24.09.2026</text><text class="chart__tick" transform="rotate(-45 166.0 304)" x="166.0" y="304" text-anchor="end">26.09.2026</text><text class="chart__tick" transform="rotate(-45 206.0 304)" x="206.0" y="304" text-anchor="end">28.09.2026</text><text class="chart__tick" transform="rotate(-45 246.0 304)" x="246.0" y="304" text-anchor="end">30.09.2026</text><text class="chart__tick" transform="rotate(-45 286.0 304)" x="286.0" y="304" text-anchor="end">02.10.2026</text><text class="chart__tick" transform="rotate(-45 326.0 304)" x="326.0" y="304" text-anchor="end">04.10.2026</text><text class="chart__tick" transform="rotate(-45 366.0 304)" x="366.0" y="304" text-anchor="end">06.10.2026</text><text class="chart__tick" transform="rotate(-45 406.0 304)" x="406.0" y="304" text-anchor="end">08.10.2026</text><text class="chart__tick" transform="rotate(-45 446.0 304)" x="446.0" y="304" text-anchor="end">10.10.2026</text><text class="chart__tick" transform="rotate(-45 486.0 304)" x="486.0" y="304" text-anchor="end">12.10.2026</text><text class="chart__tick" transform="rotate(-45 526.0 304)" x="526.0" y="304" text-anchor="end">14.10.2026</text><text class="chart__tick" transform="rotate(-45 566.0 304)" x="566.0" y="304" text-anchor="end">16.10.2026</text><text class="chart__tick" transform="rotate(-45 606.0 304)" x="606.0" y="304" text-anchor="end">18.10.2026</text><path class="chart__area" d="M46.0 233.2 L66.0 252.8 L86.0 221.5 L106.0 241.0 L126.0 209.7 L146.0 209.7 L166.0 201.9 L186.0 205.8 L206.0 205.8 L226.0 209.7 L246.0 237.1 L266.0 186.2 L286.0 205.8 L306.0 182.3 L326.0 213.6 L346.0 182.3 L366.0 221.5 L386.0 209.7 L406.0 209.7 L426.0 190.1 L446.0 178.4 L466.0 154.9 L486.0 190.1 L506.0 174.5 L526.0 21.8 L546.0 100.1 L566.0 107.9 L586.0 174.5 L606.0 182.3 L626.0 135.3 L626.0 288.0 L46.0 288.0 Z"/>
+<path class="chart__line chart__line--views" pathLength="1" d="M46.0 233.2 L66.0 252.8 L86.0 221.5 L106.0 241.0 L126.0 209.7 L146.0 209.7 L166.0 201.9 L186.0 205.8 L206.0 205.8 L226.0 209.7 L246.0 237.1 L266.0 186.2 L286.0 205.8 L306.0 182.3 L326.0 213.6 L346.0 182.3 L366.0 221.5 L386.0 209.7 L406.0 209.7 L426.0 190.1 L446.0 178.4 L466.0 154.9 L486.0 190.1 L506.0 174.5 L526.0 21.8 L546.0 100.1 L566.0 107.9 L586.0 174.5 L606.0 182.3 L626.0 135.3"/>
+<path class="chart__line chart__line--used" pathLength="1" d="M46.0 272.3 L66.0 280.2 L86.0 260.6 L106.0 272.3 L126.0 268.4 L146.0 256.7 L166.0 264.5 L186.0 260.6 L206.0 268.4 L226.0 268.4 L246.0 268.4 L266.0 260.6 L286.0 264.5 L306.0 241.0 L326.0 256.7 L346.0 256.7 L366.0 260.6 L386.0 260.6 L406.0 260.6 L426.0 260.6 L446.0 241.0 L466.0 237.1 L486.0 244.9 L506.0 241.0 L526.0 205.8 L546.0 229.3 L566.0 237.1 L586.0 256.7 L606.0 260.6 L626.0 241.0"/><circle class="chart__dot chart__dot--views" cx="46.0" cy="233.2" r="3"><title>20.09.2026: просмотры 14</title></circle><circle class="chart__dot chart__dot--used" cx="46.0" cy="272.3" r="3"><title>20.09.2026: использование 4</title></circle><circle class="chart__dot chart__dot--views" cx="66.0" cy="252.8" r="3"><title>21.09.2026: просмотры 9</title></circle><circle class="chart__dot chart__dot--used" cx="66.0" cy="280.2" r="3"><title>21.09.2026: использование 2</title></circle><circle class="chart__dot chart__dot--views" cx="86.0" cy="221.5" r="3"><title>22.09.2026: просмотры 17</title></circle><circle class="chart__dot chart__dot--used" cx="86.0" cy="260.6" r="3"><title>22.09.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="106.0" cy="241.0" r="3"><title>23.09.2026: просмотры 12</title></circle><circle class="chart__dot chart__dot--used" cx="106.0" cy="272.3" r="3"><title>23.09.2026: использование 4</title></circle><circle class="chart__dot chart__dot--views" cx="126.0" cy="209.7" r="3"><title>24.09.2026: просмотры 20</title></circle><circle class="chart__dot chart__dot--used" cx="126.0" cy="268.4" r="3"><title>24.09.2026: использование 5</title></circle><circle class="chart__dot chart__dot--views" cx="146.0" cy="209.7" r="3"><title>25.09.2026: просмотры 20</title></circle><circle class="chart__dot chart__dot--used" cx="146.0" cy="256.7" r="3"><title>25.09.2026: использование 8</title></circle><circle class="chart__dot chart__dot--views" cx="166.0" cy="201.9" r="3"><title>26.09.2026: просмотры 22</title></circle><circle class="chart__dot chart__dot--used" cx="166.0" cy="264.5" r="3"><title>26.09.2026: использование 6</title></circle><circle class="chart__dot chart__dot--views" cx="186.0" cy="205.8" r="3"><title>27.09.2026: просмотры 21</title></circle><circle class="chart__dot chart__dot--used" cx="186.0" cy="260.6" r="3"><title>27.09.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="206.0" cy="205.8" r="3"><title>28.09.2026: просмотры 21</title></circle><circle class="chart__dot chart__dot--used" cx="206.0" cy="268.4" r="3"><title>28.09.2026: использование 5</title></circle><circle class="chart__dot chart__dot--views" cx="226.0" cy="209.7" r="3"><title>29.09.2026: просмотры 20</title></circle><circle class="chart__dot chart__dot--used" cx="226.0" cy="268.4" r="3"><title>29.09.2026: использование 5</title></circle><circle class="chart__dot chart__dot--views" cx="246.0" cy="237.1" r="3"><title>30.09.2026: просмотры 13</title></circle><circle class="chart__dot chart__dot--used" cx="246.0" cy="268.4" r="3"><title>30.09.2026: использование 5</title></circle><circle class="chart__dot chart__dot--views" cx="266.0" cy="186.2" r="3"><title>01.10.2026: просмотры 26</title></circle><circle class="chart__dot chart__dot--used" cx="266.0" cy="260.6" r="3"><title>01.10.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="286.0" cy="205.8" r="3"><title>02.10.2026: просмотры 21</title></circle><circle class="chart__dot chart__dot--used" cx="286.0" cy="264.5" r="3"><title>02.10.2026: использование 6</title></circle><circle class="chart__dot chart__dot--views" cx="306.0" cy="182.3" r="3"><title>03.10.2026: просмотры 27</title></circle><circle class="chart__dot chart__dot--used" cx="306.0" cy="241.0" r="3"><title>03.10.2026: использование 12</title></circle><circle class="chart__dot chart__dot--views" cx="326.0" cy="213.6" r="3"><title>04.10.2026: просмотры 19</title></circle><circle class="chart__dot chart__dot--used" cx="326.0" cy="256.7" r="3"><title>04.10.2026: использование 8</title></circle><circle class="chart__dot chart__dot--views" cx="346.0" cy="182.3" r="3"><title>05.10.2026: просмотры 27</title></circle><circle class="chart__dot chart__dot--used" cx="346.0" cy="256.7" r="3"><title>05.10.2026: использование 8</title></circle><circle class="chart__dot chart__dot--views" cx="366.0" cy="221.5" r="3"><title>06.10.2026: просмотры 17</title></circle><circle class="chart__dot chart__dot--used" cx="366.0" cy="260.6" r="3"><title>06.10.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="386.0" cy="209.7" r="3"><title>07.10.2026: просмотры 20</title></circle><circle class="chart__dot chart__dot--used" cx="386.0" cy="260.6" r="3"><title>07.10.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="406.0" cy="209.7" r="3"><title>08.10.2026: просмотры 20</title></circle><circle class="chart__dot chart__dot--used" cx="406.0" cy="260.6" r="3"><title>08.10.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="426.0" cy="190.1" r="3"><title>09.10.2026: просмотры 25</title></circle><circle class="chart__dot chart__dot--used" cx="426.0" cy="260.6" r="3"><title>09.10.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="446.0" cy="178.4" r="3"><title>10.10.2026: просмотры 28</title></circle><circle class="chart__dot chart__dot--used" cx="446.0" cy="241.0" r="3"><title>10.10.2026: использование 12</title></circle><circle class="chart__dot chart__dot--views" cx="466.0" cy="154.9" r="3"><title>11.10.2026: просмотры 34</title></circle><circle class="chart__dot chart__dot--used" cx="466.0" cy="237.1" r="3"><title>11.10.2026: использование 13</title></circle><circle class="chart__dot chart__dot--views" cx="486.0" cy="190.1" r="3"><title>12.10.2026: просмотры 25</title></circle><circle class="chart__dot chart__dot--used" cx="486.0" cy="244.9" r="3"><title>12.10.2026: использование 11</title></circle><circle class="chart__dot chart__dot--views" cx="506.0" cy="174.5" r="3"><title>13.10.2026: просмотры 29</title></circle><circle class="chart__dot chart__dot--used" cx="506.0" cy="241.0" r="3"><title>13.10.2026: использование 12</title></circle><circle class="chart__dot chart__dot--views" cx="526.0" cy="21.8" r="3"><title>14.10.2026: просмотры 68</title></circle><circle class="chart__dot chart__dot--used" cx="526.0" cy="205.8" r="3"><title>14.10.2026: использование 21</title></circle><circle class="chart__dot chart__dot--views" cx="546.0" cy="100.1" r="3"><title>15.10.2026: просмотры 48</title></circle><circle class="chart__dot chart__dot--used" cx="546.0" cy="229.3" r="3"><title>15.10.2026: использование 15</title></circle><circle class="chart__dot chart__dot--views" cx="566.0" cy="107.9" r="3"><title>16.10.2026: просмотры 46</title></circle><circle class="chart__dot chart__dot--used" cx="566.0" cy="237.1" r="3"><title>16.10.2026: использование 13</title></circle><circle class="chart__dot chart__dot--views" cx="586.0" cy="174.5" r="3"><title>17.10.2026: просмотры 29</title></circle><circle class="chart__dot chart__dot--used" cx="586.0" cy="256.7" r="3"><title>17.10.2026: использование 8</title></circle><circle class="chart__dot chart__dot--views" cx="606.0" cy="182.3" r="3"><title>18.10.2026: просмотры 27</title></circle><circle class="chart__dot chart__dot--used" cx="606.0" cy="260.6" r="3"><title>18.10.2026: использование 7</title></circle><circle class="chart__dot chart__dot--views" cx="626.0" cy="135.3" r="3"><title>19.10.2026: просмотры 39</title></circle><circle class="chart__dot chart__dot--used" cx="626.0" cy="241.0" r="3"><title>19.10.2026: использование 12</title></circle></svg>
+<p class="chart__note"><b>Почему количество просмотров может резко увеличиваться?</b>В статистике учитываются не только реальные посетители, но и поисковые роботы, которые регулярно сканируют сайт. Их активность может приводить к заметным всплескам на графике, поэтому данные являются ориентировочными.</p>
+</section>
+<section class="card card--flush" aria-labelledby="news-title">
+<div class="card__head"><h2 id="news-title" class="card__title">Новости компании</h2><a class="card__link" href="#">Перейти ко всем новостям</a></div>
+<ul class="news">
+<li class="news__item"><time class="news__date" datetime="2026-10-14">14.10.2026</time><div class="news__body"><a class="news__title" href="#"><svg class="icon news__star" aria-hidden="true"><use href="#i-star"/></svg>Подбор по госномеру теперь в виджете</a><p class="news__text">Посетитель может указать госномер вместо VIN, чат сам определит автомобиль и предложит подходящие запчасти. Функция доступна во всех тарифах.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-10-13">13.10.2026</time><div class="news__body"><a class="news__title" href="#"><svg class="icon news__star" aria-hidden="true"><use href="#i-star"/></svg>Новый раздел «Клиенты»: блокировка тех, кто не покупает</a><p class="news__text">Теперь видно, кто из пользователей чата делает заказы, а кто только тратит запросы. Таких клиентов можно заблокировать вручную или по правилу.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-10-09">09.10.2026</time><div class="news__body"><a class="news__title news__title--important" href="#"><b>Важно:</b> Плановые работы на сервере 22.10.2026 с 03:00 до 04:00</a><p class="news__text">Чат будет недоступен около часа. Диалоги, начатые до этого времени, сохранятся в истории, ничего делать не нужно.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-10-06">06.10.2026</time><div class="news__body"><a class="news__title" href="#">Сентябрь в Vin-Scan: что нового</a><p class="news__text">Добавили быстрый ответ на частые вопросы, ускорили поиск по артикулу и обновили оформление окна чата на мобильных устройствах.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-10-02">02.10.2026</time><div class="news__body"><a class="news__title" href="#"><svg class="icon news__star" aria-hidden="true"><use href="#i-star"/></svg>Выгрузка статистики в Excel</a><p class="news__text">В разделе «Статистика использования» появилась кнопка выгрузки отчёта за выбранный период: посетители, вопросы, ответы и заказы.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-09-29">29.09.2026</time><div class="news__body"><a class="news__title news__title--important" href="#"><b>Важно:</b> Обновление тарифов: что изменится с 1 ноября</a><p class="news__text">Мы обновляем условия по количеству запросов в месяц. Подробности и сравнение тарифов уже доступны в разделе помощи.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-09-21">21.09.2026</time><div class="news__body"><a class="news__title" href="#">Расширена база каталогов: добавлены 12 новых марок</a><p class="news__text">Подбор запчастей теперь доступен для ещё большего числа автомобилей, включая модели последних лет выпуска.</p></div></li>
+<li class="news__item"><time class="news__date" datetime="2026-09-17">17.09.2026</time><div class="news__body"><a class="news__title" href="#">Улучшено распознавание артикулов в сообщениях</a><p class="news__text">Чат стал точнее понимать артикулы, написанные с пробелами, дефисами и в разном регистре.</p></div></li>
+</ul></section>
+</div>
+</main>
+</div>
+
+<script src="js/layout.js"></script>
+</body>
+</html>

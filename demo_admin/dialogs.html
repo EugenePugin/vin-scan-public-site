@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">     
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>История диалогов — Vin-Scan</title>
+<link rel="stylesheet" href="kss/base.css">
+<link rel="stylesheet" href="kss/admin.css">
+<link rel="stylesheet" href="kss/components.css">
+<link rel="stylesheet" href="kss/list.css">
+<link rel="stylesheet" href="kss/dialogs.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Набор иконок (подключаются через use) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7"/></symbol><symbol id="i-widgets" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17.2v.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol><symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20.5 8H6.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol><symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol></svg>
+
+<!-- ===== Левая панель ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar__brand">
+<!-- Логотип: вставьте свой img внутрь ссылки ниже, например -->
+     <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan"> 
+<a class="logo" href="index.html" aria-label="Vin-Scan, на главную"></a>
+</div>
+
+<nav class="side-nav" aria-label="Разделы админ-панели">
+<p class="side-nav__caption">Разделы</p>
+<ul class="side-nav__list">
+<li>
+<a class="side-nav__link" href="index.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+<span>Главная</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="stats.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+<span>Статистика использования</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="widgets.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-widgets"/></svg></span>
+<span>Управление веб-виджетами</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="dialogs.html" aria-current="page">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span>
+<span>История диалогов</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="clients.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+<span>Клиенты</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- ===== Правая часть ===== -->
+<div class="admin-main">
+<header class="topbar">
+<button class="topbar__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+<svg class="icon"><use href="#i-menu"/></svg>
+</button>
+
+<p class="topbar__crumb">Панель администратора</p>
+
+<div class="topbar__actions">
+<a class="topbar__pill topbar__pill--help" href="/help">
+<svg class="icon"><use href="#i-help"/></svg>
+<span class="topbar__label">Помощь</span>
+</a>
+
+<a class="topbar__pill topbar__pill--balance" href="/balance" aria-label="Баланс: 0 рублей">
+<svg class="icon"><use href="#i-wallet"/></svg>
+<span><strong>0</strong> ₽</span>
+</a>
+
+<div class="user-menu">
+<button class="user-menu__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+<span class="user-menu__avatar" aria-hidden="true">А</span>
+<span class="user-menu__name topbar__label">Кабинет</span>
+<svg class="icon user-menu__chevron"><use href="#i-chevron"/></svg>
+</button>
+
+<div class="user-menu__panel" id="user-menu" hidden>
+<div class="user-menu__head">
+<span class="user-menu__avatar user-menu__avatar--lg" aria-hidden="true">А</span>
+<div>
+<p class="user-menu__title">Администратор</p>
+<p class="user-menu__mail">admin@vin-scan.ru</p>
+</div>
+</div>
+<ul class="user-menu__list">
+<li><a href="/profile"><svg class="icon"><use href="#i-user"/></svg>Мой профиль</a></li>
+<li><a href="/account"><svg class="icon"><use href="#i-cabinet"/></svg>Личный кабинет</a></li>
+</ul>
+<div class="user-menu__foot">
+<a class="user-menu__logout" href="/logout"><svg class="icon"><use href="#i-logout"/></svg>Выход</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<main id="main" class="page">
+<section class="head-card" aria-labelledby="dlg-title">
+<div><h1 id="dlg-title" class="head-card__title">История диалогов</h1>
+<p class="head-card__text">Все диалоги посетителей с чатом по подбору запчастей. Видно, когда диалог начался, закончился ли он и чем завершился. Найдите нужный по имени клиента, контакту, теме или статусу.</p></div>
+<div class="head-card__actions"><a class="btn btn--outline" href="#"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Экспорт в CSV</a></div>
+</section>
+
+<section class="toolbar" aria-label="Поиск и фильтры">
+<div class="toolbar__row">
+<div><label class="label" for="q">Поиск диалога</label><div class="field__box"><svg class="icon field__icon" aria-hidden="true"><use href="#i-search"/></svg><input class="input input--search" id="q" type="search" placeholder="Имя, телефон, email клиента или тема диалога" autocomplete="off"></div></div>
+<div><label class="label" for="f-client">Клиент</label><select class="select" id="f-client"><option value="">Все клиенты</option><option value="5">Автоцентр «Гараж 24»</option><option value="1">Алексей Смирнов</option><option value="7">Виктор Седов</option><option value="4">Дмитрий Орлов</option><option value="3">Мария Лебедева</option><option value="10">ООО «Трейд-Авто»</option><option value="8">Ольга Назарова</option><option value="9">Павел Крылов</option><option value="2">СТО «Мотор-Сервис»</option><option value="6">Сергей Ким</option></select></div>
+<div><label class="label" for="f-out">Результат</label><select class="select" id="f-out"><option value="">Любой результат</option><option value="order">Привёл к заказу</option><option value="site">Переход на сайт</option><option value="none">Без результата</option></select></div>
+<div><label class="label" for="f-period">Период</label><select class="select" id="f-period"><option value="">За всё время</option><option value="0">Сегодня</option><option value="7">7 дней</option><option value="30">30 дней</option></select></div>
+</div>
+<div class="toolbar__row--chips">
+<div class="chips" role="group" aria-label="Статус диалога"><button class="chip" type="button" data-status="" aria-pressed="true">Все <span class="chip__count">14</span></button><button class="chip" type="button" data-status="live" aria-pressed="false">Идут сейчас <span class="chip__count">2</span></button><button class="chip" type="button" data-status="done" aria-pressed="false">Завершены <span class="chip__count">8</span></button><button class="chip" type="button" data-status="left" aria-pressed="false">Клиент ушёл <span class="chip__count">4</span></button></div>
+<div class="toolbar__tail"><p class="toolbar__count" aria-live="polite">Найдено: <b id="count">14</b></p>
+<label class="visually-hidden" for="sort">Сортировка</label><select class="select" id="sort"><option value="new">Сначала новые</option><option value="old">Сначала старые</option><option value="dur">Самые долгие</option></select>
+<button class="toolbar__reset" type="button" id="reset">Сбросить фильтры</button></div>
+</div>
+</section>
+
+<ul class="dlg-list" id="dlg-list">
+<li class="dlg dlg--live" data-status="live" data-client="10" data-outcome="" data-days="0" data-ts="2026-10-19 21:29" data-dur="9" data-text="ооо «трейд-авто» info@trade-auto.example.ru подбор фильтров для hyundai solaris 2019">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ТА</span><div><p class="dlg__name">ООО «Трейд-Авто»</p><p class="dlg__contact">info@trade-auto.example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Подбор фильтров для Hyundai Solaris 2019</p><p class="dlg__last">Клиент: Год и двигатель указал, VIN могу прислать.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>Сегодня, 21:29</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Идёт уже: <b>9 мин</b></p></div>
+<div class="dlg__state"><span class="badge badge--live">Идёт сейчас</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-1">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-1" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: масляный и воздушный фильтры для Hyundai Solaris 2019.<small>Клиент · 21:29</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 21:30</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 21:31</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 3</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--live" data-status="live" data-client="2" data-outcome="" data-days="0" data-ts="2026-10-19 21:22" data-dur="16" data-text="сто «мотор-сервис» +7 (900) 000-01-02 передние тормозные колодки, kia rio 2017">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">МС</span><div><p class="dlg__name">СТО «Мотор-Сервис»</p><p class="dlg__contact">+7 (900) 000-01-02</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Передние тормозные колодки, Kia Rio 2017</p><p class="dlg__last">Бот: Нашёл вариантов: 4. Показать артикулы и перейти к ценам на сайте магазина?</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>Сегодня, 21:22</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Идёт уже: <b>16 мин</b></p></div>
+<div class="dlg__state"><span class="badge badge--live">Идёт сейчас</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-2">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-2" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: передние тормозные колодки для Kia Rio 2017.<small>Клиент · 21:22</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 21:23</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 21:24</small></div><div class="msg msg--bot">Нашёл вариантов: 4. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 21:25</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 4</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="1" data-outcome="order" data-days="0" data-ts="2026-10-19 20:30" data-dur="11" data-text="алексей смирнов a.smirnov@example.ru свечи зажигания, skoda octavia">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">АС</span><div><p class="dlg__name">Алексей Смирнов</p><p class="dlg__contact">a.smirnov@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Свечи зажигания, Skoda Octavia</p><p class="dlg__last">Бот: Передал позицию в корзину на сайте. Спасибо за обращение!</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>Сегодня, 20:30</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>20:41</b> · 11 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Привёл к заказу</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-4">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-4" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: свечи зажигания для Skoda Octavia.<small>Клиент · 20:30</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 20:31</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 20:32</small></div><div class="msg msg--bot">Нашёл вариантов: 3. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 20:33</small></div><div class="msg msg--user">Да, оформляю заказ.<small>Клиент · 20:35</small></div><div class="msg msg--bot">Передал позицию в корзину на сайте. Спасибо за обращение!<small>Бот · 20:36</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="4" data-outcome="none" data-days="0" data-ts="2026-10-19 19:55" data-dur="8" data-text="дмитрий орлов d.orlov@example.ru амортизаторы на lada vesta">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ДО</span><div><p class="dlg__name">Дмитрий Орлов</p><p class="dlg__contact">d.orlov@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Амортизаторы на Lada Vesta</p><p class="dlg__last">Бот: К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>Сегодня, 19:55</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>20:03</b> · 8 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge ">Без результата</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-3">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-3" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: амортизаторы для Lada Vesta.<small>Клиент · 19:55</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 19:56</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 19:57</small></div><div class="msg msg--bot">К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.<small>Бот · 19:58</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 4</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="5" data-outcome="site" data-days="0" data-ts="2026-10-19 18:05" data-dur="14" data-text="автоцентр «гараж 24» +7 (900) 000-05-06 комплект грм, ford focus 3">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">Г2</span><div><p class="dlg__name">Автоцентр «Гараж 24»</p><p class="dlg__contact">+7 (900) 000-05-06</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Комплект ГРМ, Ford Focus 3</p><p class="dlg__last">Бот: Ссылка на страницу уточнения цен отправлена.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>Сегодня, 18:05</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>18:19</b> · 14 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Переход на сайт</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-5">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-5" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: комплект ГРМ для Ford Focus 3.<small>Клиент · 18:05</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 18:06</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 18:07</small></div><div class="msg msg--bot">Нашёл вариантов: 2. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 18:08</small></div><div class="msg msg--user">Посмотрю цены на сайте.<small>Клиент · 18:10</small></div><div class="msg msg--bot">Ссылка на страницу уточнения цен отправлена.<small>Бот · 18:11</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="10" data-outcome="order" data-days="0" data-ts="2026-10-19 17:00" data-dur="22" data-text="ооо «трейд-авто» info@trade-auto.example.ru тормозные диски, toyota camry">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ТА</span><div><p class="dlg__name">ООО «Трейд-Авто»</p><p class="dlg__contact">info@trade-auto.example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Тормозные диски, Toyota Camry</p><p class="dlg__last">Бот: Передал позицию в корзину на сайте. Спасибо за обращение!</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>Сегодня, 17:00</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>17:22</b> · 22 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Привёл к заказу</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-6">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-6" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: тормозные диски для Toyota Camry.<small>Клиент · 17:00</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 17:01</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 17:02</small></div><div class="msg msg--bot">Нашёл вариантов: 5. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 17:03</small></div><div class="msg msg--user">Да, оформляю заказ.<small>Клиент · 17:05</small></div><div class="msg msg--bot">Передал позицию в корзину на сайте. Спасибо за обращение!<small>Бот · 17:06</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--left" data-status="left" data-client="3" data-outcome="none" data-days="1" data-ts="2026-10-18 18:03" data-dur="6" data-text="мария лебедева m.lebedeva@example.ru аккумулятор, renault logan">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">МЛ</span><div><p class="dlg__name">Мария Лебедева</p><p class="dlg__contact">m.lebedeva@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Аккумулятор, Renault Logan</p><p class="dlg__last">Бот: К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>18.10.2026, 18:03</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Клиент ушёл: <b>18:09</b> · 6 мин</p></div>
+<div class="dlg__state"><span class="badge badge--warn">Клиент ушёл</span><span class="badge ">Без результата</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-7">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-7" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: аккумулятор для Renault Logan.<small>Клиент · 18:03</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 18:04</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 18:05</small></div><div class="msg msg--bot">К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.<small>Бот · 18:06</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 4</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="2" data-outcome="order" data-days="1" data-ts="2026-10-18 09:30" data-dur="12" data-text="сто «мотор-сервис» +7 (900) 000-01-02 лямбда-зонд, skoda rapid">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">МС</span><div><p class="dlg__name">СТО «Мотор-Сервис»</p><p class="dlg__contact">+7 (900) 000-01-02</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Лямбда-зонд, Skoda Rapid</p><p class="dlg__last">Бот: Передал позицию в корзину на сайте. Спасибо за обращение!</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>18.10.2026, 09:30</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>09:42</b> · 12 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Привёл к заказу</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-14">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-14" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: лямбда-зонд для Skoda Rapid.<small>Клиент · 09:30</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 09:31</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 09:32</small></div><div class="msg msg--bot">Нашёл вариантов: 2. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 09:33</small></div><div class="msg msg--user">Да, оформляю заказ.<small>Клиент · 09:35</small></div><div class="msg msg--bot">Передал позицию в корзину на сайте. Спасибо за обращение!<small>Бот · 09:36</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--left" data-status="left" data-client="4" data-outcome="none" data-days="2" data-ts="2026-10-17 21:05" data-dur="7" data-text="дмитрий орлов d.orlov@example.ru масло 5w-30 и фильтры">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ДО</span><div><p class="dlg__name">Дмитрий Орлов</p><p class="dlg__contact">d.orlov@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Масло 5W-30 и фильтры</p><p class="dlg__last">Бот: К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>17.10.2026, 21:05</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Клиент ушёл: <b>21:12</b> · 7 мин</p></div>
+<div class="dlg__state"><span class="badge badge--warn">Клиент ушёл</span><span class="badge ">Без результата</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-13">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-13" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: масло 5W-30 и комплект фильтров.<small>Клиент · 21:05</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 21:06</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 21:07</small></div><div class="msg msg--bot">К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.<small>Бот · 21:08</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 4</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="5" data-outcome="order" data-days="2" data-ts="2026-10-17 10:15" data-dur="18" data-text="автоцентр «гараж 24» +7 (900) 000-05-06 ступичный подшипник, vw passat b7">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">Г2</span><div><p class="dlg__name">Автоцентр «Гараж 24»</p><p class="dlg__contact">+7 (900) 000-05-06</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Ступичный подшипник, VW Passat B7</p><p class="dlg__last">Бот: Передал позицию в корзину на сайте. Спасибо за обращение!</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>17.10.2026, 10:15</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>10:33</b> · 18 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Привёл к заказу</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-11">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-11" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: ступичный подшипник для VW Passat B7.<small>Клиент · 10:15</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 10:16</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 10:17</small></div><div class="msg msg--bot">Нашёл вариантов: 2. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 10:18</small></div><div class="msg msg--user">Да, оформляю заказ.<small>Клиент · 10:20</small></div><div class="msg msg--bot">Передал позицию в корзину на сайте. Спасибо за обращение!<small>Бот · 10:21</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="8" data-outcome="site" data-days="3" data-ts="2026-10-16 14:02" data-dur="9" data-text="ольга назарова o.nazarova@example.ru щётки стеклоочистителя, honda cr-v">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ОН</span><div><p class="dlg__name">Ольга Назарова</p><p class="dlg__contact">o.nazarova@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Щётки стеклоочистителя, Honda CR-V</p><p class="dlg__last">Бот: Ссылка на страницу уточнения цен отправлена.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>16.10.2026, 14:02</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>14:11</b> · 9 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Переход на сайт</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-10">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-10" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: щётки стеклоочистителя для Honda CR-V.<small>Клиент · 14:02</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 14:03</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 14:04</small></div><div class="msg msg--bot">Нашёл вариантов: 3. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 14:05</small></div><div class="msg msg--user">Посмотрю цены на сайте.<small>Клиент · 14:07</small></div><div class="msg msg--bot">Ссылка на страницу уточнения цен отправлена.<small>Бот · 14:08</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--done" data-status="done" data-client="6" data-outcome="order" data-days="4" data-ts="2026-10-15 11:20" data-dur="14" data-text="сергей ким sergey.kim@example.ru ремень генератора, nissan qashqai">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">СК</span><div><p class="dlg__name">Сергей Ким</p><p class="dlg__contact">sergey.kim@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Ремень генератора, Nissan Qashqai</p><p class="dlg__last">Бот: Передал позицию в корзину на сайте. Спасибо за обращение!</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>15.10.2026, 11:20</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Завершён: <b>11:34</b> · 14 мин</p></div>
+<div class="dlg__state"><span class="badge badge--ok">Завершён</span><span class="badge badge--info">Привёл к заказу</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-9">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-9" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: ремень генератора для Nissan Qashqai.<small>Клиент · 11:20</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 11:21</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 11:22</small></div><div class="msg msg--bot">Нашёл вариантов: 2. Показать артикулы и перейти к ценам на сайте магазина?<small>Бот · 11:23</small></div><div class="msg msg--user">Да, оформляю заказ.<small>Клиент · 11:25</small></div><div class="msg msg--bot">Передал позицию в корзину на сайте. Спасибо за обращение!<small>Бот · 11:26</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 6</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--left" data-status="left" data-client="9" data-outcome="none" data-days="5" data-ts="2026-10-14 12:10" data-dur="15" data-text="павел крылов p.krylov@example.ru рычаги подвески, mazda 3">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ПК</span><div><p class="dlg__name">Павел Крылов</p><p class="dlg__contact">p.krylov@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Рычаги подвески, Mazda 3</p><p class="dlg__last">Бот: К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>14.10.2026, 12:10</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Клиент ушёл: <b>12:25</b> · 15 мин</p></div>
+<div class="dlg__state"><span class="badge badge--warn">Клиент ушёл</span><span class="badge ">Без результата</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-8">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-8" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: рычаги подвески для Mazda 3.<small>Клиент · 12:10</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 12:11</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 12:12</small></div><div class="msg msg--bot">К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.<small>Бот · 12:13</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 4</span><a href="#">Открыть в чате</a></div></div>
+</li>
+<li class="dlg dlg--left" data-status="left" data-client="7" data-outcome="none" data-days="11" data-ts="2026-10-08 16:40" data-dur="8" data-text="виктор седов v.sedov@example.ru радиатор охлаждения, chevrolet aveo">
+<div class="dlg__row">
+<div class="dlg__client"><span class="avatar" aria-hidden="true">ВС</span><div><p class="dlg__name">Виктор Седов</p><p class="dlg__contact">v.sedov@example.ru</p></div></div>
+<div class="dlg__topic"><p class="dlg__subject">Радиатор охлаждения, Chevrolet Aveo</p><p class="dlg__last">Бот: К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.</p></div>
+<div class="dlg__time"><p><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Начат: <b>08.10.2026, 16:40</b></p><p><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>Клиент ушёл: <b>16:48</b> · 8 мин</p></div>
+<div class="dlg__state"><span class="badge badge--warn">Клиент ушёл</span><span class="badge ">Без результата</span></div>
+<button class="btn btn--outline btn--sm dlg__toggle" type="button" aria-expanded="false" aria-controls="chat-12">Показать переписку</button>
+</div>
+<div class="dlg__chat" id="chat-12" hidden><div class="msg msg--user">Здравствуйте! Нужно подобрать: радиатор охлаждения для Chevrolet Aveo.<small>Клиент · 16:40</small></div><div class="msg msg--bot">Здравствуйте! Уточните, пожалуйста, год выпуска и объём двигателя.<small>Бот · 16:41</small></div><div class="msg msg--user">Год и двигатель указал, VIN могу прислать.<small>Клиент · 16:42</small></div><div class="msg msg--bot">К сожалению, точного совпадения в каталоге магазина не нашёл. Могу уточнить данные по VIN.<small>Бот · 16:43</small></div><div class="dlg__chat-foot"><span>Сообщений в диалоге: 4</span><a href="#">Открыть в чате</a></div></div>
+</li>
+</ul>
+
+<div class="nores" id="nores" hidden>
+<span class="nores__icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+<h2 class="nores__title">Диалоги не найдены</h2>
+<p class="nores__text">Попробуйте изменить запрос или сбросить фильтры.</p>
+<button class="btn btn--outline" type="button" id="reset2">Сбросить фильтры</button>
+</div>
+</main>
+</div>
+
+<script src="js/layout.js"></script>
+<script src="js/dialogs.js"></script>
+</body>
+</html>

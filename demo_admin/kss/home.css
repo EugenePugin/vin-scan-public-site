@@ -1,0 +1,19 @@
+/* ГЛАВНАЯ: график использования + новости */
+.home-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.5rem; align-items: start; }
+
+.news { list-style: none; }
+.news__item { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); border-top: 1px solid var(--border); transition: background-color 0.15s; }
+.news__item:hover { background: #f8fbfd; }
+.news__date { padding: 0.875rem 1rem; font-size: 0.9375rem; font-weight: 600; color: var(--text-muted); background: var(--brand-50); border-right: 1px solid var(--border); }
+.news__body { min-width: 0; padding: 0.75rem 1.25rem; }
+.news__title { font-weight: 600; line-height: 1.35; }
+.news__title b { color: var(--danger-strong); }
+.news__star { display: inline-block; width: 16px; height: 16px; margin: 0 0.4rem -2px 0; fill: var(--brand-400); color: var(--brand-400); }
+.news__text { margin-top: 0.125rem; overflow: hidden; font-size: 0.875rem; color: var(--text-muted); white-space: nowrap; text-overflow: ellipsis; }
+
+@media (max-width: 1280px) { .home-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) {
+  .news__item { grid-template-columns: 1fr; }
+  .news__date { padding: 0.5rem 1rem; border-right: 0; border-bottom: 1px solid var(--border); }
+  .news__text { white-space: normal; }
+}
