@@ -48,8 +48,8 @@
     rows.forEach(function (tr) {
       var o = num(tr, 'orders');
       var ok = (!status || tr.dataset.status === status) &&
-               (!fo.value || (fo.value === 'with' ? o > 0 : o === 0)) &&
-               (!term || (tr.dataset.name + ' ' + tr.dataset.kind).indexOf(term) !== -1);
+              (!fo.value || (fo.value === 'with' ? o > 0 : o === 0)) &&
+              (!term || (tr.dataset.name + ' ' + tr.dataset.kind).indexOf(term) !== -1);
       tr.hidden = !ok;
       if (ok) shown++;
     });
