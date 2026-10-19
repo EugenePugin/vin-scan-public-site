@@ -18,10 +18,10 @@
     items.forEach(function (li) {
       var d = li.dataset;
       var ok = (!status || d.status === status) &&
-               (!fc.value || d.client === fc.value) &&
-               (!fo.value || d.outcome === fo.value) &&
-               (days === null || +d.days <= days) &&
-               (!term || d.text.indexOf(term) !== -1);
+              (!fc.value || d.client === fc.value) &&
+              (!fo.value || d.outcome === fo.value) &&
+              (days === null || +d.days <= days) &&
+              (!term || d.text.indexOf(term) !== -1);
       li.hidden = !ok;
       if (ok) shown++;
     });
