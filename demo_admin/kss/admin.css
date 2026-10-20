@@ -7,9 +7,10 @@
 }
 
 /* ===== Логотип: внутрь .logo вставьте <img> или <svg> ===== */
-.logo { display: inline-flex; align-items: center; gap: 0.5rem; width: 100%; min-height: 40px; }
+.sidebar__brand { min-height: 76px; }
+.logo { display: inline-flex; align-items: center; width: fit-content; min-height: 76px; }
 .logo:hover { text-decoration: none; }
-.logo img, .logo svg { max-height: 40px; width: auto; }
+.logo img, .logo svg { display: block; height: 76px; width: auto; flex-shrink: 0; }
 
 /* ===== Левая панель ===== */
 .sidebar {
@@ -156,7 +157,3 @@
   .admin-main .page { padding-inline: 0.75rem; }
 }
 
-/* Логотип: пустая ссылка-заглушка, вставьте свой img */
-.sidebar__brand { min-height: 64px; }
-.logo { min-width: 140px; min-height: 40px; }
-.logo__img { display: block; height: 40px; width: auto; }
