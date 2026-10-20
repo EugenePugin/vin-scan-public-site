@@ -1,5 +1,5 @@
 /* ПРОФИЛЬ: контактные данные и реквизиты организации.
-   Использует токены из base.css. Префикс pf- */
+  Использует токены из base.css. Префикс pf- */
 
 .pf { display: grid; gap: 1.5rem; align-content: start; }
 .pf .icon {

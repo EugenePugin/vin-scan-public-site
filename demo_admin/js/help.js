@@ -41,7 +41,7 @@
   };
 
   /* ===== Безопасное форматирование текста =====
-     Сначала экранируем HTML, потом применяем свою простую разметку. */
+    Сначала экранируем HTML, потом применяем свою простую разметку. */
   const inline = (t) => t
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/__(.+?)__/g, '<u>$1</u>')
@@ -256,7 +256,7 @@
     box.innerHTML = t.rating
       ? '<p class="hp-hint">Спасибо за оценку.</p>'
       : `<button type="button" data-rate="up"><svg class="icon" aria-hidden="true"><use href="#i-thumb-up"/></svg>Решение понравилось</button>
-         <button type="button" data-rate="down"><svg class="icon" aria-hidden="true"><use href="#i-thumb-down"/></svg>Решение не понравилось</button>`;
+        <button type="button" data-rate="down"><svg class="icon" aria-hidden="true"><use href="#i-thumb-down"/></svg>Решение не понравилось</button>`;
   };
 
   const paintTicket = (t) => {
