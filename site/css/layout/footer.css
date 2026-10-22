@@ -236,3 +236,34 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Виджет статуса сервиса в подвале ===== */
+.footer__status-badge {
+  flex-shrink: 0;
+}
+
+.vs-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-on-dark-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.vs-status-badge:hover {
+  color: var(--text-inverse);
+}
+.vs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+.vs-status-up .vs-dot {
+  background: #22c55e;
+}
+.vs-status-down .vs-dot {
+  background: #dc2626;
+}

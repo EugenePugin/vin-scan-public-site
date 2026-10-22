@@ -146,7 +146,6 @@
     <!-- Инфоблок 1: первый экран + слайдер -->
     <section class="section hero" aria-labelledby="hero-title">
       <div class="hero__content">
-        <div class="hero__badge">Сервис находится в режиме закрытого тестирования</div>
 
         <h1 class="hero__title" id="hero-title">
           <span class="visually-hidden">Vin-Scan: подбор запчастей по фото СТС/ПТС</span>
@@ -695,6 +694,8 @@
       <a class="btn btn--light" href="https://t.me/abcp_master" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
       <a class="apply__mail" href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a>
     </div>
+
+
   </div>
 
   <form class="form" id="pilot-form" novalidate data-endpoint="" data-mailto="contact@vin-scan.ru">
@@ -841,22 +842,60 @@
 
       </div>
 
-<div class="footer__partners">
-  <span class="footer__partners-title">Технологические партнёры:</span>
-  <ul class="footer__partners-list">
-    <li><a href="https://yandex.cloud" target="_blank" rel="noopener">Yandex Cloud</a></li>
-    <li><a href="https://abcp.ru" target="_blank" rel="noopener">ABCP</a></li>
-    <li><a href="https://www.goodvin.net" target="_blank" rel="noopener">Goodvin</a></li>
-  </ul>
-</div>
+      <div class="footer__partners">
+        <span class="footer__partners-title">Технологические партнёры:</span>
+        <ul class="footer__partners-list">
+          <li><a href="https://yandex.cloud" target="_blank" rel="noopener">Yandex Cloud</a></li>
+          <li><a href="https://abcp.ru" target="_blank" rel="noopener">ABCP</a></li>
+          <li><a href="https://www.goodvin.net" target="_blank" rel="noopener">Goodvin</a></li>
+        </ul>
+      </div>
 
-<div class="footer__bottom">
+      <div class="footer__bottom">
 
         <!-- Левая колонка: партнеры + реквизиты -->
         <div class="footer__legal">
           <p>© 2026 Vin-Scan (ИП Пугин Е.А.). Все права защищены.</p>
           <p>ИНН: 780516889552 · ОГРНИП: 326784700234590</p>
-          <p>Адрес: 193230, г. Санкт-Петербург, Дыбенко ул., д. 8, корп. 2, стр.1, кв./офис 12
+          <p>Адрес: 193230, г. Санкт-Петербург, Дыбенко ул., д. 8, корп. 2, стр.1, кв./офис 12</p>
+        </div>
+
+        <!-- Виджет статуса Vin-Scan -->
+        <div class="footer__status-badge">
+          <a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener"
+            class="vs-status-badge">
+            <span class="vs-dot"></span>
+            <span id="vs-status-text">Состояние сервиса</span>
+          </a>
+        </div>
+
+        <script>
+          const ctrl = new AbortController();
+          const t = setTimeout(() => ctrl.abort(), 5000);
+          fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan', {signal: ctrl.signal})
+            .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+            .then(data => {
+              clearTimeout(t);
+              const badge = document.getElementById('vinscan-status');
+              const text = document.getElementById('vs-status-text');
+
+              let isAllUp = true;
+              if (data.heartbeatList) {
+                for (const monitorId in data.heartbeatList) {
+                  const beats = data.heartbeatList[monitorId];
+                  if (beats.length > 0 && beats[beats.length - 1].status !== 1) {
+                    isAllUp = false;
+                    break;
+                  }
+                }
+              }
+
+              badge.classList.add(isAllUp ? 'vs-status-up' : 'vs-status-down');
+              text.innerText = isAllUp ? 'Все системы в норме' : 'Сбои в работе сервиса';
+            })
+            .catch(() => { /* остаётся «Состояние сервиса» */ });
+        </script>
+      </div>
     </div>
   </footer>
 
