@@ -694,6 +694,40 @@
       <a class="btn btn--light" href="https://t.me/abcp_master" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
       <a class="apply__mail" href="mailto:contact@vin-scan.ru">contact@vin-scan.ru</a>
     </div>
+
+          <!-- Виджет статуса Vin-Scan. Начальный текст нейтральный, чтобы не висело «Проверка статуса...» -->
+          <a id="vinscan-status" href="https://status.vin-scan.ru/status/vinscan" target="_blank" rel="noopener"
+            class="vs-status-badge">
+            <span class="vs-dot"></span>
+            <span id="vs-status-text">Состояние сервиса</span>
+          </a>
+
+          <script>
+            const ctrl = new AbortController();
+            const t = setTimeout(() => ctrl.abort(), 5000);
+            fetch('https://status.vin-scan.ru/api/status-page/heartbeat/vinscan', {signal: ctrl.signal})
+              .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+              .then(data => {
+                clearTimeout(t);
+                const badge = document.getElementById('vinscan-status');
+                const text = document.getElementById('vs-status-text');
+
+                let isAllUp = true;
+                if (data.heartbeatList) {
+                  for (const monitorId in data.heartbeatList) {
+                    const beats = data.heartbeatList[monitorId];
+                    if (beats.length > 0 && beats[beats.length - 1].status !== 1) {
+                      isAllUp = false;
+                      break;
+                    }
+                  }
+                }
+
+                badge.classList.add(isAllUp ? 'vs-status-up' : 'vs-status-down');
+                text.innerText = isAllUp ? 'Все системы в норме' : 'Сбои в работе сервиса';
+              })
+              .catch(() => { /* остаётся «Состояние сервиса» */ });
+          </script>
   </div>
 
   <form class="form" id="pilot-form" novalidate data-endpoint="" data-mailto="contact@vin-scan.ru">
