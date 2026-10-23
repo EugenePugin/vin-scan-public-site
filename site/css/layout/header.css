@@ -114,6 +114,127 @@
 .header__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .header__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* ===== Телефон + мессенджеры ===== */
+.phone {
+  position: relative;
+}
+
+.phone__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.phone__link:hover,
+.phone__link:focus-visible { color: var(--primary); text-decoration: none; }
+
+.phone__icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Всплывающее окошко */
+.phone__popup {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  min-width: 190px;
+  padding: 0.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 110;
+}
+
+/* Невидимый мостик, чтобы окошко не закрывалось, пока курсор идёт от номера к нему */
+.phone__popup::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.phone:hover .phone__popup,
+.phone:focus-within .phone__popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.phone__messenger {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.phone__messenger:hover,
+.phone__messenger:focus-visible {
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+.phone__messenger-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.phone__messenger-icon--tg { fill: #229ED9; }
+.phone__messenger:hover .phone__messenger-icon--tg,
+.phone__messenger:focus-visible .phone__messenger-icon--tg { fill: #fff; }
+
+/* Узкие десктопы: чтобы всё помещалось в одну строку */
+@media (max-width: 1360px) {
+  .header__inner { gap: 1.5rem; }
+  .nav { gap: 1.25rem; }
+  .nav__list { gap: 1.25rem; }
+}
+
+/* Бургер-меню и устройства без наведения: мессенджеры показываем сразу */
+@media (max-width: 1180px) {
+  .phone__link { padding: 0.875rem 0; }
+
+  .phone__popup {
+    position: static;
+    min-width: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: none;
+  }
+  .phone:hover .phone__popup,
+  .phone:focus-within .phone__popup { transform: none; }
+  .phone__popup::before { display: none; }
+
+  .phone__messenger {
+    flex: 1;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+}
+
 /* ===== Адаптив ===== */
 @media (max-width: 1180px) {
   .header__inner { gap: 1.5rem; padding: 1rem 1.5rem; min-height: 80px; position: relative; }
