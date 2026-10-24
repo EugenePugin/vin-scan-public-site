@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Клиенты — Vin-Scan</title>
+<link rel="stylesheet" href="kss/base.css">
+<link rel="stylesheet" href="kss/admin.css">
+<link rel="stylesheet" href="kss/components.css">
+<link rel="stylesheet" href="kss/list.css">
+<link rel="stylesheet" href="kss/clients.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Набор иконок (подключаются через use) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7"/></symbol><symbol id="i-widgets" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17.2v.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol><symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20.5 8H6.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol><symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol></svg>
+
+<!-- ===== Левая панель ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar__brand">
+  <a class="logo" href="index.html">
+    <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan, на главную">
+  </a>
+</div>
+
+<nav class="side-nav" aria-label="Разделы админ-панели">
+<p class="side-nav__caption">Разделы</p>
+<ul class="side-nav__list">
+<li>
+<a class="side-nav__link" href="index.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+<span>Главная</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="stats.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+<span>Статистика использования</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="widgets.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-widgets"/></svg></span>
+<span>Управление веб-виджетами</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="dialogs.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span>
+<span>История диалогов</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="clients.html" aria-current="page">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+<span>Клиенты</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- ===== Правая часть ===== -->
+<div class="admin-main">
+<header class="topbar">
+<button class="topbar__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+<svg class="icon"><use href="#i-menu"/></svg>
+</button>
+
+<p class="topbar__crumb">Панель администратора</p>
+
+<div class="topbar__actions">
+<a class="topbar__pill topbar__pill--help" href="help.html">
+<svg class="icon"><use href="#i-help"/></svg>
+<span class="topbar__label">Помощь</span>
+</a>
+
+<a class="topbar__pill topbar__pill--balance" href="balance.html" aria-label="Баланс: 0 рублей">
+<svg class="icon"><use href="#i-wallet"/></svg>
+<span><strong>0</strong> ₽</span>
+</a>
+
+<div class="user-menu">
+<button class="user-menu__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+<span class="user-menu__avatar" aria-hidden="true">А</span>
+<span class="user-menu__name topbar__label">Кабинет</span>
+<svg class="icon user-menu__chevron"><use href="#i-chevron"/></svg>
+</button>
+
+<div class="user-menu__panel" id="user-menu" hidden>
+<div class="user-menu__head">
+<span class="user-menu__avatar user-menu__avatar--lg" aria-hidden="true">А</span>
+<div>
+<p class="user-menu__title">Администратор</p>
+<p class="user-menu__mail">admin@vin-scan.ru</p>
+</div>
+</div>
+<ul class="user-menu__list">
+<li><a href="profile.html"><svg class="icon"><use href="#i-user"/></svg>Мой профиль</a></li>
+<li><a href="balance.html"><svg class="icon"><use href="#i-cabinet"/></svg>Личный кабинет</a></li>
+</ul>
+<div class="user-menu__foot">
+<a class="user-menu__logout" href="/logout"><svg class="icon"><use href="#i-logout"/></svg>Выход</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+
+<main id="main" class="page">
+<section class="head-card" aria-labelledby="cl-title">
+<div><h1 id="cl-title" class="head-card__title">Клиенты</h1>
+<p class="head-card__text">Кто пользуется чатом по подбору запчастей и что из этого получается: сколько задано запросов, сколько заказов оформлено. Если клиент только тратит запросы и ничего не покупает, ему можно закрыть доступ к чату.</p></div>
+<div class="head-card__actions"><a class="btn btn--outline" href="#"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Экспорт в CSV</a></div>
+</section>
+
+<section class="kpis" aria-label="Сводка по клиентам">
+<div class="kpi"><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><div><p class="kpi__value" id="k-all">10</p><p class="kpi__label">Всего клиентов</p></div></div>
+<div class="kpi kpi--ok"><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><p class="kpi__value" id="k-active">0</p><p class="kpi__label">С доступом к чату</p></div></div>
+<div class="kpi kpi--warn"><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg></span><div><p class="kpi__value" id="k-risk">0</p><p class="kpi__label">Без заказов (зона риска)</p></div></div>
+<div class="kpi kpi--danger"><span class="kpi__icon"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg></span><div><p class="kpi__value" id="k-blocked">2</p><p class="kpi__label">Заблокированы</p></div></div>
+</section>
+
+<section class="card" aria-labelledby="rule-title">
+<div class="rule">
+<div>
+<h2 class="card__title" id="rule-title">Автоблокировка «пустых» клиентов</h2>
+<p class="rule__text">Клиент попадает под правило, если задал не меньше указанного числа запросов и не оформил ни одного заказа. Сначала посмотрите, кого затронет правило, затем примените его.</p>
+<div class="rule__fields">
+<div><label class="label" for="rule-n">Запросов без заказа, от</label><div class="field__box"><input class="input" id="rule-n" type="number" min="1" max="1000" value="50" inputmode="numeric"></div></div>
+</div>
+<p class="rule__result" aria-live="polite">Под правило попадает клиентов: <b id="rule-count">0</b><span id="rule-names"></span></p>
+</div>
+<div class="rule__side">
+<button class="switch" type="button" role="switch" aria-checked="false" id="auto-switch"><span class="switch__track" aria-hidden="true"></span>Блокировать автоматически</button>
+<button class="btn btn--danger" type="button" id="rule-apply"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать сейчас</button>
+</div>
+</div>
+</section>
+
+<section class="toolbar" aria-label="Поиск и фильтры">
+<div class="toolbar__row toolbar__row--3">
+<div><label class="label" for="q">Поиск клиента</label><div class="field__box"><svg class="icon field__icon" aria-hidden="true"><use href="#i-search"/></svg><input class="input input--search" id="q" type="search" placeholder="Имя клиента или тип: СТО, организация" autocomplete="off"></div></div>
+<div><label class="label" for="f-orders">Заказы</label><select class="select" id="f-orders"><option value="">Любые</option><option value="with">Есть заказы</option><option value="none">Нет заказов</option></select></div>
+<div><label class="label" for="sort">Сортировка</label><select class="select" id="sort"><option value="req">Больше запросов</option><option value="orders">Больше заказов</option><option value="conv">Выше конверсия</option><option value="waste">Больше запросов впустую</option><option value="name">По имени</option></select></div>
+</div>
+<div class="toolbar__row--chips">
+<div class="chips" role="group" aria-label="Статус клиента">
+<button class="chip" type="button" data-status="" aria-pressed="true">Все <span class="chip__count" id="c-all">0</span></button>
+<button class="chip" type="button" data-status="active" aria-pressed="false">Активные <span class="chip__count" id="c-active">0</span></button>
+<button class="chip" type="button" data-status="risk" aria-pressed="false">Зона риска <span class="chip__count" id="c-risk">0</span></button>
+<button class="chip" type="button" data-status="blocked" aria-pressed="false">Заблокированы <span class="chip__count" id="c-blocked">0</span></button>
+</div>
+<div class="toolbar__tail"><p class="toolbar__count" aria-live="polite">Найдено: <b id="count">0</b></p><button class="toolbar__reset" type="button" id="reset">Сбросить фильтры</button></div>
+</div>
+</section>
+
+<div class="bulk" id="bulk" hidden>
+<span>Выбрано клиентов: <b id="bulk-n">0</b></span>
+<div class="bulk__btns">
+<button class="btn btn--danger btn--sm" type="button" id="bulk-block">Заблокировать</button>
+<button class="btn btn--outline btn--sm" type="button" id="bulk-unblock">Разблокировать</button>
+</div>
+</div>
+
+<section class="card card--flush" aria-label="Список клиентов">
+<div class="table-wrap">
+<table class="table" id="tbl">
+<thead><tr>
+<th><input class="cl-check" type="checkbox" id="check-all" aria-label="Выбрать всех"></th>
+<th>Клиент</th><th>Статус</th><th class="num">Диалогов</th><th class="num">Запросов</th><th class="num">Заказов</th><th>Конверсия</th><th class="num">Впустую</th><th>Активность</th><th class="num">Действие</th>
+</tr></thead>
+<tbody id="tbody">
+<tr data-id="1" data-status="active" data-name="алексей смирнов" data-kind="частное лицо" data-req="58" data-orders="3" data-dialogs="12" data-conv="25">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Алексей Смирнов"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">АС</span><div><p class="cl__name">Алексей Смирнов</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--ok">Активен</span></td>
+<td class="num">12</td>
+<td class="num">58</td>
+<td class="num">3</td>
+<td><div class="conv conv--high"><span class="conv__num">25%</span><div class="bar"><div class="bar__fill" style="width:25%"></div></div></div></td>
+<td class="num cost">0</td>
+<td class="muted">Сегодня, 20:41</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="2" data-status="active" data-name="сто «мотор-сервис»" data-kind="автосервис" data-req="164" data-orders="9" data-dialogs="31" data-conv="29">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: СТО «Мотор-Сервис»"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">МС</span><div><p class="cl__name">СТО «Мотор-Сервис»</p><p class="cl__kind">Автосервис</p></div></div></td>
+<td class="cell-status"><span class="badge badge--ok">Активен</span></td>
+<td class="num">31</td>
+<td class="num">164</td>
+<td class="num">9</td>
+<td><div class="conv conv--high"><span class="conv__num">29%</span><div class="bar"><div class="bar__fill" style="width:29%"></div></div></div></td>
+<td class="num cost">0</td>
+<td class="muted">Сегодня, 21:22</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="3" data-status="active" data-name="мария лебедева" data-kind="частное лицо" data-req="29" data-orders="1" data-dialogs="7" data-conv="14">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Мария Лебедева"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">МЛ</span><div><p class="cl__name">Мария Лебедева</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--ok">Активен</span></td>
+<td class="num">7</td>
+<td class="num">29</td>
+<td class="num">1</td>
+<td><div class="conv conv--mid"><span class="conv__num">14%</span><div class="bar"><div class="bar__fill" style="width:14%"></div></div></div></td>
+<td class="num cost">0</td>
+<td class="muted">Вчера, 18:05</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="4" data-status="risk" data-name="дмитрий орлов" data-kind="частное лицо" data-req="143" data-orders="0" data-dialogs="26" data-conv="0">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Дмитрий Орлов"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">ДО</span><div><p class="cl__name">Дмитрий Орлов</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--warn">Зона риска</span></td>
+<td class="num">26</td>
+<td class="num">143</td>
+<td class="num">0</td>
+<td><div class="conv conv--low"><span class="conv__num">0%</span><div class="bar"><div class="bar__fill" style="width:2%"></div></div></div></td>
+<td class="num cost cost--waste">143</td>
+<td class="muted">Сегодня, 19:12</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="5" data-status="active" data-name="автоцентр «гараж 24»" data-kind="организация" data-req="231" data-orders="14" data-dialogs="44" data-conv="32">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Автоцентр «Гараж 24»"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">Г2</span><div><p class="cl__name">Автоцентр «Гараж 24»</p><p class="cl__kind">Организация</p></div></div></td>
+<td class="cell-status"><span class="badge badge--ok">Активен</span></td>
+<td class="num">44</td>
+<td class="num">231</td>
+<td class="num">14</td>
+<td><div class="conv conv--high"><span class="conv__num">32%</span><div class="bar"><div class="bar__fill" style="width:32%"></div></div></div></td>
+<td class="num cost">0</td>
+<td class="muted">Сегодня, 17:48</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="6" data-status="blocked" data-name="сергей ким" data-kind="частное лицо" data-req="77" data-orders="0" data-dialogs="15" data-conv="0" class="row-blocked">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Сергей Ким"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">СК</span><div><p class="cl__name">Сергей Ким</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--blocked">Заблокирован</span></td>
+<td class="num">15</td>
+<td class="num">77</td>
+<td class="num">0</td>
+<td><div class="conv conv--low"><span class="conv__num">0%</span><div class="bar"><div class="bar__fill" style="width:2%"></div></div></div></td>
+<td class="num cost cost--waste">77</td>
+<td class="muted">12 окт, 11:30</td>
+<td class="row-actions"><button class="btn btn--outline btn--sm" type="button" data-act="unblock"><svg class="icon" aria-hidden="true"><use href="#i-unlock"/></svg>Разблокировать</button></td>
+</tr>
+<tr data-id="7" data-status="risk" data-name="виктор седов" data-kind="частное лицо" data-req="96" data-orders="0" data-dialogs="19" data-conv="0">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Виктор Седов"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">ВС</span><div><p class="cl__name">Виктор Седов</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--warn">Зона риска</span></td>
+<td class="num">19</td>
+<td class="num">96</td>
+<td class="num">0</td>
+<td><div class="conv conv--low"><span class="conv__num">0%</span><div class="bar"><div class="bar__fill" style="width:2%"></div></div></div></td>
+<td class="num cost cost--waste">96</td>
+<td class="muted">Вчера, 22:10</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="8" data-status="active" data-name="ольга назарова" data-kind="частное лицо" data-req="18" data-orders="2" data-dialogs="5" data-conv="40">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Ольга Назарова"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">ОН</span><div><p class="cl__name">Ольга Назарова</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--ok">Активен</span></td>
+<td class="num">5</td>
+<td class="num">18</td>
+<td class="num">2</td>
+<td><div class="conv conv--high"><span class="conv__num">40%</span><div class="bar"><div class="bar__fill" style="width:40%"></div></div></div></td>
+<td class="num cost">0</td>
+<td class="muted">17 окт, 09:54</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+<tr data-id="9" data-status="blocked" data-name="павел крылов" data-kind="частное лицо" data-req="118" data-orders="0" data-dialogs="22" data-conv="0" class="row-blocked">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: Павел Крылов"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">ПК</span><div><p class="cl__name">Павел Крылов</p><p class="cl__kind">Частное лицо</p></div></div></td>
+<td class="cell-status"><span class="badge badge--blocked">Заблокирован</span></td>
+<td class="num">22</td>
+<td class="num">118</td>
+<td class="num">0</td>
+<td><div class="conv conv--low"><span class="conv__num">0%</span><div class="bar"><div class="bar__fill" style="width:2%"></div></div></div></td>
+<td class="num cost cost--waste">118</td>
+<td class="muted">8 окт, 15:20</td>
+<td class="row-actions"><button class="btn btn--outline btn--sm" type="button" data-act="unblock"><svg class="icon" aria-hidden="true"><use href="#i-unlock"/></svg>Разблокировать</button></td>
+</tr>
+<tr data-id="10" data-status="active" data-name="ооо «трейд-авто»" data-kind="организация" data-req="205" data-orders="11" data-dialogs="38" data-conv="29">
+<td><input class="cl-check" type="checkbox" aria-label="Выбрать: ООО «Трейд-Авто»"></td>
+<td><div class="cl"><span class="avatar" aria-hidden="true">ТА</span><div><p class="cl__name">ООО «Трейд-Авто»</p><p class="cl__kind">Организация</p></div></div></td>
+<td class="cell-status"><span class="badge badge--ok">Активен</span></td>
+<td class="num">38</td>
+<td class="num">205</td>
+<td class="num">11</td>
+<td><div class="conv conv--high"><span class="conv__num">29%</span><div class="bar"><div class="bar__fill" style="width:29%"></div></div></div></td>
+<td class="num cost">0</td>
+<td class="muted">Сегодня, 21:29</td>
+<td class="row-actions"><button class="btn btn--danger-outline btn--sm" type="button" data-act="block"><svg class="icon" aria-hidden="true"><use href="#i-block"/></svg>Заблокировать</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<p class="muted">Конверсия: доля диалогов, завершившихся заказом. «Впустую»: запросы клиентов, у которых нет ни одного заказа.</p>
+
+<div class="nores" id="nores" hidden>
+<span class="nores__icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+<h2 class="nores__title">Клиенты не найдены</h2>
+<p class="nores__text">Попробуйте изменить запрос или сбросить фильтры.</p>
+<button class="btn btn--outline" type="button" id="reset2">Сбросить фильтры</button>
+</div>
+
+<dialog class="modal" id="confirm" aria-labelledby="m-title">
+<form method="dialog">
+<div class="modal__body"><h2 class="modal__title" id="m-title">Подтвердите действие</h2><p class="modal__text" id="m-text"></p></div>
+<div class="modal__foot"><button class="btn btn--outline" value="cancel">Отмена</button><button class="btn btn--danger" value="ok" id="m-ok">Подтвердить</button></div>
+</form>
+</dialog>
+</main>
+
+</div>
+
+<script src="js/layout.js"></script>
+<script src="js/clients.js"></script>
+</body>
+</html>

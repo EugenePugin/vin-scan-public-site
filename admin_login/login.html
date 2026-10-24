@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вход</title>
+<link rel="stylesheet" href="/admin_login/css/login.css">
+<link rel="stylesheet" href="/site/css/base.css">
+</head>
+<body>
+<main class="auth">
+  <div class="auth__card">
+    <section class="auth__form-side" aria-labelledby="auth-title">
+      <img class="logo" src="/site/img/logo_full.svg" alt="Логотип">
+      <h1 class="auth__title" id="auth-title">Вход в личный кабинет</h1>
+      <p class="auth__lead">Введите данные для входа в систему</p>
+
+      <form class="form" action="#" method="post">
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" required>
+        </div>
+        <div class="field">
+          <div class="field__row">
+            <label for="password">Пароль</label>
+            <a class="field__link" href="#">Забыли пароль?</a>
+          </div>
+          <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Введите пароль" required>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Войти</button>
+      </form>
+
+      <div class="auth__alt">
+        <span>Ещё нет аккаунта?</span>
+        <a class="btn btn--outline btn--block" href="/admin_login/register.html">Попробуйте бесплатно</a>
+      </div>
+    </section>
+
+<aside class="auth__brand">
+  <section class="partner" aria-labelledby="partner-title">
+    <span class="partner__badge">Партнёрская программа</span>
+    <div class="partner__offer">
+      <span class="partner__percent">10%</span>
+      <h2 class="partner__title" id="partner-title">за каждого нового клиента</h2>
+    </div>
+    <p class="partner__text">Приведите клиента в Vin-Scan и получите 10% от его абонентской платы за первый месяц подключения.</p>
+    <ol class="partner__steps">
+      <li>Расскажите о сервисе своему клиенту</li>
+      <li>Клиент подключается и оплачивает первый месяц</li>
+      <li>Вы получаете 10% от этой оплаты</li>
+    </ol>
+  </section>
+
+  <p class="brand__text">Интеллектуальный подбор деталей по VIN и запросам клиентов в Telegram и MAX</p>
+</aside>
+  </div>
+</main>
+</body>
+</html>

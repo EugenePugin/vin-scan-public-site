@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Управление веб-виджетами — Vin-Scan</title>
+<link rel="stylesheet" href="kss/base.css">
+<link rel="stylesheet" href="kss/admin.css">
+<link rel="stylesheet" href="kss/widgets.css">
+<link rel="stylesheet" href="kss/widget-modal.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Набор иконок (подключаются через use) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7"/></symbol><symbol id="i-widgets" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17.2v.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol><symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20.5 8H6.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol><symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol></svg>
+
+<!-- ===== Левая панель ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar__brand">
+  <a class="logo" href="index.html">
+    <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan, на главную">
+  </a>
+</div>
+
+<nav class="side-nav" aria-label="Разделы админ-панели">
+<p class="side-nav__caption">Разделы</p>
+<ul class="side-nav__list">
+<li>
+<a class="side-nav__link" href="index.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+<span>Главная</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="stats.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+<span>Статистика использования</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="widgets.html" aria-current="page">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-widgets"/></svg></span>
+<span>Управление веб-виджетами</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="dialogs.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span>
+<span>История диалогов</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="clients.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+<span>Клиенты</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- ===== Правая часть ===== -->
+<div class="admin-main">
+<header class="topbar">
+<button class="topbar__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+<svg class="icon"><use href="#i-menu"/></svg>
+</button>
+
+<p class="topbar__crumb">Панель администратора</p>
+
+<div class="topbar__actions">
+<a class="topbar__pill topbar__pill--help" href="help.html">
+<svg class="icon"><use href="#i-help"/></svg>
+<span class="topbar__label">Помощь</span>
+</a>
+
+<a class="topbar__pill topbar__pill--balance" href="balance.html" aria-label="Баланс: 0 рублей">
+<svg class="icon"><use href="#i-wallet"/></svg>
+<span><strong>0</strong> ₽</span>
+</a>
+
+<div class="user-menu">
+<button class="user-menu__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+<span class="user-menu__avatar" aria-hidden="true">А</span>
+<span class="user-menu__name topbar__label">Кабинет</span>
+<svg class="icon user-menu__chevron"><use href="#i-chevron"/></svg>
+</button>
+
+<div class="user-menu__panel" id="user-menu" hidden>
+<div class="user-menu__head">
+<span class="user-menu__avatar user-menu__avatar--lg" aria-hidden="true">А</span>
+<div>
+<p class="user-menu__title">Администратор</p>
+<p class="user-menu__mail">admin@vin-scan.ru</p>
+</div>
+</div>
+<ul class="user-menu__list">
+<li><a href="profile.html"><svg class="icon"><use href="#i-user"/></svg>Мой профиль</a></li>
+<li><a href="balance.html"><svg class="icon"><use href="#i-cabinet"/></svg>Личный кабинет</a></li>
+</ul>
+<div class="user-menu__foot">
+<a class="user-menu__logout" href="/logout"><svg class="icon"><use href="#i-logout"/></svg>Выход</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+
+<main id="main" class="page">
+<section class="intro" aria-labelledby="widgets-title">
+<div class="intro__body">
+<h1 id="widgets-title" class="intro__title">Управление веб-виджетами</h1>
+<p class="intro__text">
+Веб-виджет представляет из себя интерактивный чат во всплывающем окне, который можно разместить на страницах Вашего сайта. Такой чат может подбирать запчасти для посетителей, и далее перенаправлять их на страницу уточнения цен и покупки запчастей на Вашем сайте. Все диалоги и сообщения, созданные через виджеты, автоматически помещаются в папку «Widget-диалоги» на странице <a href="/chat">чата</a>.
+</p>
+</div>
+<a class="btn btn--primary intro__btn" href="#widget-modal">Создать виджет</a>
+</section>
+
+<section class="empty" aria-labelledby="empty-title">
+<span class="empty__icon" aria-hidden="true"></span>
+<h2 id="empty-title" class="empty__title">Виджетов пока нет</h2>
+<p class="empty__text">
+Создайте первый виджет, укажите адрес Вашего сайта и настройте внешний вид чата.
+</p>
+<a class="btn btn--primary" href="#widget-modal">Создать первый виджет</a>
+</section>
+</main>
+
+</div>
+
+<!-- ===== Модальное окно: создание веб-виджета ===== -->
+<div class="wm" id="widget-modal" role="dialog" aria-modal="true" aria-labelledby="wm-title">
+  <a class="wm__backdrop" href="#main" aria-label="Закрыть окно" tabindex="-1"></a>
+
+  <div class="wm__dialog">
+    <header class="wm__head">
+      <span class="wm__head-icon" aria-hidden="true"></span>
+      <h2 class="wm__title" id="wm-title">Создание веб-виджета</h2>
+      <a class="wm__close" href="#main" aria-label="Закрыть">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+      </a>
+    </header>
+
+    <form class="wm__body" action="#" onsubmit="return false">
+      <div class="wm__form">
+
+        <!-- Основные настройки -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Основные настройки</h3>
+            <p>Название и текущий статус</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-field">
+              <label class="wm-label" for="w-name">Название виджета</label>
+              <p class="wm-hint">Внутреннее название для списка, например «Основной магазин» или «Тестовый сайт».</p>
+              <input class="wm-input" id="w-name" type="text">
+            </div>
+            <div class="wm-field">
+              <label class="wm-label" for="w-status">Статус виджета</label>
+              <p class="wm-hint">Отключённый виджет остаётся в аккаунте, но новые запросы посетителей должны отклоняться сервером.</p>
+              <select class="wm-input" id="w-status">
+                <option>ACTIVE — активен</option>
+                <option>DISABLED — отключён</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- Безопасность и доступ -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Безопасность и доступ</h3>
+            <p>Ограничьте использование виджета выбранными сайтами</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-field">
+              <label class="wm-label" for="w-sites">Сайты, на которых будет установлен виджет</label>
+              <p class="wm-hint">Укажите адрес каждого сайта с новой строки, например https://example.com. Виджет будет принимать вызовы только с перечисленных сайтов, вызовы с остальных сайтов будут блокироваться. Указывайте основной адрес без пути к отдельной странице. Если оставить поле пустым, виджет не будет работать ни на одном сайте.</p>
+              <textarea class="wm-input wm-textarea" id="w-sites" rows="5" placeholder="https://example.com&#10;https://shop.example.com"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Продвижение компании -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Продвижение Вашей компании</h3>
+            <p>Чат-виджет в диалогах с пользователями будет рекомендовать и всячески продвигать Вашу компанию. Также после проценки товаров в таблице результатов мы будем показывать ссылки на страницу поиска (проценки) товаров на Вашем сайте, используя найденные артикулы. Обратите внимание: данная настройка является глобальной для Вашего аккаунта и действует и для веб-чата, и для API-вызовов, и для виджетов. Изменить эту настройку можно в разделе «Чат», в окне редактирования учётной записи.</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-grid">
+              <div class="wm-field">
+                <label class="wm-label" for="w-company">Название Вашей компании</label>
+                <p class="wm-hint">Название компании, которое Vin-Scan использует при формировании рекомендаций для пользователей.</p>
+                <input class="wm-input" id="w-company" type="text" value="Название компании" readonly>
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-link">Ссылка на страницу поиска товаров</label>
+                <p class="wm-hint">Ссылка-маска, по которой пользователи переходят к поиску и покупке найденных товаров на Вашем сайте.</p>
+                <input class="wm-input" id="w-link" type="text" value="https://example.com/search/[#article#]" readonly>
+              </div>
+            </div>
+            <div class="wm-note">
+              <div>
+                <strong>Где изменить эти данные?</strong>
+                <p>Эти настройки регулируются в личном кабинете и являются общими для чата, API и всех Ваших виджетов. Перейдите на страницу чата, откройте «Личный кабинет» и сохраните там нужные значения.</p>
+              </div>
+              <a class="btn btn--outline" href="/chat">Перейти на страницу чата</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Брендинг и тексты -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Брендинг и тексты</h3>
+            <p>Настройте внешний вид и стили виджета на Вашем сайте.</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-field">
+              <label class="wm-label" for="w-launcher-url">URL изображения лаунчера чат-облака</label>
+              <p class="wm-hint">В данном поле нужно выбрать внешний вид картинки, которая будет отображаться в одном из углов Вашего сайта. При нажатии на эту картинку будет открываться чат между пользователем и ИИ. Вы можете выбрать картинку из стандартной библиотеки или указать ссылку (полный URL) на собственную картинку. Пустое или некорректное значение автоматически заменяется на «Внешний вид 1».</p>
+              <input class="wm-input" id="w-launcher-url" type="text" value="https://vin-scan.ru/chat/assets/img/widget/launcher-1.png">
+            </div>
+
+            <p class="wm-hint">Вы можете указать свой собственный URL на картинку или использовать одну из стандартных картинок. Нажмите на одну из картинок ниже, чтобы использовать её.</p>
+            <div class="wm-launchers" role="radiogroup" aria-label="Стандартные лаунчеры">
+              <label class="wm-launcher-opt"><input type="radio" name="launcher" checked><span class="wm-tile"><span class="wm-tile__img"><svg class="icon"><use href="#i-message"/></svg></span><span class="wm-tile__name">Launcher 1</span></span></label>
+              <label class="wm-launcher-opt"><input type="radio" name="launcher"><span class="wm-tile"><span class="wm-tile__img"><svg class="icon"><use href="#i-message"/></svg></span><span class="wm-tile__name">Launcher 2</span></span></label>
+              <label class="wm-launcher-opt"><input type="radio" name="launcher"><span class="wm-tile"><span class="wm-tile__img"><svg class="icon"><use href="#i-message"/></svg></span><span class="wm-tile__name">Launcher 3</span></span></label>
+              <label class="wm-launcher-opt"><input type="radio" name="launcher"><span class="wm-tile"><span class="wm-tile__img"><svg class="icon"><use href="#i-message"/></svg></span><span class="wm-tile__name">Launcher 4</span></span></label>
+              <label class="wm-launcher-opt"><input type="radio" name="launcher"><span class="wm-tile"><span class="wm-tile__img"><svg class="icon"><use href="#i-message"/></svg></span><span class="wm-tile__name">Launcher 5</span></span></label>
+            </div>
+
+            <div class="wm-field">
+              <label class="wm-label" for="w-logo">URL логотипа компании</label>
+              <p class="wm-hint">Укажите ссылку на квадратный логотип Вашей компании. Логотип показывается внутри открытого чата в левом верхнем углу. Если URL не задан, используется квадратная иконка Vin-Scan.</p>
+              <input class="wm-input" id="w-logo" type="text" value="https://vin-scan.ru/chat/assets/img/favicon_128x128.png">
+            </div>
+
+            <div class="wm-grid">
+              <div class="wm-field">
+                <label class="wm-label" for="w-title">Заголовок чата</label>
+                <p class="wm-hint">Короткий заголовок в верхней панели виджета.</p>
+                <input class="wm-input" id="w-title" type="text" placeholder="ИИ-чатбот для поиска запчастей">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-title-color-hex">Цвет заголовка чата</label>
+                <p class="wm-hint">Отдельный цвет текста заголовка, формат #RRGGBB.</p>
+                <div class="wm-color">
+                  <input type="color" value="#ffffff" aria-label="Выбор цвета заголовка">
+                  <input class="wm-input" id="w-title-color-hex" type="text" value="#ffffff">
+                </div>
+              </div>
+            </div>
+
+            <div class="wm-field">
+              <label class="wm-label" for="w-placeholder">Подсказка для поля ввода</label>
+              <p class="wm-hint">Укажите подсказку для поля ввода текста.</p>
+              <input class="wm-input" id="w-placeholder" type="text" placeholder="Введите сообщение...">
+            </div>
+
+            <div class="wm-field">
+              <label class="wm-label" for="w-greeting">Приветствие</label>
+              <p class="wm-hint">Первое приветственное сообщение, которое посетитель увидит после открытия виджета.</p>
+              <textarea class="wm-input wm-textarea" id="w-greeting" rows="3" placeholder="Здравствуйте! Пожалуйста, напишите VIN-код и список запчастей, которые нужно найти. Если VIN-кода нет, укажите параметры автомобиля."></textarea>
+            </div>
+
+            <div class="wm-field">
+              <label class="wm-label" for="w-price-btn">Текст кнопки «Узнать цену»</label>
+              <p class="wm-hint">Пожалуйста, укажите короткое название для кнопки перехода в проценку на Вашем сайте. Маска URL будет взята из карточки пользователя (поле «Ссылка на страницу поиска товаров»).</p>
+              <input class="wm-input" id="w-price-btn" type="text" placeholder="Узнать цену">
+            </div>
+          </div>
+        </section>
+
+        <!-- Размеры и отображение -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Размеры и отображение</h3>
+            <p>Desktop-настройки лаунчера и всплывающего окна. При размере экрана до 768 пикселей виджет будет автоматически открыт на всю страницу.</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-grid">
+              <div class="wm-field">
+                <label class="wm-label" for="w-pos">Позиция лаунчера</label>
+                <p class="wm-hint">Выберите, где отображать лаунчер.</p>
+                <select class="wm-input" id="w-pos"><option>Справа внизу</option><option>Слева внизу</option></select>
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-mode">Режим окна чата по умолчанию</label>
+                <p class="wm-hint">Выберите стратегию отображения окна чата.</p>
+                <select class="wm-input" id="w-mode"><option>Всплывающий диалог</option><option>На всю страницу</option></select>
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-lw">Ширина лаунчера, в пикселях</label>
+                <p class="wm-hint">Допустимо от 32 до 500 px.</p>
+                <input class="wm-input" id="w-lw" type="number" min="32" max="500" value="150">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-lh">Высота лаунчера, в пикселях</label>
+                <p class="wm-hint">Допустимо от 32 до 500.</p>
+                <input class="wm-input" id="w-lh" type="number" min="32" max="500" value="150">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-radius">Радиус скругления лаунчера, в пикселях</label>
+                <p class="wm-hint">Значение 0 создаёт прямые углы.</p>
+                <input class="wm-input" id="w-radius" type="number" min="0" value="25">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-ox">Отступ лаунчера от края по горизонтали, px</label>
+                <p class="wm-hint">Допустимые значения от 0 до 200 px.</p>
+                <input class="wm-input" id="w-ox" type="number" min="0" max="200" value="20">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-oy">Отступ лаунчера от края по вертикали, px</label>
+                <p class="wm-hint">Расстояние от нижнего края страницы, от 0 до 200 px.</p>
+                <input class="wm-input" id="w-oy" type="number" min="0" max="200" value="20">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-color-hex">Основной цвет</label>
+                <p class="wm-hint">Цвет в формате #RRGGBB.</p>
+                <div class="wm-color">
+                  <input type="color" value="#07689a" aria-label="Выбор основного цвета">
+                  <input class="wm-input" id="w-color-hex" type="text" value="#07689a">
+                </div>
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-cw">Ширина всплывающего окна чата, в пикселях</label>
+                <p class="wm-hint">Ширина может иметь значение от 300 до 1200. При размере экрана до 768 пикселей окно чата будет автоматически открыто на всю страницу.</p>
+                <input class="wm-input" id="w-cw" type="number" min="300" max="1200" value="400">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="w-ch">Высота всплывающего окна чата, в пикселях</label>
+                <p class="wm-hint">Высота может иметь значение от 300 до 1200. При размере экрана до 768 пикселей окно чата будет автоматически открыто на всю страницу.</p>
+                <input class="wm-input" id="w-ch" type="number" min="300" max="1200" value="650">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Лимиты и расходы -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Лимиты и расходы</h3>
+            <p>Ограничьте сложность запросов, длину контекста и бюджет выбранного виджета.</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-grid">
+              <div class="wm-field">
+                <label class="wm-label" for="l-parts">Макс. запчастей в запросе</label>
+                <p class="wm-hint">Сколько запчастей можно подобрать в рамках одного текстового запроса через чат. Группы запчастей и комплекты ТО автоматически разворачиваются в списке запчастей перед поиском. Выберите значение от 1 до 20. Рекомендованное значение 10.</p>
+                <input class="wm-input" id="l-parts" type="number" min="1" max="20" value="10">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="l-ctx">Глубина контекста</label>
+                <p class="wm-hint">Сколько предыдущих сообщений в диалоге надо учитывать при обработке нового сообщения от пользователя. Чем больше предыдущих сообщений нужно учитывать, тем дороже будет обработка. Выберите значение от 0 до 100. Рекомендованное значение 20.</p>
+                <input class="wm-input" id="l-ctx" type="number" min="0" max="100" value="20">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="l-prob">Мин. вероятность соответствия запчасти, %</label>
+                <p class="wm-hint">Минимальная вероятность соответствия запчасти запросу и автомобилю пользователя. Все найденные запчасти с меньшей вероятностью не будут показаны в результатах поиска. Выберите значение от 0 до 100. Рекомендованное значение 65.</p>
+                <input class="wm-input" id="l-prob" type="number" min="0" max="100" value="65">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="l-day">Дневной лимит, ₽</label>
+                <p class="wm-hint">Суммарный дневной лимит расходов для данного виджета. Виджет работает по модели тарификации, аналогичной веб-чату. За каждое обработанное сообщение взимается плата, в зависимости от сложности и длины сообщения. Рекомендованное значение 1000.</p>
+                <input class="wm-input" id="l-day" type="number" min="0" value="1000">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="l-month">Месячный лимит, ₽</label>
+                <p class="wm-hint">Суммарный месячный лимит расходов для данного виджета. Виджет работает по модели тарификации, аналогичной веб-чату. За каждое обработанное сообщение взимается плата, в зависимости от сложности и длины сообщения. Рекомендованное значение 9000.</p>
+                <input class="wm-input" id="l-month" type="number" min="0" value="9000">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="l-user">Суточный лимит расходов на одного зарегистрированного пользователя, ₽</label>
+                <p class="wm-hint">Применяется к посетителю с externalUserId. Значение -1 означает «без персонального лимита», 0 полностью запрещает обращения, положительное число задаёт лимит в рублях.</p>
+                <input class="wm-input" id="l-user" type="number" min="-1" value="-1">
+              </div>
+              <div class="wm-field">
+                <label class="wm-label" for="l-anon">Суточный лимит расходов на одного анонимного пользователя, ₽</label>
+                <p class="wm-hint">Применяется к посетителю без externalUserId. Значение -1 означает «без персонального лимита», 0 полностью запрещает обращения, положительное число задаёт лимит в рублях.</p>
+                <input class="wm-input" id="l-anon" type="number" min="-1" value="-1">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ИИ-модули и инструкции -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>ИИ-модули и инструкции</h3>
+            <p>Определите доступные сценарии обработки запросов посетителей.</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-field">
+              <label class="wm-label" for="a-mode">Режим поиска</label>
+              <p class="wm-hint">У нас есть два режима поиска: быстрый и глубокий. Быстрый поиск рекомендуется для большинства запросов. Глубокий режим предназначен для редких сложных случаев и расходует больше средств. В 90% случаев быстрый поиск хорошо справляется с задачами, при этом стоит на 40–50% дешевле.</p>
+              <select class="wm-input" id="a-mode"><option>Быстрый поиск</option><option>Глубокий поиск</option></select>
+            </div>
+
+            <fieldset class="wm-fieldset">
+              <legend class="wm-label">Активные субагенты</legend>
+              <p class="wm-hint">Выберите активных суб-агентов внутри виджета. Если некоторый модуль отключён, виджет не сможет маршрутизировать к нему новые запросы посетителей.</p>
+              <div class="wm-grid">
+                <label class="wm-check">
+                  <input type="checkbox" checked>
+                  <span class="wm-check__box"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+                  <span><strong>VIN / FRAME поиск (основной №1)</strong><small>Поиск OEM-запчастей и кросс-артикулов по VIN или FRAME автомобиля с использованием схематических каталогов.</small></span>
+                </label>
+                <label class="wm-check">
+                  <input type="checkbox" checked>
+                  <span class="wm-check__box"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+                  <span><strong>Широкий поиск (основной №2)</strong><small>Поиск по марке, модели, году и текстовому описанию автомобиля, используя веб-поиск и внутренние базы ИИ.</small></span>
+                </label>
+                <label class="wm-check">
+                  <input type="checkbox" checked>
+                  <span class="wm-check__box"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+                  <span><strong>Поиск кросс-кодов</strong><small>Подбор аналогов и замен по OEM-номеру автозапчасти, используя общеизвестные каталоги и надёжные источники данных.</small></span>
+                </label>
+                <label class="wm-check">
+                  <input type="checkbox" checked>
+                  <span class="wm-check__box"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+                  <span><strong>Wise Adviser</strong><small>Текстовые консультации с включённым веб-поиском. Сравнение брендов, сравнение запчастей, поиск характеристик и т. п.</small></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="wm-field">
+              <label class="wm-label" for="a-extra">Дополнительные инструкции для ИИ</label>
+              <p class="wm-hint">Расскажите о компании, правилах общения, ассортименте и важных ссылках. Напишите пожелания по стилю общения, который ИИ-чатбот должен соблюдать.</p>
+              <textarea class="wm-input wm-textarea" id="a-extra" rows="7" placeholder="Информация о компании и правила поведения виджета..."></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Расширенная стилизация -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>Расширенная стилизация</h3>
+            <p>Необязательные CSS-правила для элементов виджета, встроенных в страницу сайта.</p>
+          </header>
+          <div class="wm-card__body">
+            <div class="wm-field">
+              <label class="wm-label" for="c-css">Custom CSS</label>
+              <p class="wm-hint">Используйте только при необходимости. Ограничивайте каждый селектор корневым классом .vinscan-widget-root, чтобы правила не затронули страницу клиента.</p>
+              <textarea class="wm-input wm-textarea wm-code" id="c-css" rows="6" spellcheck="false">.vinscan-widget-root .vinscan-widget-message {
+  border-radius: 12px;
+}</textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Код для вставки -->
+        <section class="wm-card">
+          <header class="wm-card__head">
+            <h3>JS-код для вставки виджета на Ваш сайт</h3>
+            <p>Скопируйте фрагмент целиком и разместите его перед закрывающим тегом &lt;/body&gt; на страницах, где должен работать виджет.</p>
+          </header>
+          <div class="wm-card__body">
+            <pre class="wm-snippet" aria-label="Код для вставки"><code>&lt;!-- Код появится здесь после сохранения виджета --&gt;</code></pre>
+            <div class="wm-note wm-note--info">
+              <div>
+                <strong>Сначала сохраните виджет</strong>
+                <p>Сохраните виджет, после чего мы сгенерируем JS-код для вставки на Ваш сайт.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Предпросмотр -->
+      <aside class="wm__side" aria-label="Предпросмотр виджета">
+        <div class="wm-card wm-preview">
+          <div class="wm-preview__head">
+            <strong>Предпросмотр</strong>
+            <span>схематично</span>
+          </div>
+          <div class="wm-stage" style="--wm-color:#07689a">
+            <div class="wm-chat">
+              <div class="wm-chat__head">
+                <span class="wm-chat__logo" aria-hidden="true">V</span>
+                <span class="wm-chat__title">Подбор автозапчастей</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+              </div>
+              <div class="wm-chat__body">
+                <p class="wm-chat__msg">Здравствуйте! Помогу подобрать автозапчасти.</p>
+              </div>
+              <div class="wm-chat__input">Введите сообщение...</div>
+            </div>
+            <div class="wm-stage__launcher">
+              <svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>
+              <span>Чат с ИИ</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </form>
+
+    <footer class="wm__foot">
+      <a class="btn btn--outline" href="#main">Отмена</a>
+      <button class="btn btn--primary" type="button">Сохранить виджет</button>
+    </footer>
+  </div>
+</div>
+
+<script src="js/layout.js"></script>
+</body>
+</html>

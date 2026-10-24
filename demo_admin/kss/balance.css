@@ -1,0 +1,231 @@
+/* БАЛАНС: карточки, автоплатёж, счета, таблица платежей, партнёрка.
+  Использует токены из base.css. Префикс bal- */
+
+.bal { display: grid; gap: 1.5rem; align-content: start; }
+.bal .icon {
+  width: 20px; height: 20px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ===== Верхний блок: баланс + статистика ===== */
+.bal-top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1.5rem; }
+
+.bal-hero {
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem;
+  padding: 2rem; border-radius: var(--radius-lg);
+  color: var(--text-inverse); background: var(--primary-gradient);
+  box-shadow: var(--shadow-lg);
+}
+.bal-hero::after {
+  content: ""; position: absolute; right: -90px; top: -90px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+.bal-hero > * { position: relative; z-index: 1; }
+.bal-hero__label { font-size: 1rem; font-weight: 500; color: var(--text-on-dark-muted); }
+.bal-hero__sum {
+  margin-top: 0.5rem; font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+}
+.bal-hero__hint { margin-top: 0.75rem; font-size: 0.9375rem; color: var(--text-on-dark-dim); }
+
+.bal-topup {
+  align-self: end; padding: 1.25rem; border-radius: var(--radius-md);
+  background: var(--surface-on-dark); border: 1px solid var(--border-on-dark);
+}
+.bal-topup__label { margin-bottom: 0.75rem; font-size: 0.9375rem; font-weight: 500; color: var(--text-on-dark-muted); }
+.bal-topup__row { display: flex; gap: 0.75rem; margin-top: 0.875rem; }
+.bal-topup__row .bal-money { flex: 1 1 auto; min-width: 0; }
+
+.bal-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.bal-chip {
+  height: 36px; padding: 0 0.875rem; border-radius: var(--radius-pill); cursor: pointer;
+  font: inherit; font-size: 0.9375rem; color: var(--text-inverse);
+  background: var(--surface-on-dark); border: 1px solid var(--border-on-dark);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.bal-chip:hover { background: rgba(255, 255, 255, 0.18); }
+.bal-chip[aria-pressed="true"] { color: var(--brand-800); background: var(--surface); border-color: var(--surface); }
+.bal-hero :focus-visible { outline-color: var(--surface); }
+
+/* Статистика */
+.bal-stats { display: grid; gap: 1rem; grid-template-rows: repeat(3, 1fr); }
+.bal-stat {
+  display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow);
+}
+.bal-stat__icon {
+  display: grid; place-items: center; width: 44px; height: 44px; flex: none;
+  border-radius: var(--radius-sm); color: var(--primary); background: var(--primary-soft);
+}
+.bal-stat__label { font-size: 0.875rem; color: var(--text-muted); }
+.bal-stat__value { font-size: 1.375rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ===== Карточки ===== */
+.bal-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; align-items: start; }
+
+.bal-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden;
+}
+.bal-card__head {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border);
+}
+.bal-card__head--row { align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.bal-card__headtext { min-width: 0; }
+.bal-card__head h2 { font-size: 1.125rem; line-height: 1.3; }
+.bal-card__head p { margin-top: 0.25rem; font-size: 0.9375rem; color: var(--text-muted); }
+.bal-card__icon {
+  display: grid; place-items: center; width: 40px; height: 40px; flex: none;
+  border-radius: var(--radius-sm); color: var(--primary); background: var(--primary-soft);
+}
+.bal-card__body { display: grid; gap: 1.25rem; padding: 1.5rem; }
+.bal-subtitle { margin-top: 0.5rem; font-size: 1rem; }
+
+/* ===== Формы ===== */
+.bal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.25rem; }
+.bal-field { display: grid; gap: 0.375rem; align-content: start; min-width: 0; }
+.bal-field--wide { grid-column: 1 / -1; }
+.bal-label { font-size: 0.9375rem; font-weight: 600; }
+.bal-hint { font-size: 0.8125rem; line-height: 1.45; color: var(--text-muted); }
+
+.bal-input {
+  width: 100%; height: 44px; padding: 0 0.875rem;
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+.bal-input::placeholder { color: var(--text-placeholder); }
+.bal-input:hover { border-color: var(--primary-border); }
+.bal-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+.bal-input:disabled { color: var(--text-muted); background: var(--bg); cursor: not-allowed; }
+.bal-input[readonly] { background: var(--brand-50); }
+
+.bal-money { position: relative; }
+.bal-money .bal-input { padding-right: 2.25rem; }
+.bal-money span {
+  position: absolute; right: 0.875rem; top: 50%; transform: translateY(-50%);
+  color: var(--text-muted); pointer-events: none;
+}
+
+.bal-fieldset { border: 0; min-width: 0; transition: opacity 0.15s ease; }
+.bal-fieldset:disabled { opacity: 0.55; }
+
+.bal-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* Переключатель */
+.bal-switch { position: relative; display: inline-flex; align-items: center; gap: 0.75rem; width: fit-content; cursor: pointer; }
+.bal-switch input { position: absolute; inset: 0 auto 0 0; width: 44px; height: 26px; margin: 0; opacity: 0; cursor: pointer; }
+.bal-switch__track {
+  position: relative; flex: none; width: 44px; height: 26px; border-radius: var(--radius-pill);
+  background: var(--border-strong); transition: background-color 0.15s ease;
+}
+.bal-switch__track::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px;
+  border-radius: 50%; background: var(--surface); box-shadow: 0 1px 3px rgba(15, 40, 70, 0.25);
+  transition: transform 0.15s ease;
+}
+.bal-switch input:checked + .bal-switch__track { background: var(--primary); }
+.bal-switch input:checked + .bal-switch__track::after { transform: translateX(18px); }
+.bal-switch input:focus-visible + .bal-switch__track { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* ===== Таблица платежей ===== */
+.bal-table-wrap { overflow-x: auto; }
+.bal-table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.bal-table th {
+  padding: 0.875rem 1.5rem; text-align: left; white-space: nowrap;
+  font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em;
+  text-transform: uppercase; color: var(--text-muted); background: var(--brand-50);
+}
+.bal-table td { padding: 1rem 1.5rem; border-top: 1px solid var(--border); vertical-align: middle; }
+.bal-table tbody tr:hover { background: var(--brand-50); }
+.bal-num { text-align: right !important; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.bal-amount { font-weight: 600; }
+.bal-amount--plus { color: var(--success); }
+.bal-row-action { text-align: right; white-space: nowrap; }
+
+.bal-badge {
+  display: inline-flex; align-items: center; height: 26px; padding: 0 0.625rem;
+  border-radius: var(--radius-pill); font-size: 0.8125rem; font-weight: 600; white-space: nowrap;
+}
+.bal-badge--ok   { color: var(--success); background: rgba(21, 128, 61, 0.1); }
+.bal-badge--wait { color: var(--warm-ink); background: var(--warm-surface); box-shadow: inset 0 0 0 1px var(--warm-border); }
+.bal-badge--fail { color: var(--danger-strong); background: rgba(220, 38, 38, 0.08); }
+
+/* ===== Документы и факты ===== */
+.bal-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.bal-facts dt { font-size: 0.8125rem; color: var(--text-muted); }
+.bal-facts dd { margin-top: 0.25rem; font-weight: 600; }
+
+.bal-docs { display: grid; gap: 0.75rem; list-style: none; }
+.bal-doc {
+  display: flex; align-items: center; gap: 1rem; padding: 0.875rem 1rem;
+  border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.bal-doc:hover { border-color: var(--primary-border); background: var(--brand-50); }
+.bal-doc__icon {
+  display: grid; place-items: center; width: 40px; height: 40px; flex: none;
+  border-radius: var(--radius-sm); color: var(--primary); background: var(--primary-soft);
+}
+.bal-doc__text { flex: 1 1 auto; min-width: 0; display: grid; }
+.bal-doc__text small { font-size: 0.8125rem; color: var(--text-muted); }
+.bal-doc__link { white-space: nowrap; }
+
+/* ===== Партнёрская программа ===== */
+.bal-copy { display: flex; gap: 0.75rem; }
+.bal-copy .bal-input { flex: 1 1 auto; min-width: 0; }
+
+.bal-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.bal-kpi { padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); }
+.bal-kpi dt { font-size: 0.8125rem; color: var(--text-muted); }
+.bal-kpi dd { margin-top: 0.25rem; font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bal-kpi--accent { border-color: var(--primary-border); background: var(--primary-soft); }
+.bal-kpi--accent dd { color: var(--brand-800); }
+
+.bal-note {
+  padding: 1rem 1.25rem; border-radius: var(--radius-md);
+  color: var(--warm-ink-strong); background: var(--warm-surface); border: 1px solid var(--warm-border);
+}
+.bal-note p { margin-top: 0.25rem; font-size: 0.9375rem; color: var(--warm-ink); }
+
+/* ===== Адаптив ===== */
+@media (max-width: 1180px) {
+  .bal-top { grid-template-columns: 1fr; }
+  .bal-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: none; }
+  .bal-cols { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .bal-hero { grid-template-columns: 1fr; padding: 1.5rem; gap: 1.5rem; }
+  .bal-topup { align-self: stretch; }
+  .bal-stats { grid-template-columns: 1fr; }
+  .bal-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .bal { gap: 1rem; }
+  .bal-card__head, .bal-card__body { padding: 1rem; }
+  .bal-grid, .bal-facts { grid-template-columns: 1fr; }
+  .bal-topup__row, .bal-copy { flex-direction: column; }
+  .bal-doc { flex-wrap: wrap; }
+  .bal-doc .btn { width: 100%; }
+
+  /* Таблица превращается в карточки */
+  .bal-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .bal-table, .bal-table tbody, .bal-table tr, .bal-table td { display: block; width: 100%; }
+  .bal-table tr { padding: 0.75rem 1rem; border-top: 1px solid var(--border); }
+  .bal-table td { display: flex; justify-content: space-between; gap: 1rem; padding: 0.375rem 0; border: 0; text-align: right; }
+  .bal-table td[data-label]::before { content: attr(data-label); color: var(--text-muted); text-align: left; }
+  .bal-row-action:empty { display: none; }
+}
+
+@media (max-width: 480px) {
+  .bal-kpis { grid-template-columns: 1fr; }
+  .bal-chip { flex: 1 1 calc(50% - 0.5rem); justify-content: center; }
+}

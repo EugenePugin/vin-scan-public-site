@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Баланс и платежи — Vin-Scan</title>
+<link rel="stylesheet" href="kss/base.css">
+<link rel="stylesheet" href="kss/admin.css">
+<link rel="stylesheet" href="kss/widgets.css">
+<link rel="stylesheet" href="kss/balance.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Набор иконок (подключаются через use). Добавлены: i-card, i-bolt, i-file, i-refresh, i-gift, i-copy -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7"/></symbol><symbol id="i-widgets" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17.2v.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol><symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20.5 8H6.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol><symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.5 4M20 20v-4h-4"/></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8C10 8 8 7 8 5.5S9.5 3 11 4c.8.5 1 2 1 4zM12 8c2 0 4-1 4-2.5S14.5 3 13 4c-.8.5-1 2-1 4z"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol></svg>
+
+<!-- ===== Левая панель ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar__brand">
+  <a class="logo" href="index.html">
+    <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan, на главную">
+  </a>
+</div>
+
+<nav class="side-nav" aria-label="Разделы админ-панели">
+<p class="side-nav__caption">Разделы</p>
+<ul class="side-nav__list">
+<li>
+<a class="side-nav__link" href="index.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+<span>Главная</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="stats.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+<span>Статистика использования</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="widgets.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-widgets"/></svg></span>
+<span>Управление веб-виджетами</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="dialogs.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span>
+<span>История диалогов</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="clients.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+<span>Клиенты</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- ===== Правая часть ===== -->
+<div class="admin-main">
+<header class="topbar">
+<button class="topbar__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+<svg class="icon"><use href="#i-menu"/></svg>
+</button>
+
+<p class="topbar__crumb">Панель администратора</p>
+
+<div class="topbar__actions">
+<a class="topbar__pill topbar__pill--help" href="help.html">
+<svg class="icon"><use href="#i-help"/></svg>
+<span class="topbar__label">Помощь</span>
+</a>
+
+<a class="topbar__pill topbar__pill--balance" href="balance.html" aria-label="Баланс: 0 рублей">
+<svg class="icon"><use href="#i-wallet"/></svg>
+<span><strong>0</strong> ₽</span>
+</a>
+
+<div class="user-menu">
+<button class="user-menu__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+<span class="user-menu__avatar" aria-hidden="true">А</span>
+<span class="user-menu__name topbar__label">Кабинет</span>
+<svg class="icon user-menu__chevron"><use href="#i-chevron"/></svg>
+</button>
+
+<div class="user-menu__panel" id="user-menu" hidden>
+<div class="user-menu__head">
+<span class="user-menu__avatar user-menu__avatar--lg" aria-hidden="true">А</span>
+<div>
+<p class="user-menu__title">Администратор</p>
+<p class="user-menu__mail">admin@vin-scan.ru</p>
+</div>
+</div>
+<ul class="user-menu__list">
+<li><a href="profile.html"><svg class="icon"><use href="#i-user"/></svg>Мой профиль</a></li>
+<li><a href="balance.html"><svg class="icon"><use href="#i-cabinet"/></svg>Личный кабинет</a></li>
+</ul>
+<div class="user-menu__foot">
+<a class="user-menu__logout" href="/logout"><svg class="icon"><use href="#i-logout"/></svg>Выход</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+  <main id="main" class="page bal">
+
+    <!-- Заголовок -->
+    <section class="intro" aria-labelledby="bal-title">
+      <div class="intro__body">
+        <h1 id="bal-title" class="intro__title">Баланс и платежи</h1>
+        <p class="intro__text">
+          Пополняйте баланс, настраивайте автоплатёж, формируйте счета и скачивайте закрывающие документы. С баланса списываются расходы на обработку сообщений в веб-чате, API и веб-виджетах.
+        </p>
+      </div>
+      <a class="btn btn--primary intro__btn" href="#invoice">Сформировать счёт</a>
+    </section>
+
+    <!-- Баланс + статистика -->
+    <div class="bal-top">
+      <section class="bal-hero" aria-labelledby="hero-title">
+        <div class="bal-hero__main">
+          <h2 class="bal-hero__label" id="hero-title">Текущий баланс</h2>
+          <p class="bal-hero__sum"><span id="balance-value">0</span>&nbsp;₽</p>
+          <p class="bal-hero__hint">Средства доступны сразу после зачисления платежа.</p>
+        </div>
+
+        <form class="bal-topup" action="/balance/topup" method="post" id="topup">
+          <!-- сюда добавьте CSRF-токен -->
+          <p class="bal-topup__label" id="topup-label">Быстрое пополнение</p>
+          <div class="bal-chips" role="group" aria-labelledby="topup-label">
+            <button class="bal-chip" type="button" data-amount="1000">1 000 ₽</button>
+            <button class="bal-chip" type="button" data-amount="3000">3 000 ₽</button>
+            <button class="bal-chip" type="button" data-amount="5000">5 000 ₽</button>
+            <button class="bal-chip" type="button" data-amount="10000">10 000 ₽</button>
+          </div>
+          <div class="bal-topup__row">
+            <div class="bal-money">
+              <label class="visually-hidden" for="topup-amount">Сумма пополнения, рублей</label>
+              <input class="bal-input" id="topup-amount" name="amount" type="number" min="100" step="1" inputmode="numeric" placeholder="Своя сумма" required>
+              <span aria-hidden="true">₽</span>
+            </div>
+            <button class="btn btn--light" type="submit">
+              <svg class="icon" aria-hidden="true"><use href="#i-card"/></svg>
+              Оплатить картой
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <div class="bal-stats">
+        <article class="bal-stat">
+          <span class="bal-stat__icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
+          <div>
+            <p class="bal-stat__label">Расход за месяц</p>
+            <p class="bal-stat__value">0&nbsp;₽</p>
+          </div>
+        </article>
+        <article class="bal-stat">
+          <span class="bal-stat__icon" aria-hidden="true"><svg class="icon"><use href="#i-wallet"/></svg></span>
+          <div>
+            <p class="bal-stat__label">Пополнено за месяц</p>
+            <p class="bal-stat__value">0&nbsp;₽</p>
+          </div>
+        </article>
+        <article class="bal-stat">
+          <span class="bal-stat__icon" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span>
+          <div>
+            <p class="bal-stat__label">Расход за сегодня</p>
+            <p class="bal-stat__value">0&nbsp;₽</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Автоплатёж + Счёт -->
+    <div class="bal-cols">
+
+      <section class="bal-card" aria-labelledby="ap-title" id="autopay">
+        <header class="bal-card__head">
+          <span class="bal-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-bolt"/></svg></span>
+          <div>
+            <h2 id="ap-title">Автоплатёж</h2>
+            <p>Баланс пополняется сам, когда средств остаётся мало. Виджеты и чат не остановятся из-за нулевого баланса.</p>
+          </div>
+        </header>
+        <form class="bal-card__body" action="/balance/autopay" method="post">
+          <label class="bal-switch" for="ap-enabled">
+            <input id="ap-enabled" name="enabled" type="checkbox" role="switch">
+            <span class="bal-switch__track" aria-hidden="true"></span>
+            <span class="bal-switch__text">Автоплатёж: <strong id="ap-state">выключен</strong></span>
+          </label>
+
+          <fieldset class="bal-fieldset" id="ap-fields" disabled>
+            <legend class="visually-hidden">Параметры автоплатежа</legend>
+            <div class="bal-grid">
+              <div class="bal-field">
+                <label class="bal-label" for="ap-threshold">Пополнять, если баланс ниже</label>
+                <div class="bal-money">
+                  <input class="bal-input" id="ap-threshold" name="threshold" type="number" min="0" value="500">
+                  <span aria-hidden="true">₽</span>
+                </div>
+              </div>
+              <div class="bal-field">
+                <label class="bal-label" for="ap-amount">Сумма пополнения</label>
+                <div class="bal-money">
+                  <input class="bal-input" id="ap-amount" name="amount" type="number" min="100" value="2000">
+                  <span aria-hidden="true">₽</span>
+                </div>
+              </div>
+              <div class="bal-field">
+                <label class="bal-label" for="ap-limit">Максимум за месяц</label>
+                <div class="bal-money">
+                  <input class="bal-input" id="ap-limit" name="monthly_limit" type="number" min="0" value="20000">
+                  <span aria-hidden="true">₽</span>
+                </div>
+                <p class="bal-hint">Защита от лишних списаний. 0 — без ограничения.</p>
+              </div>
+              <div class="bal-field">
+                <label class="bal-label" for="ap-card">Способ оплаты</label>
+                <select class="bal-input" id="ap-card" name="card">
+                  <option value="">Карта не привязана</option>
+                  <!-- <option value="card_id">Visa •••• 4242</option> -->
+                </select>
+                <p class="bal-hint">Карта привязывается при первом платеже с включённой опцией «Сохранить карту».</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="bal-actions">
+            <button class="btn btn--primary" type="submit">Сохранить настройки</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="bal-card" aria-labelledby="inv-title" id="invoice">
+        <header class="bal-card__head">
+          <span class="bal-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-file"/></svg></span>
+          <div>
+            <h2 id="inv-title">Счёт для безналичной оплаты</h2>
+            <p>Для юридических лиц и ИП. Счёт придёт на почту и появится в списке платежей.</p>
+          </div>
+        </header>
+        <form class="bal-card__body" action="/balance/invoice" method="post">
+          <div class="bal-grid">
+            <div class="bal-field">
+              <label class="bal-label" for="inv-type">Плательщик</label>
+              <select class="bal-input" id="inv-type" name="payer_type">
+                <option value="company">Юридическое лицо</option>
+                <option value="ip">Индивидуальный предприниматель</option>
+              </select>
+            </div>
+            <div class="bal-field">
+              <label class="bal-label" for="inv-inn">ИНН</label>
+              <input class="bal-input" id="inv-inn" name="inn" type="text" inputmode="numeric" pattern="\d{10}|\d{12}" maxlength="12" placeholder="10 или 12 цифр" required>
+            </div>
+            <div class="bal-field bal-field--wide">
+              <label class="bal-label" for="inv-name">Название организации</label>
+              <input class="bal-input" id="inv-name" name="company" type="text" autocomplete="organization" required>
+            </div>
+            <div class="bal-field">
+              <label class="bal-label" for="inv-sum">Сумма счёта</label>
+              <div class="bal-money">
+                <input class="bal-input" id="inv-sum" name="amount" type="number" min="1000" step="1" placeholder="10000" required>
+                <span aria-hidden="true">₽</span>
+              </div>
+            </div>
+            <div class="bal-field">
+              <label class="bal-label" for="inv-mail">Email для отправки</label>
+              <input class="bal-input" id="inv-mail" name="email" type="email" autocomplete="email" value="admin@vin-scan.ru" required>
+            </div>
+          </div>
+          <div class="bal-actions">
+            <button class="btn btn--primary" type="submit">Сформировать счёт</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Последние платежи -->
+    <section class="bal-card" aria-labelledby="pay-title" id="payments">
+      <header class="bal-card__head bal-card__head--row">
+        <div class="bal-card__headtext">
+          <h2 id="pay-title">Последние платежи</h2>
+          <p>Пополнения, автоплатежи и счета за последние 90 дней.</p>
+        </div>
+        <a class="btn btn--outline" href="/balance/payments">Вся история</a>
+      </header>
+
+      <div class="bal-table-wrap">
+        <table class="bal-table">
+          <thead>
+            <tr>
+              <th scope="col">Дата</th>
+              <th scope="col">Описание</th>
+              <th scope="col">Способ</th>
+              <th scope="col" class="bal-num">Сумма</th>
+              <th scope="col">Статус</th>
+              <th scope="col"><span class="visually-hidden">Документ</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Дата"><time datetime="2026-10-18T14:32">18.10.2026, 14:32</time></td>
+              <td data-label="Описание">Пополнение баланса</td>
+              <td data-label="Способ">Банковская карта</td>
+              <td data-label="Сумма" class="bal-num bal-amount bal-amount--plus">+5&nbsp;000&nbsp;₽</td>
+              <td data-label="Статус"><span class="bal-badge bal-badge--ok">Зачислен</span></td>
+              <td class="bal-row-action"><a href="/balance/receipt/1">Чек</a></td>
+            </tr>
+            <tr>
+              <td data-label="Дата"><time datetime="2026-10-15T09:10">15.10.2026, 09:10</time></td>
+              <td data-label="Описание">Автоплатёж</td>
+              <td data-label="Способ">Карта •••• 4242</td>
+              <td data-label="Сумма" class="bal-num bal-amount bal-amount--plus">+2&nbsp;000&nbsp;₽</td>
+              <td data-label="Статус"><span class="bal-badge bal-badge--ok">Зачислен</span></td>
+              <td class="bal-row-action"><a href="/balance/receipt/2">Чек</a></td>
+            </tr>
+            <tr>
+              <td data-label="Дата"><time datetime="2026-10-12T11:45">12.10.2026, 11:45</time></td>
+              <td data-label="Описание">Счёт № 1042</td>
+              <td data-label="Способ">Безналичный расчёт</td>
+              <td data-label="Сумма" class="bal-num bal-amount">20&nbsp;000&nbsp;₽</td>
+              <td data-label="Статус"><span class="bal-badge bal-badge--wait">Ожидает оплаты</span></td>
+              <td class="bal-row-action"><a href="/balance/invoice/1042.pdf">Скачать</a></td>
+            </tr>
+            <tr>
+              <td data-label="Дата"><time datetime="2026-10-03T08:00">03.10.2026, 08:00</time></td>
+              <td data-label="Описание">Автоплатёж</td>
+              <td data-label="Способ">Карта •••• 4242</td>
+              <td data-label="Сумма" class="bal-num bal-amount">2&nbsp;000&nbsp;₽</td>
+              <td data-label="Статус"><span class="bal-badge bal-badge--fail">Отклонён банком</span></td>
+              <td class="bal-row-action"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Договор + Сверка -->
+    <div class="bal-cols">
+
+      <section class="bal-card" aria-labelledby="ct-title" id="contract">
+        <header class="bal-card__head">
+          <span class="bal-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-cabinet"/></svg></span>
+          <div>
+            <h2 id="ct-title">Договор с Vin-Scan</h2>
+            <p>Договор действует с момента регистрации и размещён по постоянной ссылке.</p>
+          </div>
+        </header>
+        <div class="bal-card__body">
+          <dl class="bal-facts">
+            <div><dt>Статус</dt><dd><span class="bal-badge bal-badge--ok">Действует</span></dd></div>
+            <div><dt>Номер</dt><dd>№&nbsp;VS-000000</dd></div>
+            <div><dt>Дата заключения</dt><dd><time datetime="2026-01-01">01.01.2026</time></dd></div>
+          </dl>
+          <ul class="bal-docs">
+            <li class="bal-doc">
+              <span class="bal-doc__icon" aria-hidden="true"><svg class="icon"><use href="#i-file"/></svg></span>
+              <div class="bal-doc__text">
+                <strong>Договор-оферта</strong>
+                <small>Актуальная редакция, открывается в новой вкладке</small>
+              </div>
+              <a class="btn btn--outline" href="/contract" target="_blank" rel="noopener">Открыть</a>
+            </li>
+            <li class="bal-doc">
+              <span class="bal-doc__icon" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              <div class="bal-doc__text">
+                <strong>Договор в PDF</strong>
+                <small>С реквизитами вашей организации</small>
+              </div>
+              <a class="btn btn--outline" href="/balance/contract.pdf" download>Скачать</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bal-card" aria-labelledby="rec-title" id="reconciliation">
+        <header class="bal-card__head">
+          <span class="bal-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-refresh"/></svg></span>
+          <div>
+            <h2 id="rec-title">Акт сверки</h2>
+            <p>Выберите период, и мы подготовим акт сверки взаиморасчётов.</p>
+          </div>
+        </header>
+        <form class="bal-card__body" action="/balance/reconciliation" method="post">
+          <div class="bal-grid">
+            <div class="bal-field">
+              <label class="bal-label" for="rec-from">Начало периода</label>
+              <input class="bal-input" id="rec-from" name="from" type="date" required>
+            </div>
+            <div class="bal-field">
+              <label class="bal-label" for="rec-to">Конец периода</label>
+              <input class="bal-input" id="rec-to" name="to" type="date" required>
+            </div>
+          </div>
+          <div class="bal-actions">
+            <button class="btn btn--primary" type="submit">Заказать акт сверки</button>
+          </div>
+
+          <h3 class="bal-subtitle">Ранее сформированные</h3>
+          <ul class="bal-docs">
+            <li class="bal-doc">
+              <span class="bal-doc__icon" aria-hidden="true"><svg class="icon"><use href="#i-file"/></svg></span>
+              <div class="bal-doc__text">
+                <strong>Акт сверки за 3 квартал 2026</strong>
+                <small>Сформирован 05.10.2026</small>
+              </div>
+              <a class="bal-doc__link" href="/balance/reconciliation/1.pdf" download>Скачать</a>
+            </li>
+          </ul>
+        </form>
+      </section>
+    </div>
+
+    <!-- Партнёрская программа -->
+    <section class="bal-card bal-partner" aria-labelledby="ref-title" id="partner">
+      <header class="bal-card__head">
+        <span class="bal-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-gift"/></svg></span>
+        <div>
+          <h2 id="ref-title">Партнёрская программа</h2>
+          <p>Приглашайте коллег и компании. Вы получаете вознаграждение с их платежей, а оно зачисляется на ваш баланс.</p>
+        </div>
+      </header>
+      <div class="bal-card__body">
+        <div class="bal-field">
+          <label class="bal-label" for="ref-link">Ваша партнёрская ссылка</label>
+          <div class="bal-copy">
+            <input class="bal-input" id="ref-link" type="text" readonly value="https://vin-scan.ru/?ref=PARTNER_CODE">
+            <button class="btn btn--outline" type="button" id="ref-copy">
+              <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+              Копировать
+            </button>
+          </div>
+          <p class="bal-hint" id="ref-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <dl class="bal-kpis">
+          <div class="bal-kpi"><dt>Переходов</dt><dd>0</dd></div>
+          <div class="bal-kpi"><dt>Регистраций</dt><dd>0</dd></div>
+          <div class="bal-kpi"><dt>Оплатили</dt><dd>0</dd></div>
+          <div class="bal-kpi bal-kpi--accent"><dt>Начислено</dt><dd>0&nbsp;₽</dd></div>
+        </dl>
+
+        <div class="bal-note">
+          <strong>Условия программы</strong>
+          <p>Размер вознаграждения и правила начисления подставляйте из настроек программы. Подробности есть в разделе <a href="help.html">«Помощь»</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/layout.js"></script>
+<script src="js/balance.js"></script>
+</body>
+</html>

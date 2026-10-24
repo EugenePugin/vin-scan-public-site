@@ -1,0 +1,41 @@
+/* СТРАНИЦА «УПРАВЛЕНИЕ ВЕБ-ВИДЖЕТАМИ» */
+.page { flex: 1; display: grid; align-content: start; gap: 1.5rem; padding-block: 2rem; }
+
+/* ===== Верхняя карточка ===== */
+.intro {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--brand-50) 0%, var(--surface) 100%);
+  border: 1px solid var(--primary-border); border-radius: var(--radius-lg); box-shadow: var(--shadow);
+}
+.intro__body { max-width: 62rem; }
+.intro__title { margin-bottom: 0.5rem; font-size: 1.5rem; line-height: 1.25; font-weight: 700; color: var(--brand-800); }
+.intro__text { color: var(--text-muted); line-height: 1.65; }
+.intro__text a { text-decoration: underline; }
+.intro__btn {
+  flex-shrink: 0; height: 48px; padding-inline: 1.5rem; font-weight: 600;
+  border-radius: var(--radius-pill); box-shadow: 0 6px 16px rgba(7, 104, 154, 0.25);
+}
+.intro__btn:hover { transform: translateY(-1px); }
+
+/* ===== Пустое состояние ===== */
+.empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 18rem; padding: 3rem 1.5rem; text-align: center;
+  background: var(--surface); border: 1px dashed var(--primary-border); border-radius: var(--radius-lg);
+}
+.empty__icon { width: 26px; height: 26px; margin-bottom: 1.5rem; border: 3px solid var(--brand-400); transform: rotate(45deg); }
+.empty__title { margin-bottom: 0.75rem; font-size: 1.25rem; font-weight: 700; color: var(--brand-800); }
+.empty__text { max-width: 36rem; margin-bottom: 1.5rem; color: var(--text-muted); }
+.empty .btn { border-radius: var(--radius-pill); padding-inline: 1.5rem; }
+
+@media (max-width: 900px) {
+  .intro { flex-direction: column; padding: 1.25rem; }
+  .intro__btn { align-self: stretch; }
+}
+@media (max-width: 640px) {
+  .page { padding-block: 1rem; gap: 1rem; }
+  .intro__title { font-size: 1.25rem; }
+  .empty { min-height: 14rem; padding: 2rem 1rem; }
+  .empty .btn { width: 100%; white-space: normal; height: auto; min-height: 44px; }
+}

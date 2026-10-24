@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Профиль — Vin-Scan</title>
+<link rel="stylesheet" href="kss/base.css">
+<link rel="stylesheet" href="kss/admin.css">
+<link rel="stylesheet" href="kss/widgets.css">
+<link rel="stylesheet" href="kss/profile.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Набор иконок (подключаются через use). Добавлены: i-card, i-bolt, i-file, i-refresh, i-gift, i-copy, i-building, i-plus, i-trash -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M5 21V11M12 21V4M19 21v-7"/></symbol><symbol id="i-widgets" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></symbol><symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17.2v.01"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1V10a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="14.5" r="1.2"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol><symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol><symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20.5 8H6.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></symbol><symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.5"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M4 20h16"/></symbol><symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.5 4M20 20v-4h-4"/></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8C10 8 8 7 8 5.5S9.5 3 11 4c.8.5 1 2 1 4zM12 8c2 0 4-1 4-2.5S14.5 3 13 4c-.8.5-1 2-1 4z"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol><symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="1.5"/><path d="M15 9h4a1 1 0 0 1 1 1v11M8 7h3M8 11h3M8 15h3M2 21h20"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol></svg>
+
+<!-- ===== Левая панель ===== -->
+<aside class="sidebar" id="sidebar">
+<div class="sidebar__brand">
+  <a class="logo" href="index.html">
+    <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan, на главную">
+  </a>
+</div>
+
+<nav class="side-nav" aria-label="Разделы админ-панели">
+<p class="side-nav__caption">Разделы</p>
+<ul class="side-nav__list">
+<li>
+<a class="side-nav__link" href="index.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+<span>Главная</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="stats.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+<span>Статистика использования</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="widgets.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-widgets"/></svg></span>
+<span>Управление веб-виджетами</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="dialogs.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg></span>
+<span>История диалогов</span>
+</a>
+</li>
+<li>
+<a class="side-nav__link" href="clients.html">
+<span class="side-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
+<span>Клиенты</span>
+</a>
+</li>
+</ul>
+</nav>
+</aside>
+<div class="scrim" aria-hidden="true"></div>
+
+<!-- ===== Правая часть ===== -->
+<div class="admin-main">
+<header class="topbar">
+<button class="topbar__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+<svg class="icon"><use href="#i-menu"/></svg>
+</button>
+
+<p class="topbar__crumb">Панель администратора</p>
+
+<div class="topbar__actions">
+<a class="topbar__pill topbar__pill--help" href="help.html">
+<svg class="icon"><use href="#i-help"/></svg>
+<span class="topbar__label">Помощь</span>
+</a>
+
+<a class="topbar__pill topbar__pill--balance" href="balance.html" aria-label="Баланс: 0 рублей">
+<svg class="icon"><use href="#i-wallet"/></svg>
+<span><strong>0</strong> ₽</span>
+</a>
+
+<div class="user-menu">
+<button class="user-menu__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="user-menu">
+<span class="user-menu__avatar" aria-hidden="true">А</span>
+<span class="user-menu__name topbar__label">Кабинет</span>
+<svg class="icon user-menu__chevron"><use href="#i-chevron"/></svg>
+</button>
+
+<div class="user-menu__panel" id="user-menu" hidden>
+<div class="user-menu__head">
+<span class="user-menu__avatar user-menu__avatar--lg" aria-hidden="true">А</span>
+<div>
+<p class="user-menu__title">Администратор</p>
+<p class="user-menu__mail">admin@vin-scan.ru</p>
+</div>
+</div>
+<ul class="user-menu__list">
+<li><a href="profile.html"><svg class="icon"><use href="#i-user"/></svg>Мой профиль</a></li>
+<li><a href="balance.html"><svg class="icon"><use href="#i-cabinet"/></svg>Личный кабинет</a></li>
+</ul>
+<div class="user-menu__foot">
+<a class="user-menu__logout" href="/logout"><svg class="icon"><use href="#i-logout"/></svg>Выход</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+  <main id="main" class="page pf">
+
+    <!-- Заголовок -->
+    <section class="intro" aria-labelledby="pf-title">
+      <div class="intro__body">
+        <h1 id="pf-title" class="intro__title">Профиль</h1>
+        <p class="intro__text">
+          Контактные данные и реквизиты вашей организации. Реквизиты подставляются в счета, договор и акты сверки. Поля, отмеченные звёздочкой, обязательны.
+        </p>
+      </div>
+    </section>
+
+    <form class="pf-form" action="/profile" method="post" id="profile-form">
+      <!-- сюда добавьте CSRF-токен -->
+
+      <!-- ===== Блок 1. Контактные данные ===== -->
+      <section class="pf-card" aria-labelledby="pf-main-title" id="contacts">
+        <header class="pf-card__head">
+          <span class="pf-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-user"/></svg></span>
+          <div>
+            <h2 id="pf-main-title">Контактные данные</h2>
+            <p>Мы используем их для связи с вами и отправки уведомлений.</p>
+          </div>
+        </header>
+
+        <div class="pf-card__body">
+          <div class="pf-grid">
+
+            <div class="pf-field">
+              <label class="pf-label" for="pf-email">Email <span class="pf-req" aria-hidden="true">*</span></label>
+              <input class="pf-input" id="pf-email" name="email" type="email" autocomplete="email" placeholder="Ваша контактная почта" required>
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-label" for="pf-name">Имя</label>
+              <input class="pf-input" id="pf-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Как к вам обращаться">
+            </div>
+
+            <fieldset class="pf-fieldset pf-wide">
+              <legend class="pf-label">Контактные телефоны <span class="pf-req" aria-hidden="true">*</span></legend>
+              <div class="pf-phones" id="pf-phones">
+                <div class="pf-phone">
+                  <label class="visually-hidden" for="pf-phone-1">Телефон 1</label>
+                  <input class="pf-input" id="pf-phone-1" name="phones[]" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" pattern="\+?[0-9\s\(\)\-]{10,20}" title="Телефон в формате +7 900 000-00-00" placeholder="+7 900 000-00-00" required>
+                  <button class="pf-icon-btn pf-phone__remove" type="button" aria-label="Удалить телефон 1" hidden>
+                    <svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="pf-phones__foot">
+                <button class="btn btn--outline pf-add" type="button" id="pf-phone-add">
+                  <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+                  Добавить телефон
+                </button>
+                <span class="pf-hint">До 5 номеров. Первый считается основным.</span>
+              </div>
+              <p class="visually-hidden" id="pf-phone-status" role="status" aria-live="polite"></p>
+            </fieldset>
+
+            <div class="pf-field">
+              <label class="pf-label" for="pf-city">Город</label>
+              <input class="pf-input" id="pf-city" name="city" type="text" autocomplete="address-level2" maxlength="100">
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-label" for="pf-site">Сайт</label>
+              <input class="pf-input" id="pf-site" name="website" type="url" autocomplete="url" maxlength="200" placeholder="https://example.ru">
+            </div>
+
+            <div class="pf-field pf-wide">
+              <label class="pf-label" for="pf-about">О себе / комментарий</label>
+              <textarea class="pf-input pf-textarea" id="pf-about" name="about" rows="4" maxlength="500" aria-describedby="pf-about-count"></textarea>
+              <p class="pf-hint pf-counter" id="pf-about-count">0 / 500</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Блок 2. Реквизиты ===== -->
+      <section class="pf-card" aria-labelledby="pf-req-title" id="requisites">
+        <header class="pf-card__head">
+          <span class="pf-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-building"/></svg></span>
+          <div>
+            <h2 id="pf-req-title">Реквизиты организации</h2>
+            <p>Используются в счетах, договоре и актах сверки. Проверьте номера: после выставления счёта изменить их нельзя.</p>
+          </div>
+        </header>
+
+        <div class="pf-card__body">
+
+          <div class="pf-group" role="group" aria-labelledby="pf-g-org">
+            <h3 class="pf-subtitle" id="pf-g-org">Организация</h3>
+            <div class="pf-grid pf-grid--3">
+              <div class="pf-field pf-wide">
+                <label class="pf-label" for="pf-company">Название компании <span class="pf-req" aria-hidden="true">*</span></label>
+                <input class="pf-input" id="pf-company" name="company" type="text" autocomplete="organization" maxlength="250" placeholder="ООО «Ромашка» или ИП Иванов Иван Иванович" required>
+                <p class="pf-hint">Укажите форму собственности: ИП, ООО, АО, ПАО и т. д.</p>
+              </div>
+              <div class="pf-field">
+                <label class="pf-label" for="pf-inn">ИНН</label>
+                <input class="pf-input" id="pf-inn" name="inn" type="text" inputmode="numeric" data-digits maxlength="12" pattern="\d{10}|\d{12}" title="10 цифр для организации или 12 для ИП" placeholder="10 или 12 цифр">
+              </div>
+              <div class="pf-field">
+                <label class="pf-label" for="pf-kpp">КПП</label>
+                <input class="pf-input" id="pf-kpp" name="kpp" type="text" inputmode="numeric" data-digits maxlength="9" pattern="\d{9}" title="9 цифр" placeholder="9 цифр">
+                <p class="pf-hint">У ИП КПП нет.</p>
+              </div>
+              <div class="pf-field">
+                <label class="pf-label" for="pf-ogrn">ОГРН / ОГРНИП</label>
+                <input class="pf-input" id="pf-ogrn" name="ogrn" type="text" inputmode="numeric" data-digits maxlength="15" pattern="\d{13}|\d{15}" title="13 цифр для ОГРН или 15 для ОГРНИП" placeholder="13 или 15 цифр">
+              </div>
+            </div>
+          </div>
+
+          <div class="pf-group" role="group" aria-labelledby="pf-g-addr">
+            <h3 class="pf-subtitle" id="pf-g-addr">Адреса</h3>
+            <div class="pf-grid">
+              <div class="pf-field pf-wide">
+                <label class="pf-label" for="pf-legal">Юридический адрес</label>
+                <input class="pf-input" id="pf-legal" name="legal_address" type="text" autocomplete="off" maxlength="300" placeholder="Индекс, город, улица, дом, офис">
+              </div>
+              <div class="pf-field pf-wide">
+                <label class="pf-label" for="pf-actual">Фактический адрес</label>
+                <input class="pf-input" id="pf-actual" name="actual_address" type="text" autocomplete="off" maxlength="300" placeholder="Индекс, город, улица, дом, офис">
+                <label class="pf-check" for="pf-same">
+                  <input type="checkbox" id="pf-same">
+                  <span>Совпадает с юридическим</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="pf-group" role="group" aria-labelledby="pf-g-bank">
+            <h3 class="pf-subtitle" id="pf-g-bank">Банковские реквизиты</h3>
+            <div class="pf-grid">
+              <div class="pf-field">
+                <label class="pf-label" for="pf-bank">Банк</label>
+                <input class="pf-input" id="pf-bank" name="bank" type="text" maxlength="200" placeholder="Название банка">
+              </div>
+              <div class="pf-field">
+                <label class="pf-label" for="pf-bik">БИК</label>
+                <input class="pf-input" id="pf-bik" name="bik" type="text" inputmode="numeric" data-digits maxlength="9" pattern="\d{9}" title="9 цифр" placeholder="9 цифр">
+              </div>
+              <div class="pf-field">
+                <label class="pf-label" for="pf-account">Расчётный счёт</label>
+                <input class="pf-input" id="pf-account" name="account" type="text" inputmode="numeric" data-digits maxlength="20" pattern="\d{20}" title="20 цифр" placeholder="20 цифр">
+              </div>
+              <div class="pf-field">
+                <label class="pf-label" for="pf-corr">Корреспондентский счёт</label>
+                <input class="pf-input" id="pf-corr" name="corr_account" type="text" inputmode="numeric" data-digits maxlength="20" pattern="\d{20}" title="20 цифр" placeholder="20 цифр">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===== Сохранение ===== -->
+      <div class="pf-actions">
+        <button class="btn btn--primary" type="submit">Сохранить профиль</button>
+        <p class="pf-status" id="pf-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+
+  </main>
+</div>
+
+<script src="js/layout.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>
