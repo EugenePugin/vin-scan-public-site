@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Регистрация — Vin-Scan</title>
+<link rel="stylesheet" href="/site/css/base.css">
+<link rel="stylesheet" href="/admin_login/css/register.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<!-- Иконки (подключаются через use) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="1.5"/><path d="M15 9h4a1 1 0 0 1 1 1v11M8 7h3M8 11h3M8 15h3M2 21h20"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+</svg>
+
+<main id="main" class="reg">
+
+  <!-- Логотип -->
+  <div class="reg-brand">
+    <a class="logo" href="/">
+      <img class="logo__img" src="/site/img/logo_full.svg" alt="Vin-Scan, на главную">
+    </a>
+  </div>
+
+  <!-- Заголовок -->
+  <section class="reg-intro" aria-labelledby="reg-title">
+    <h1 id="reg-title" class="reg-intro__title">Регистрация</h1>
+    <p class="reg-intro__text">
+      Расскажите о себе и своей организации. Реквизиты попадут в счета, договор и акты сверки.
+      Поля, отмеченные звёздочкой, обязательны.
+    </p>
+  </section>
+
+  <form class="reg-form" action="/register" method="post" id="register-form">
+    <!-- сюда добавьте CSRF-токен -->
+
+    <!-- ===== Блок 1. Контактные данные ===== -->
+    <section class="reg-card" aria-labelledby="reg-main-title" id="contacts">
+      <header class="reg-card__head">
+        <span class="reg-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-user"/></svg></span>
+        <div>
+          <h2 id="reg-main-title">Контактные данные</h2>
+          <p>Мы используем их для связи с вами и отправки уведомлений.</p>
+        </div>
+      </header>
+
+      <div class="reg-card__body">
+        <div class="reg-grid">
+
+          <div class="reg-field">
+            <label class="reg-label" for="reg-email">Email <span class="reg-req" aria-hidden="true">*</span></label>
+            <input class="reg-input" id="reg-email" name="email" type="email" autocomplete="email" placeholder="Ваша контактная почта" required>
+          </div>
+
+          <div class="reg-field">
+            <label class="reg-label" for="reg-name">Имя</label>
+            <input class="reg-input" id="reg-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Как к вам обращаться">
+          </div>
+
+          <fieldset class="reg-fieldset reg-wide">
+            <legend class="reg-label">Контактные телефоны <span class="reg-req" aria-hidden="true">*</span></legend>
+            <div class="reg-phones" id="reg-phones">
+              <div class="reg-phone">
+                <label class="visually-hidden" for="reg-phone-1">Телефон 1</label>
+                <input class="reg-input" id="reg-phone-1" name="phones[]" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" pattern="\+?[0-9\s\(\)\-]{10,20}" title="Телефон в формате +7 900 000-00-00" placeholder="+7 900 000-00-00" required>
+                <button class="reg-icon-btn reg-phone__remove" type="button" aria-label="Удалить телефон 1" hidden>
+                  <svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="reg-phones__foot">
+              <button class="btn btn--outline reg-add" type="button" id="reg-phone-add">
+                <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+                Добавить телефон
+              </button>
+              <span class="reg-hint">До 5 номеров. Первый считается основным.</span>
+            </div>
+            <p class="visually-hidden" id="reg-phone-status" role="status" aria-live="polite"></p>
+          </fieldset>
+
+          <div class="reg-field">
+            <label class="reg-label" for="reg-city">Город</label>
+            <input class="reg-input" id="reg-city" name="city" type="text" autocomplete="address-level2" maxlength="100">
+          </div>
+
+          <div class="reg-field">
+            <label class="reg-label" for="reg-site">Сайт</label>
+            <input class="reg-input" id="reg-site" name="website" type="url" autocomplete="url" maxlength="200" placeholder="https://example.ru">
+          </div>
+
+          <div class="reg-field reg-wide">
+            <label class="reg-label" for="reg-about">О себе / комментарий</label>
+            <textarea class="reg-input reg-textarea" id="reg-about" name="about" rows="4" maxlength="500" aria-describedby="reg-about-count"></textarea>
+            <p class="reg-hint reg-counter" id="reg-about-count">0 / 500</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Блок 2. Реквизиты ===== -->
+    <section class="reg-card" aria-labelledby="reg-req-title" id="requisites">
+      <header class="reg-card__head">
+        <span class="reg-card__icon" aria-hidden="true"><svg class="icon"><use href="#i-building"/></svg></span>
+        <div>
+          <h2 id="reg-req-title">Реквизиты организации</h2>
+          <p>Используются в счетах, договоре и актах сверки. Проверьте номера: после выставления счёта изменить их нельзя.</p>
+        </div>
+      </header>
+
+      <div class="reg-card__body">
+
+        <div class="reg-group" role="group" aria-labelledby="reg-g-org">
+          <h3 class="reg-subtitle" id="reg-g-org">Организация</h3>
+          <div class="reg-grid reg-grid--3">
+            <div class="reg-field reg-wide">
+              <label class="reg-label" for="reg-company">Название компании <span class="reg-req" aria-hidden="true">*</span></label>
+              <input class="reg-input" id="reg-company" name="company" type="text" autocomplete="organization" maxlength="250" placeholder="ООО «Ромашка» или ИП Иванов Иван Иванович" required>
+              <p class="reg-hint">Укажите форму собственности: ИП, ООО, АО, ПАО и т. д.</p>
+            </div>
+            <div class="reg-field">
+              <label class="reg-label" for="reg-inn">ИНН</label>
+              <input class="reg-input" id="reg-inn" name="inn" type="text" inputmode="numeric" data-digits maxlength="12" pattern="\d{10}|\d{12}" title="10 цифр для организации или 12 для ИП" placeholder="10 или 12 цифр">
+            </div>
+            <div class="reg-field">
+              <label class="reg-label" for="reg-kpp">КПП</label>
+              <input class="reg-input" id="reg-kpp" name="kpp" type="text" inputmode="numeric" data-digits maxlength="9" pattern="\d{9}" title="9 цифр" placeholder="9 цифр">
+              <p class="reg-hint">У ИП КПП нет.</p>
+            </div>
+            <div class="reg-field">
+              <label class="reg-label" for="reg-ogrn">ОГРН / ОГРНИП</label>
+              <input class="reg-input" id="reg-ogrn" name="ogrn" type="text" inputmode="numeric" data-digits maxlength="15" pattern="\d{13}|\d{15}" title="13 цифр для ОГРН или 15 для ОГРНИП" placeholder="13 или 15 цифр">
+            </div>
+          </div>
+        </div>
+
+        <div class="reg-group" role="group" aria-labelledby="reg-g-addr">
+          <h3 class="reg-subtitle" id="reg-g-addr">Адреса</h3>
+          <div class="reg-grid">
+            <div class="reg-field reg-wide">
+              <label class="reg-label" for="reg-legal">Юридический адрес</label>
+              <input class="reg-input" id="reg-legal" name="legal_address" type="text" autocomplete="off" maxlength="300" placeholder="Индекс, город, улица, дом, офис">
+            </div>
+            <div class="reg-field reg-wide">
+              <label class="reg-label" for="reg-actual">Фактический адрес</label>
+              <input class="reg-input" id="reg-actual" name="actual_address" type="text" autocomplete="off" maxlength="300" placeholder="Индекс, город, улица, дом, офис">
+              <label class="reg-check" for="reg-same">
+                <input type="checkbox" id="reg-same">
+                <span>Совпадает с юридическим</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="reg-group" role="group" aria-labelledby="reg-g-bank">
+          <h3 class="reg-subtitle" id="reg-g-bank">Банковские реквизиты</h3>
+          <div class="reg-grid">
+            <div class="reg-field">
+              <label class="reg-label" for="reg-bank">Банк</label>
+              <input class="reg-input" id="reg-bank" name="bank" type="text" maxlength="200" placeholder="Название банка">
+            </div>
+            <div class="reg-field">
+              <label class="reg-label" for="reg-bik">БИК</label>
+              <input class="reg-input" id="reg-bik" name="bik" type="text" inputmode="numeric" data-digits maxlength="9" pattern="\d{9}" title="9 цифр" placeholder="9 цифр">
+            </div>
+            <div class="reg-field">
+              <label class="reg-label" for="reg-account">Расчётный счёт</label>
+              <input class="reg-input" id="reg-account" name="account" type="text" inputmode="numeric" data-digits maxlength="20" pattern="\d{20}" title="20 цифр" placeholder="20 цифр">
+            </div>
+            <div class="reg-field">
+              <label class="reg-label" for="reg-corr">Корреспондентский счёт</label>
+              <input class="reg-input" id="reg-corr" name="corr_account" type="text" inputmode="numeric" data-digits maxlength="20" pattern="\d{20}" title="20 цифр" placeholder="20 цифр">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Согласия и отправка ===== -->
+    <section class="reg-consent" aria-labelledby="reg-consent-title">
+      <h2 class="visually-hidden" id="reg-consent-title">Согласия</h2>
+
+      <label class="reg-check reg-check--box" for="reg-privacy">
+        <input type="checkbox" id="reg-privacy" name="agree_privacy" value="1" required>
+        <span>
+          Я ознакомился(-лась) с
+          <a href="/privacy/" target="_blank" rel="noopener">политикой обработки данных</a>
+          <span class="reg-req" aria-hidden="true">*</span>
+        </span>
+      </label>
+
+      <label class="reg-check reg-check--box" for="reg-consent">
+        <input type="checkbox" id="reg-consent" name="agree_consent" value="1" required>
+        <span>
+          Даю
+          <a href="/consent/" target="_blank" rel="noopener">согласие на обработку персональных данных</a>
+          <span class="reg-req" aria-hidden="true">*</span>
+        </span>
+      </label>
+    </section>
+
+    <div class="reg-actions">
+      <button class="btn btn--primary reg-submit" type="submit">Зарегистрироваться</button>
+      <p class="reg-login">Уже есть аккаунт? <a href="/login">Войти</a></p>
+      <p class="reg-status" id="reg-status" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+
+</main>
+</body>
+</html>
