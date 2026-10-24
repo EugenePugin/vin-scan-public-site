@@ -1,7 +1,7 @@
 /* ===== Страница входа. Токены, сброс и кнопки берутся из base.css ===== */
 
 /* Дополнения к .btn из base.css: в base.css нет font-family и cursor,
-   а у <button> шрифт по умолчанию системный, а не наследуемый */
+  а у <button> шрифт по умолчанию системный, а не наследуемый */
 .btn { font-family: inherit; cursor: pointer; }
 .btn--block { width: 100%; }
 
